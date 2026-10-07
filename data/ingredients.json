@@ -1,0 +1,5112 @@
+[
+  {
+    "id": "chilli",
+    "name": "Chilli",
+    "botanicalName": "Capsicum annuum / frutescens",
+    "category": "Spice",
+    "origin": {
+      "region": "Mesoamerica & Tropical Americas",
+      "latitude": 19.4,
+      "longitude": -99.1
+    },
+    "destinationInIndia": {
+      "region": "Goa & Malabar Coast",
+      "latitude": 15.3,
+      "longitude": 73.8
+    },
+    "widespread": {
+      "startYear": 1580,
+      "label": "Late 16th century (Portuguese Goa)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Before chillies arrived from the Americas via Portuguese merchants, Indian heat came exclusively from black pepper and pippali (long pepper). Chillies thrived immediately in Indian soil and revolutionized regional cuisines within two generations.",
+    "historicalNote": "First mentioned in Indian records by Purandara Dasa (c. 1540), chillies were hailed as a savior of the poor because they were vastly cheaper and easier to cultivate than native black pepper.",
+    "culinaryUsage": "Essential base for curries, tadkas, chutneys, and pickles across every region.",
+    "route": {
+      "coordinates": [
+        [
+          -99.1,
+          19.4
+        ],
+        [
+          -92.824,
+          23.512
+        ],
+        [
+          -86.549,
+          27.571
+        ],
+        [
+          -80.277,
+          31.524
+        ],
+        [
+          -74.009,
+          35.318
+        ],
+        [
+          -67.745,
+          38.905
+        ],
+        [
+          -61.488,
+          42.238
+        ],
+        [
+          -55.237,
+          45.272
+        ],
+        [
+          -48.995,
+          47.968
+        ],
+        [
+          -42.761,
+          50.29
+        ],
+        [
+          -36.537,
+          52.207
+        ],
+        [
+          -30.324,
+          53.693
+        ],
+        [
+          -24.121,
+          54.727
+        ],
+        [
+          -17.929,
+          55.295
+        ],
+        [
+          -11.748,
+          55.388
+        ],
+        [
+          -5.579,
+          55.002
+        ],
+        [
+          0.579,
+          54.141
+        ],
+        [
+          6.726,
+          52.814
+        ],
+        [
+          12.863,
+          51.035
+        ],
+        [
+          18.989,
+          48.826
+        ],
+        [
+          25.105,
+          46.211
+        ],
+        [
+          31.213,
+          43.222
+        ],
+        [
+          37.312,
+          39.895
+        ],
+        [
+          43.405,
+          36.27
+        ],
+        [
+          49.491,
+          32.39
+        ],
+        [
+          55.573,
+          28.302
+        ],
+        [
+          61.651,
+          24.057
+        ],
+        [
+          67.726,
+          19.705
+        ],
+        [
+          73.8,
+          15.3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "potato",
+    "name": "Potato",
+    "botanicalName": "Solanum tuberosum",
+    "category": "Vegetable",
+    "origin": {
+      "region": "Andes / Lake Titicaca (Peru-Bolivia)",
+      "latitude": -15.8,
+      "longitude": -69.3
+    },
+    "destinationInIndia": {
+      "region": "Bengal & Western India",
+      "latitude": 22.5,
+      "longitude": 88.3
+    },
+    "widespread": {
+      "startYear": 1780,
+      "label": "Late 18th century (British & Portuguese)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Though introduced to western ports by the Portuguese in the early 1600s as \"batata\", potatoes only became a widespread staple when the British East India Company promoted commercial cultivation in Bengal and the Himalayan foothills in the late 1700s.",
+    "historicalNote": "Exiled Nawab Wajid Ali Shah famously popularized potato in Kolkata biryani in the 1850s, turning what was once a foreign novelty into an iconic cultural touchstone.",
+    "culinaryUsage": "Aloo gobi, samosas, dosas, dum aloo, and regional curries throughout India.",
+    "route": {
+      "coordinates": [
+        [
+          -69.3,
+          -15.8
+        ],
+        [
+          -64.743,
+          -10.021
+        ],
+        [
+          -60.173,
+          -4.297
+        ],
+        [
+          -55.577,
+          1.317
+        ],
+        [
+          -50.94,
+          6.766
+        ],
+        [
+          -46.251,
+          12.001
+        ],
+        [
+          -41.498,
+          16.973
+        ],
+        [
+          -36.671,
+          21.635
+        ],
+        [
+          -31.757,
+          25.947
+        ],
+        [
+          -26.75,
+          29.872
+        ],
+        [
+          -21.641,
+          33.377
+        ],
+        [
+          -16.423,
+          36.435
+        ],
+        [
+          -11.092,
+          39.026
+        ],
+        [
+          -5.643,
+          41.134
+        ],
+        [
+          -0.075,
+          42.75
+        ],
+        [
+          5.614,
+          43.87
+        ],
+        [
+          11.422,
+          44.498
+        ],
+        [
+          17.348,
+          44.643
+        ],
+        [
+          23.388,
+          44.32
+        ],
+        [
+          29.535,
+          43.55
+        ],
+        [
+          35.785,
+          42.361
+        ],
+        [
+          42.129,
+          40.785
+        ],
+        [
+          48.559,
+          38.858
+        ],
+        [
+          55.063,
+          36.623
+        ],
+        [
+          61.631,
+          34.124
+        ],
+        [
+          68.252,
+          31.409
+        ],
+        [
+          74.912,
+          28.532
+        ],
+        [
+          81.599,
+          25.544
+        ],
+        [
+          88.3,
+          22.5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "tomato",
+    "name": "Tomato",
+    "botanicalName": "Solanum lycopersicum",
+    "category": "Vegetable",
+    "origin": {
+      "region": "Western South America & Mexico",
+      "latitude": -12,
+      "longitude": -77
+    },
+    "destinationInIndia": {
+      "region": "Bengal & Gangetic Valley",
+      "latitude": 23.5,
+      "longitude": 87.8
+    },
+    "widespread": {
+      "startYear": 1850,
+      "label": "Mid-to-late 19th century"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "medium",
+    "illustration": null,
+    "description": "Tomatoes entered global maritime networks after the Columbian Exchange but were long viewed with suspicion in India. Native souring agents—tamarind, amchur, kokum, and curd—dominated for centuries before tomatoes became the ubiquitous gravy base.",
+    "historicalNote": "Cultivated initially as ornamental plants and for British colonial tables in Calcutta and Simla, commercial Indian adoption surged only toward the late 1800s.",
+    "culinaryUsage": "Foundation of modern North Indian gravies, rasam, chutneys, and everyday sabzis.",
+    "route": {
+      "coordinates": [
+        [
+          -77,
+          -12
+        ],
+        [
+          -72.068,
+          -6.304
+        ],
+        [
+          -67.124,
+          -0.663
+        ],
+        [
+          -62.157,
+          4.867
+        ],
+        [
+          -57.154,
+          10.232
+        ],
+        [
+          -52.104,
+          15.382
+        ],
+        [
+          -46.998,
+          20.267
+        ],
+        [
+          -41.825,
+          24.842
+        ],
+        [
+          -36.575,
+          29.066
+        ],
+        [
+          -31.243,
+          32.9
+        ],
+        [
+          -25.819,
+          36.314
+        ],
+        [
+          -20.299,
+          39.279
+        ],
+        [
+          -14.678,
+          41.775
+        ],
+        [
+          -8.952,
+          43.785
+        ],
+        [
+          -3.12,
+          45.302
+        ],
+        [
+          2.819,
+          46.321
+        ],
+        [
+          8.865,
+          46.846
+        ],
+        [
+          15.015,
+          46.886
+        ],
+        [
+          21.267,
+          46.457
+        ],
+        [
+          27.614,
+          45.579
+        ],
+        [
+          34.053,
+          44.28
+        ],
+        [
+          40.575,
+          42.592
+        ],
+        [
+          47.174,
+          40.553
+        ],
+        [
+          53.839,
+          38.204
+        ],
+        [
+          60.56,
+          35.59
+        ],
+        [
+          67.329,
+          32.76
+        ],
+        [
+          74.133,
+          29.765
+        ],
+        [
+          80.96,
+          26.661
+        ],
+        [
+          87.8,
+          23.5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "maize",
+    "name": "Maize (Corn)",
+    "botanicalName": "Zea mays",
+    "category": "Grain",
+    "origin": {
+      "region": "Balsas River Valley, Mesoamerica",
+      "latitude": 18.2,
+      "longitude": -100.3
+    },
+    "destinationInIndia": {
+      "region": "Deccan & Punjab Plains",
+      "latitude": 31.1,
+      "longitude": 75.3
+    },
+    "widespread": {
+      "startYear": 1650,
+      "label": "Mid-17th century (Deccan & Mughal realms)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Domesticated in Mexico over 9,000 years ago, maize reached the Indian subcontinent via Portuguese maritime traders and Mediterranean merchants. It quickly established itself as a resilient winter cereal in northern hills and the Deccan.",
+    "historicalNote": "Recorded in Mughal revenue accounts by the reign of Shah Jahan; later became the inseparable companion of sarson ka saag (makki ki roti) in Punjab.",
+    "culinaryUsage": "Makki ki roti, roasted bhutta on monsoonal streets, and livestock fodder.",
+    "route": {
+      "coordinates": [
+        [
+          -100.3,
+          18.2
+        ],
+        [
+          -94.317,
+          22.593
+        ],
+        [
+          -88.331,
+          26.936
+        ],
+        [
+          -82.338,
+          31.182
+        ],
+        [
+          -76.334,
+          35.281
+        ],
+        [
+          -70.315,
+          39.189
+        ],
+        [
+          -64.28,
+          42.861
+        ],
+        [
+          -58.224,
+          46.259
+        ],
+        [
+          -52.146,
+          49.344
+        ],
+        [
+          -46.042,
+          52.083
+        ],
+        [
+          -39.91,
+          54.449
+        ],
+        [
+          -33.75,
+          56.417
+        ],
+        [
+          -27.558,
+          57.968
+        ],
+        [
+          -21.335,
+          59.088
+        ],
+        [
+          -15.08,
+          59.77
+        ],
+        [
+          -8.792,
+          60.01
+        ],
+        [
+          -2.472,
+          59.811
+        ],
+        [
+          3.879,
+          59.181
+        ],
+        [
+          10.261,
+          58.135
+        ],
+        [
+          16.673,
+          56.691
+        ],
+        [
+          23.111,
+          54.872
+        ],
+        [
+          29.576,
+          52.709
+        ],
+        [
+          36.063,
+          50.233
+        ],
+        [
+          42.57,
+          47.481
+        ],
+        [
+          49.095,
+          44.495
+        ],
+        [
+          55.634,
+          41.317
+        ],
+        [
+          62.183,
+          37.994
+        ],
+        [
+          68.74,
+          34.571
+        ],
+        [
+          75.3,
+          31.1
+        ]
+      ]
+    }
+  },
+  {
+    "id": "peanut",
+    "name": "Peanut (Groundnut)",
+    "botanicalName": "Arachis hypogaea",
+    "category": "Nut & Seed",
+    "origin": {
+      "region": "Gran Chaco / Bolivia & Northern Argentina",
+      "latitude": -19.5,
+      "longitude": -64.5
+    },
+    "destinationInIndia": {
+      "region": "Coromandel Coast & Gujarat",
+      "latitude": 21.7,
+      "longitude": 72.1
+    },
+    "widespread": {
+      "startYear": 1750,
+      "label": "Mid-18th century"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "medium",
+    "illustration": null,
+    "description": "Native to South America, groundnuts arrived via Atlantic and Pacific sailing routes into South India and the Coromandel coast. India is now one of the world’s foremost producers of peanuts.",
+    "historicalNote": "Extensively cultivated in Tamil Nadu and Maharashtra during the 19th century as an oilseed crop and dependable famine buffer.",
+    "culinaryUsage": "Cooking oil, Maharashtrian Shengdana chutney, poha garnish, and fasting snacks.",
+    "route": {
+      "coordinates": [
+        [
+          -64.5,
+          -19.5
+        ],
+        [
+          -60.821,
+          -14.052
+        ],
+        [
+          -57.127,
+          -8.654
+        ],
+        [
+          -53.402,
+          -3.356
+        ],
+        [
+          -49.633,
+          1.796
+        ],
+        [
+          -45.806,
+          6.753
+        ],
+        [
+          -41.907,
+          11.472
+        ],
+        [
+          -37.925,
+          15.914
+        ],
+        [
+          -33.846,
+          20.039
+        ],
+        [
+          -29.663,
+          23.815
+        ],
+        [
+          -25.365,
+          27.213
+        ],
+        [
+          -20.947,
+          30.209
+        ],
+        [
+          -16.401,
+          32.783
+        ],
+        [
+          -11.723,
+          34.921
+        ],
+        [
+          -6.912,
+          36.616
+        ],
+        [
+          -1.966,
+          37.864
+        ],
+        [
+          3.114,
+          38.668
+        ],
+        [
+          8.325,
+          39.037
+        ],
+        [
+          13.663,
+          38.985
+        ],
+        [
+          19.123,
+          38.529
+        ],
+        [
+          24.696,
+          37.696
+        ],
+        [
+          30.375,
+          36.514
+        ],
+        [
+          36.15,
+          35.015
+        ],
+        [
+          42.008,
+          33.239
+        ],
+        [
+          47.938,
+          31.224
+        ],
+        [
+          53.926,
+          29.016
+        ],
+        [
+          59.959,
+          26.66
+        ],
+        [
+          66.022,
+          24.205
+        ],
+        [
+          72.1,
+          21.7
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cashew",
+    "name": "Cashew",
+    "botanicalName": "Anacardium occidentale",
+    "category": "Nut & Seed",
+    "origin": {
+      "region": "Northeastern Brazil",
+      "latitude": -5.8,
+      "longitude": -36.5
+    },
+    "destinationInIndia": {
+      "region": "Goa & Konkan Coast",
+      "latitude": 15.5,
+      "longitude": 73.8
+    },
+    "widespread": {
+      "startYear": 1600,
+      "label": "Early 17th century (Portuguese Goa)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Portuguese navigators brought the cashew tree from Brazil to Goa around 1570 primarily to stabilize coastal hillsides and prevent topsoil erosion. Locals soon discovered the dual value of its delicate nut and the juicy cashew apple.",
+    "historicalNote": "Goan distillers uniquely pioneered \"feni\"—the potent distilled liquor made from fermented cashew apple juice, celebrated with a GI tag today.",
+    "culinaryUsage": "Kaju katli, rich kormas, roasted street snacks, and Goan cashew feni.",
+    "route": {
+      "coordinates": [
+        [
+          -36.5,
+          -5.8
+        ],
+        [
+          -33.109,
+          -2.199
+        ],
+        [
+          -29.712,
+          1.367
+        ],
+        [
+          -26.3,
+          4.861
+        ],
+        [
+          -22.868,
+          8.25
+        ],
+        [
+          -19.41,
+          11.501
+        ],
+        [
+          -15.919,
+          14.582
+        ],
+        [
+          -12.389,
+          17.464
+        ],
+        [
+          -8.816,
+          20.12
+        ],
+        [
+          -5.195,
+          22.527
+        ],
+        [
+          -1.521,
+          24.664
+        ],
+        [
+          2.208,
+          26.513
+        ],
+        [
+          5.995,
+          28.062
+        ],
+        [
+          9.843,
+          29.299
+        ],
+        [
+          13.751,
+          30.219
+        ],
+        [
+          17.721,
+          30.82
+        ],
+        [
+          21.752,
+          31.104
+        ],
+        [
+          25.844,
+          31.078
+        ],
+        [
+          29.993,
+          30.75
+        ],
+        [
+          34.198,
+          30.134
+        ],
+        [
+          38.456,
+          29.249
+        ],
+        [
+          42.761,
+          28.114
+        ],
+        [
+          47.11,
+          26.753
+        ],
+        [
+          51.497,
+          25.194
+        ],
+        [
+          55.917,
+          23.464
+        ],
+        [
+          60.364,
+          21.597
+        ],
+        [
+          64.831,
+          19.624
+        ],
+        [
+          69.312,
+          17.58
+        ],
+        [
+          73.8,
+          15.5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "guava",
+    "name": "Guava",
+    "botanicalName": "Psidium guajava",
+    "category": "Fruit",
+    "origin": {
+      "region": "Tropical Americas / Caribbean",
+      "latitude": 15,
+      "longitude": -90
+    },
+    "destinationInIndia": {
+      "region": "Allahabad & Gangetic Plains",
+      "latitude": 25.4,
+      "longitude": 81.8
+    },
+    "widespread": {
+      "startYear": 1650,
+      "label": "Mid-17th century (Portuguese introduction)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Carried across oceans from the Caribbean basin, guava found ideal alluvial conditions across northern and central India, giving rise to renowned cultivars like the Allahabad Safeda.",
+    "historicalNote": "Referred to as \"amrood\" (from Persian amrud for pear) in Mughal records during Aurangzeb’s reign.",
+    "culinaryUsage": "Eaten ripe with chaat masala and black salt, or stewed in jellies.",
+    "route": {
+      "coordinates": [
+        [
+          -90,
+          15
+        ],
+        [
+          -84.109,
+          19.411
+        ],
+        [
+          -78.215,
+          23.771
+        ],
+        [
+          -72.314,
+          28.03
+        ],
+        [
+          -66.405,
+          32.139
+        ],
+        [
+          -60.483,
+          36.052
+        ],
+        [
+          -54.547,
+          39.723
+        ],
+        [
+          -48.594,
+          43.111
+        ],
+        [
+          -42.622,
+          46.178
+        ],
+        [
+          -36.628,
+          48.891
+        ],
+        [
+          -30.611,
+          51.219
+        ],
+        [
+          -24.569,
+          53.139
+        ],
+        [
+          -18.501,
+          54.631
+        ],
+        [
+          -12.406,
+          55.68
+        ],
+        [
+          -6.284,
+          56.278
+        ],
+        [
+          -0.135,
+          56.423
+        ],
+        [
+          6.042,
+          56.116
+        ],
+        [
+          12.246,
+          55.368
+        ],
+        [
+          18.475,
+          54.191
+        ],
+        [
+          24.729,
+          52.605
+        ],
+        [
+          31.007,
+          50.635
+        ],
+        [
+          37.306,
+          48.311
+        ],
+        [
+          43.624,
+          45.666
+        ],
+        [
+          49.959,
+          42.738
+        ],
+        [
+          56.31,
+          39.568
+        ],
+        [
+          62.672,
+          36.202
+        ],
+        [
+          69.043,
+          32.685
+        ],
+        [
+          75.42,
+          29.068
+        ],
+        [
+          81.8,
+          25.4
+        ]
+      ]
+    }
+  },
+  {
+    "id": "papaya",
+    "name": "Papaya",
+    "botanicalName": "Carica papaya",
+    "category": "Fruit",
+    "origin": {
+      "region": "Southern Mexico & Central America",
+      "latitude": 17.5,
+      "longitude": -96
+    },
+    "destinationInIndia": {
+      "region": "Malabar & Coromandel",
+      "latitude": 11.2,
+      "longitude": 75.8
+    },
+    "widespread": {
+      "startYear": 1620,
+      "label": "Early 17th century (Dutch & Portuguese routes)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Introduced through maritime spice routes via the Philippines and Malacca, papaya trees spread with remarkable speed across Indian domestic kitchen gardens.",
+    "historicalNote": "Jan Huyghen van Linschoten noted in 1596 that papayas were being brought to India from Malacca and planted widely for their medicinal qualities.",
+    "culinaryUsage": "Raw green papaya in Gujarati sambharo and salads; ripe fruit served with lime.",
+    "route": {
+      "coordinates": [
+        [
+          -96,
+          17.5
+        ],
+        [
+          -89.709,
+          21.507
+        ],
+        [
+          -83.42,
+          25.46
+        ],
+        [
+          -77.135,
+          29.308
+        ],
+        [
+          -70.856,
+          32.999
+        ],
+        [
+          -64.584,
+          36.484
+        ],
+        [
+          -58.322,
+          39.715
+        ],
+        [
+          -52.07,
+          42.651
+        ],
+        [
+          -45.831,
+          45.25
+        ],
+        [
+          -39.605,
+          47.478
+        ],
+        [
+          -33.394,
+          49.303
+        ],
+        [
+          -27.199,
+          50.7
+        ],
+        [
+          -21.02,
+          51.648
+        ],
+        [
+          -14.858,
+          52.133
+        ],
+        [
+          -8.714,
+          52.146
+        ],
+        [
+          -2.587,
+          51.683
+        ],
+        [
+          3.523,
+          50.748
+        ],
+        [
+          9.615,
+          49.35
+        ],
+        [
+          15.692,
+          47.503
+        ],
+        [
+          21.752,
+          45.228
+        ],
+        [
+          27.798,
+          42.55
+        ],
+        [
+          33.83,
+          39.501
+        ],
+        [
+          39.85,
+          36.115
+        ],
+        [
+          45.859,
+          32.434
+        ],
+        [
+          51.859,
+          28.499
+        ],
+        [
+          57.851,
+          24.358
+        ],
+        [
+          63.837,
+          20.06
+        ],
+        [
+          69.819,
+          15.657
+        ],
+        [
+          75.8,
+          11.2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "pineapple",
+    "name": "Pineapple",
+    "botanicalName": "Ananas comosus",
+    "category": "Fruit",
+    "origin": {
+      "region": "Paraná-Paraguay River Basin (Brazil-Paraguay)",
+      "latitude": -23.5,
+      "longitude": -57.4
+    },
+    "destinationInIndia": {
+      "region": "Goa & Mughal Royal Gardens",
+      "latitude": 15.3,
+      "longitude": 73.8
+    },
+    "widespread": {
+      "startYear": 1610,
+      "label": "Early 17th century (Emperor Jahangir notes)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Brought from South America to Portuguese Goa, the exotic fruit was sent to the Mughal court where Emperor Jahangir wrote enthusiastically about it in his Tuzuk-i-Jahangiri.",
+    "historicalNote": "Jahangir wrote in 1615: \"The pineapple is a fruit of the port of Goa... many thousands are now gathered in the gardens of Agra.\"",
+    "culinaryUsage": "Pineapple kesari, Goan curries, street fruit plates, and preserves.",
+    "route": {
+      "coordinates": [
+        [
+          -57.4,
+          -23.5
+        ],
+        [
+          -53.8,
+          -18.442
+        ],
+        [
+          -50.187,
+          -13.43
+        ],
+        [
+          -46.547,
+          -8.51
+        ],
+        [
+          -42.866,
+          -3.726
+        ],
+        [
+          -39.132,
+          0.879
+        ],
+        [
+          -35.334,
+          5.265
+        ],
+        [
+          -31.459,
+          9.393
+        ],
+        [
+          -27.498,
+          13.23
+        ],
+        [
+          -23.442,
+          16.744
+        ],
+        [
+          -19.282,
+          19.909
+        ],
+        [
+          -15.013,
+          22.702
+        ],
+        [
+          -10.628,
+          25.106
+        ],
+        [
+          -6.125,
+          27.108
+        ],
+        [
+          -1.5,
+          28.7
+        ],
+        [
+          3.247,
+          29.879
+        ],
+        [
+          8.115,
+          30.649
+        ],
+        [
+          13.101,
+          31.017
+        ],
+        [
+          18.203,
+          30.995
+        ],
+        [
+          23.415,
+          30.601
+        ],
+        [
+          28.731,
+          29.858
+        ],
+        [
+          34.141,
+          28.793
+        ],
+        [
+          39.638,
+          27.436
+        ],
+        [
+          45.211,
+          25.822
+        ],
+        [
+          50.848,
+          23.989
+        ],
+        [
+          56.539,
+          21.976
+        ],
+        [
+          62.27,
+          19.827
+        ],
+        [
+          68.028,
+          17.587
+        ],
+        [
+          73.8,
+          15.3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "sweet-potato",
+    "name": "Sweet Potato (Shakarkand)",
+    "botanicalName": "Ipomoea batatas",
+    "category": "Vegetable",
+    "origin": {
+      "region": "Central and South America",
+      "latitude": -10,
+      "longitude": -75
+    },
+    "destinationInIndia": {
+      "region": "Western & Eastern Ghats",
+      "latitude": 18.5,
+      "longitude": 73.8
+    },
+    "widespread": {
+      "startYear": 1650,
+      "label": "17th century"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "medium",
+    "illustration": null,
+    "description": "Sweet potato reached India along with other New World tubers. It was warmly adopted into Hindu fasting (vrat) traditions because it was classified as a root crop exempt from grain restrictions.",
+    "historicalNote": "Distinct from the native Dioscorea yams, sweet potatoes became an indispensable staple during religious fasts.",
+    "culinaryUsage": "Shakarkandi ki chaat, roasted street snacks, and vrat sabzis.",
+    "route": {
+      "coordinates": [
+        [
+          -75,
+          -10
+        ],
+        [
+          -70.452,
+          -4.984
+        ],
+        [
+          -65.893,
+          -0.018
+        ],
+        [
+          -61.316,
+          4.848
+        ],
+        [
+          -56.711,
+          9.566
+        ],
+        [
+          -52.068,
+          14.089
+        ],
+        [
+          -47.379,
+          18.373
+        ],
+        [
+          -42.637,
+          22.377
+        ],
+        [
+          -37.833,
+          26.064
+        ],
+        [
+          -32.963,
+          29.399
+        ],
+        [
+          -28.02,
+          32.354
+        ],
+        [
+          -22.999,
+          34.904
+        ],
+        [
+          -17.897,
+          37.031
+        ],
+        [
+          -12.711,
+          38.72
+        ],
+        [
+          -7.44,
+          39.962
+        ],
+        [
+          -2.083,
+          40.755
+        ],
+        [
+          3.36,
+          41.102
+        ],
+        [
+          8.887,
+          41.012
+        ],
+        [
+          14.495,
+          40.497
+        ],
+        [
+          20.18,
+          39.578
+        ],
+        [
+          25.938,
+          38.278
+        ],
+        [
+          31.763,
+          36.627
+        ],
+        [
+          37.65,
+          34.659
+        ],
+        [
+          43.589,
+          32.411
+        ],
+        [
+          49.575,
+          29.923
+        ],
+        [
+          55.598,
+          27.241
+        ],
+        [
+          61.649,
+          24.411
+        ],
+        [
+          67.72,
+          21.481
+        ],
+        [
+          73.8,
+          18.5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "common-bean",
+    "name": "Common Bean (Rajma)",
+    "botanicalName": "Phaseolus vulgaris",
+    "category": "Pulse",
+    "origin": {
+      "region": "Andean & Mesoamerican Highlands",
+      "latitude": 19,
+      "longitude": -98
+    },
+    "destinationInIndia": {
+      "region": "Jammu, Himachal & Uttarakhand",
+      "latitude": 32.7,
+      "longitude": 74.8
+    },
+    "widespread": {
+      "startYear": 1800,
+      "label": "Late 18th to early 19th century"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "medium",
+    "illustration": null,
+    "description": "While India is the ancient heartland of lentils and grams, kidney beans (rajma) originated in the Americas. They thrived particularly in the cool Himalayan valleys of Kashmir and Himachal Pradesh.",
+    "historicalNote": "Rajma-chawal is today considered the quintessential comfort dish of North India, despite having entered Indian kitchens only two centuries ago.",
+    "culinaryUsage": "Slow-simmered Punjabi and Kashmiri Rajma served over steaming basmati rice.",
+    "route": {
+      "coordinates": [
+        [
+          -98,
+          19
+        ],
+        [
+          -92.135,
+          23.359
+        ],
+        [
+          -86.267,
+          27.669
+        ],
+        [
+          -80.391,
+          31.882
+        ],
+        [
+          -74.503,
+          35.952
+        ],
+        [
+          -68.601,
+          39.833
+        ],
+        [
+          -62.68,
+          43.484
+        ],
+        [
+          -56.737,
+          46.863
+        ],
+        [
+          -50.771,
+          49.934
+        ],
+        [
+          -44.777,
+          52.666
+        ],
+        [
+          -38.754,
+          55.03
+        ],
+        [
+          -32.701,
+          57.003
+        ],
+        [
+          -26.614,
+          58.565
+        ],
+        [
+          -20.494,
+          59.703
+        ],
+        [
+          -14.34,
+          60.41
+        ],
+        [
+          -8.151,
+          60.682
+        ],
+        [
+          -1.928,
+          60.522
+        ],
+        [
+          4.328,
+          59.938
+        ],
+        [
+          10.617,
+          58.945
+        ],
+        [
+          16.937,
+          57.559
+        ],
+        [
+          23.286,
+          55.806
+        ],
+        [
+          29.663,
+          53.713
+        ],
+        [
+          36.063,
+          51.312
+        ],
+        [
+          42.485,
+          48.641
+        ],
+        [
+          48.925,
+          45.738
+        ],
+        [
+          55.381,
+          42.647
+        ],
+        [
+          61.847,
+          39.412
+        ],
+        [
+          68.322,
+          36.08
+        ],
+        [
+          74.8,
+          32.7
+        ]
+      ]
+    }
+  },
+  {
+    "id": "coffee",
+    "name": "Coffee",
+    "botanicalName": "Coffea arabica",
+    "category": "Beverage",
+    "origin": {
+      "region": "Kaffa Highlands, Ethiopia & Yemen",
+      "latitude": 7.5,
+      "longitude": 36.8
+    },
+    "destinationInIndia": {
+      "region": "Chikmagalur & Baba Budan Giri, Karnataka",
+      "latitude": 13.3,
+      "longitude": 75.7
+    },
+    "widespread": {
+      "startYear": 1670,
+      "label": "Late 17th century (Baba Budan pilgrimage)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Legend holds that the 17th-century Sufi saint Baba Budan smuggled seven raw coffee beans strapped to his chest out of the Yemeni port of Mocha, planting them in the verdant Chandragiri hills of Karnataka.",
+    "historicalNote": "Commercial coffee estates were formally expanded under British administration in the 1830s, giving birth to South Indian filter coffee culture.",
+    "culinaryUsage": "South Indian Degree filter coffee brewed in brass dabarah-tumblers.",
+    "route": {
+      "coordinates": [
+        [
+          36.8,
+          7.5
+        ],
+        [
+          38.085,
+          8.404
+        ],
+        [
+          39.372,
+          9.299
+        ],
+        [
+          40.661,
+          10.177
+        ],
+        [
+          41.954,
+          11.029
+        ],
+        [
+          43.253,
+          11.847
+        ],
+        [
+          44.557,
+          12.623
+        ],
+        [
+          45.869,
+          13.351
+        ],
+        [
+          47.189,
+          14.023
+        ],
+        [
+          48.518,
+          14.634
+        ],
+        [
+          49.857,
+          15.179
+        ],
+        [
+          51.206,
+          15.653
+        ],
+        [
+          52.567,
+          16.054
+        ],
+        [
+          53.939,
+          16.378
+        ],
+        [
+          55.322,
+          16.624
+        ],
+        [
+          56.717,
+          16.792
+        ],
+        [
+          58.124,
+          16.882
+        ],
+        [
+          59.542,
+          16.896
+        ],
+        [
+          60.971,
+          16.836
+        ],
+        [
+          62.411,
+          16.706
+        ],
+        [
+          63.86,
+          16.509
+        ],
+        [
+          65.319,
+          16.251
+        ],
+        [
+          66.786,
+          15.938
+        ],
+        [
+          68.26,
+          15.576
+        ],
+        [
+          69.74,
+          15.172
+        ],
+        [
+          71.226,
+          14.734
+        ],
+        [
+          72.715,
+          14.271
+        ],
+        [
+          74.207,
+          13.79
+        ],
+        [
+          75.7,
+          13.3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cauliflower",
+    "name": "Cauliflower",
+    "botanicalName": "Brassica oleracea var. botrytis",
+    "category": "Vegetable",
+    "origin": {
+      "region": "Eastern Mediterranean & Western Europe",
+      "latitude": 35,
+      "longitude": 33
+    },
+    "destinationInIndia": {
+      "region": "Saharanpur Botanical Gardens, Uttar Pradesh",
+      "latitude": 29.9,
+      "longitude": 77.5
+    },
+    "widespread": {
+      "startYear": 1822,
+      "label": "1822 CE (Introduced by Dr. Jemson at Saharanpur)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Introduced from England in 1822 by Dr. Jemson of the Royal Botanic Gardens at Saharanpur, cauliflower adapted surprisingly well to the northern Indian winter plains, spawning heat-tolerant Indian tropical varieties.",
+    "historicalNote": "Within decades of colonial introduction, Indian growers bred seeds that could head in warm temperatures, transforming it into an everyday winter vegetable across India.",
+    "culinaryUsage": "Aloo gobi, gobi parathas, and tandoori gobi.",
+    "route": {
+      "coordinates": [
+        [
+          33,
+          35
+        ],
+        [
+          34.669,
+          35.515
+        ],
+        [
+          36.337,
+          36.022
+        ],
+        [
+          38.004,
+          36.511
+        ],
+        [
+          39.667,
+          36.975
+        ],
+        [
+          41.326,
+          37.404
+        ],
+        [
+          42.981,
+          37.791
+        ],
+        [
+          44.63,
+          38.13
+        ],
+        [
+          46.273,
+          38.414
+        ],
+        [
+          47.908,
+          38.636
+        ],
+        [
+          49.536,
+          38.792
+        ],
+        [
+          51.156,
+          38.877
+        ],
+        [
+          52.768,
+          38.888
+        ],
+        [
+          54.37,
+          38.823
+        ],
+        [
+          55.964,
+          38.68
+        ],
+        [
+          57.549,
+          38.459
+        ],
+        [
+          59.125,
+          38.16
+        ],
+        [
+          60.692,
+          37.784
+        ],
+        [
+          62.25,
+          37.334
+        ],
+        [
+          63.801,
+          36.814
+        ],
+        [
+          65.344,
+          36.228
+        ],
+        [
+          66.88,
+          35.58
+        ],
+        [
+          68.409,
+          34.877
+        ],
+        [
+          69.933,
+          34.125
+        ],
+        [
+          71.453,
+          33.332
+        ],
+        [
+          72.968,
+          32.504
+        ],
+        [
+          74.48,
+          31.651
+        ],
+        [
+          75.991,
+          30.78
+        ],
+        [
+          77.5,
+          29.9
+        ]
+      ]
+    }
+  },
+  {
+    "id": "avocado",
+    "name": "Avocado",
+    "botanicalName": "Persea americana",
+    "category": "Fruit",
+    "origin": {
+      "region": "Puebla / Central Mexico",
+      "latitude": 19,
+      "longitude": -98.2
+    },
+    "destinationInIndia": {
+      "region": "Coorg, Nilgiris & Tamil Nadu",
+      "latitude": 11.4,
+      "longitude": 76.7
+    },
+    "widespread": {
+      "startYear": 1940,
+      "label": "Mid-20th century (Plantation hill stations)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "medium",
+    "illustration": null,
+    "description": "Introduced via Ceylon (Sri Lanka) to the coffee estates of the Western Ghats (Kodagu and Nilgiris) in the early-to-mid 20th century. Known locally as \"butter fruit\", it has recently experienced a major urban revival.",
+    "historicalNote": "Traditionally served in the south with a spoonful of sugar and milk as a cooling fruit puree rather than savory guacamole.",
+    "culinaryUsage": "Butter fruit milkshakes in Bengaluru/Coorg; modern artisanal salads.",
+    "route": {
+      "coordinates": [
+        [
+          -98.2,
+          19
+        ],
+        [
+          -91.766,
+          23.037
+        ],
+        [
+          -85.335,
+          27.019
+        ],
+        [
+          -78.908,
+          30.894
+        ],
+        [
+          -72.489,
+          34.609
+        ],
+        [
+          -66.078,
+          38.114
+        ],
+        [
+          -59.679,
+          41.362
+        ],
+        [
+          -53.293,
+          44.308
+        ],
+        [
+          -46.921,
+          46.912
+        ],
+        [
+          -40.566,
+          49.137
+        ],
+        [
+          -34.229,
+          50.953
+        ],
+        [
+          -27.911,
+          52.333
+        ],
+        [
+          -21.613,
+          53.256
+        ],
+        [
+          -15.335,
+          53.707
+        ],
+        [
+          -9.078,
+          53.678
+        ],
+        [
+          -2.842,
+          53.165
+        ],
+        [
+          3.373,
+          52.17
+        ],
+        [
+          9.567,
+          50.704
+        ],
+        [
+          15.742,
+          48.782
+        ],
+        [
+          21.898,
+          46.423
+        ],
+        [
+          28.036,
+          43.655
+        ],
+        [
+          34.157,
+          40.508
+        ],
+        [
+          40.264,
+          37.019
+        ],
+        [
+          46.357,
+          33.229
+        ],
+        [
+          52.44,
+          29.181
+        ],
+        [
+          58.513,
+          24.923
+        ],
+        [
+          64.579,
+          20.505
+        ],
+        [
+          70.641,
+          15.98
+        ],
+        [
+          76.7,
+          11.4
+        ]
+      ]
+    }
+  },
+  {
+    "id": "dragon-fruit",
+    "name": "Dragon Fruit (Kamalam)",
+    "botanicalName": "Selenicereus undatus",
+    "category": "Fruit",
+    "origin": {
+      "region": "Southern Mexico & Central America",
+      "latitude": 16.5,
+      "longitude": -93
+    },
+    "destinationInIndia": {
+      "region": "Kutch, Gujarat & Maharashtra",
+      "latitude": 23.2,
+      "longitude": 69.6
+    },
+    "widespread": {
+      "startYear": 2012,
+      "label": "Early 21st century"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "A recent arrival from the Americas via Southeast Asian markets, this drought-resilient climbing cactus has seen exponential cultivation across arid districts of Gujarat, Karnataka, and Maharashtra.",
+    "historicalNote": "Renamed \"Kamalam\" by Gujarat authorities due to its lotus-like exterior, demonstrating how foreign domestications continue to be integrated into Indian culture today.",
+    "culinaryUsage": "Fresh breakfast bowls, fruit platters, and juice kiosks.",
+    "route": {
+      "coordinates": [
+        [
+          -93,
+          16.5
+        ],
+        [
+          -87.365,
+          20.927
+        ],
+        [
+          -81.729,
+          25.3
+        ],
+        [
+          -76.088,
+          29.57
+        ],
+        [
+          -70.44,
+          33.684
+        ],
+        [
+          -64.784,
+          37.593
+        ],
+        [
+          -59.118,
+          41.253
+        ],
+        [
+          -53.44,
+          44.619
+        ],
+        [
+          -47.748,
+          47.653
+        ],
+        [
+          -42.041,
+          50.319
+        ],
+        [
+          -36.317,
+          52.587
+        ],
+        [
+          -30.576,
+          54.431
+        ],
+        [
+          -24.817,
+          55.832
+        ],
+        [
+          -19.038,
+          56.774
+        ],
+        [
+          -13.241,
+          57.248
+        ],
+        [
+          -7.424,
+          57.252
+        ],
+        [
+          -1.588,
+          56.789
+        ],
+        [
+          4.267,
+          55.867
+        ],
+        [
+          10.14,
+          54.502
+        ],
+        [
+          16.031,
+          52.712
+        ],
+        [
+          21.938,
+          50.525
+        ],
+        [
+          27.86,
+          47.969
+        ],
+        [
+          33.796,
+          45.082
+        ],
+        [
+          39.744,
+          41.901
+        ],
+        [
+          45.703,
+          38.469
+        ],
+        [
+          51.67,
+          34.834
+        ],
+        [
+          57.643,
+          31.043
+        ],
+        [
+          63.62,
+          27.148
+        ],
+        [
+          69.6,
+          23.2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "tea",
+    "name": "Tea (Chai)",
+    "botanicalName": "Camellia sinensis var. assamica",
+    "category": "Beverage",
+    "origin": {
+      "region": "Assam / Yunnan Borderlands",
+      "latitude": 25.5,
+      "longitude": 94
+    },
+    "destinationInIndia": {
+      "region": "Upper Assam & Darjeeling",
+      "latitude": 26.8,
+      "longitude": 94.5
+    },
+    "widespread": {
+      "startYear": 1840,
+      "label": "Mid-19th century (British commercialization)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "While indigenous tribes like the Singpho and Khamti in Upper Assam brewed wild tea leaves for centuries, tea was commercially turned into India’s national drink by the British in the 1840s to break China’s monopoly.",
+    "historicalNote": "Robert Bruce was shown wild tea trees by Singpho Chief Bisa Gam in 1823, sparking the industrial plantation era in Assam and the later invention of spiced masala chai.",
+    "culinaryUsage": "Masala chai brewed with milk, cardamom, ginger, and sugar on every Indian corner.",
+    "route": {
+      "coordinates": [
+        [
+          94,
+          25.5
+        ],
+        [
+          94.003,
+          25.552
+        ],
+        [
+          94.007,
+          25.604
+        ],
+        [
+          94.011,
+          25.656
+        ],
+        [
+          94.015,
+          25.707
+        ],
+        [
+          94.02,
+          25.759
+        ],
+        [
+          94.026,
+          25.81
+        ],
+        [
+          94.033,
+          25.86
+        ],
+        [
+          94.041,
+          25.911
+        ],
+        [
+          94.051,
+          25.96
+        ],
+        [
+          94.061,
+          26.009
+        ],
+        [
+          94.074,
+          26.058
+        ],
+        [
+          94.088,
+          26.106
+        ],
+        [
+          94.103,
+          26.153
+        ],
+        [
+          94.12,
+          26.2
+        ],
+        [
+          94.139,
+          26.246
+        ],
+        [
+          94.159,
+          26.292
+        ],
+        [
+          94.181,
+          26.336
+        ],
+        [
+          94.204,
+          26.381
+        ],
+        [
+          94.229,
+          26.424
+        ],
+        [
+          94.256,
+          26.468
+        ],
+        [
+          94.283,
+          26.51
+        ],
+        [
+          94.312,
+          26.553
+        ],
+        [
+          94.342,
+          26.594
+        ],
+        [
+          94.372,
+          26.636
+        ],
+        [
+          94.403,
+          26.677
+        ],
+        [
+          94.435,
+          26.718
+        ],
+        [
+          94.468,
+          26.759
+        ],
+        [
+          94.5,
+          26.8
+        ]
+      ]
+    }
+  },
+  {
+    "id": "wheat",
+    "name": "Wheat",
+    "botanicalName": "Triticum aestivum / durum",
+    "category": "Grain",
+    "origin": {
+      "region": "Fertile Crescent (Levant & Anatolia)",
+      "latitude": 36.5,
+      "longitude": 37.5
+    },
+    "destinationInIndia": {
+      "region": "Indus Valley & Mehrgarh, Punjab",
+      "latitude": 29.4,
+      "longitude": 67.6
+    },
+    "widespread": {
+      "startYear": -2500,
+      "label": "Early Bronze Age (~2500 BCE, Harappan)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Domesticated in Southwest Asia around 9000 BCE, wheat reached the northwestern subcontinent by the 6th millennium BCE (Mehrgarh) and formed the carbohydrate backbone of the Mature Harappan Civilisation.",
+    "historicalNote": "Rigvedic hymns mention godhuma (wheat), which evolved into the cornerstone of North Indian tandoori and griddled breads.",
+    "culinaryUsage": "Roti, chapati, paratha, puri, naan, and semolina halwa.",
+    "route": {
+      "coordinates": [
+        [
+          37.5,
+          36.5
+        ],
+        [
+          38.92,
+          36.79
+        ],
+        [
+          40.339,
+          37.073
+        ],
+        [
+          41.756,
+          37.343
+        ],
+        [
+          43.17,
+          37.595
+        ],
+        [
+          44.579,
+          37.823
+        ],
+        [
+          45.985,
+          38.02
+        ],
+        [
+          47.384,
+          38.182
+        ],
+        [
+          48.777,
+          38.304
+        ],
+        [
+          50.163,
+          38.382
+        ],
+        [
+          51.542,
+          38.412
+        ],
+        [
+          52.912,
+          38.39
+        ],
+        [
+          54.273,
+          38.316
+        ],
+        [
+          55.626,
+          38.186
+        ],
+        [
+          56.97,
+          38
+        ],
+        [
+          58.305,
+          37.757
+        ],
+        [
+          59.631,
+          37.459
+        ],
+        [
+          60.947,
+          37.105
+        ],
+        [
+          62.256,
+          36.697
+        ],
+        [
+          63.556,
+          36.239
+        ],
+        [
+          64.849,
+          35.733
+        ],
+        [
+          66.134,
+          35.182
+        ],
+        [
+          67.413,
+          34.591
+        ],
+        [
+          68.687,
+          33.966
+        ],
+        [
+          69.955,
+          33.31
+        ],
+        [
+          71.22,
+          32.629
+        ],
+        [
+          72.482,
+          31.93
+        ],
+        [
+          73.741,
+          31.218
+        ],
+        [
+          75,
+          30.5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "chickpea",
+    "name": "Chickpea (Chana)",
+    "botanicalName": "Cicer arietinum",
+    "category": "Pulse",
+    "origin": {
+      "region": "Southeastern Anatolia & Levant",
+      "latitude": 37.5,
+      "longitude": 38.5
+    },
+    "destinationInIndia": {
+      "region": "Northwest India & Gangetic Plain",
+      "latitude": 28.6,
+      "longitude": 77.2
+    },
+    "widespread": {
+      "startYear": -2000,
+      "label": "Late Harappan (~2000 BCE)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "From its Neolithic origins in Turkey and the Levant, chickpeas entered the Indus Valley by 2000 BCE. India subsequently developed the smaller, darker \"Desi\" type (Kala Chana) and became the globe’s leading consumer.",
+    "historicalNote": "Ancient Sanskrit texts identify it as chanaka; the larger cream-colored variety became known as \"Kabuli\" denoting its route through Kabul, Afghanistan.",
+    "culinaryUsage": "Chole bhature, besan (gram flour), dhokla, kadhi, and roasted chana.",
+    "route": {
+      "coordinates": [
+        [
+          38.5,
+          37.5
+        ],
+        [
+          40.012,
+          37.745
+        ],
+        [
+          41.522,
+          37.984
+        ],
+        [
+          43.029,
+          38.208
+        ],
+        [
+          44.531,
+          38.411
+        ],
+        [
+          46.026,
+          38.587
+        ],
+        [
+          47.514,
+          38.73
+        ],
+        [
+          48.993,
+          38.832
+        ],
+        [
+          50.462,
+          38.891
+        ],
+        [
+          51.919,
+          38.899
+        ],
+        [
+          53.364,
+          38.854
+        ],
+        [
+          54.796,
+          38.752
+        ],
+        [
+          56.214,
+          38.591
+        ],
+        [
+          57.618,
+          38.367
+        ],
+        [
+          59.007,
+          38.081
+        ],
+        [
+          60.382,
+          37.732
+        ],
+        [
+          61.742,
+          37.319
+        ],
+        [
+          63.089,
+          36.845
+        ],
+        [
+          64.421,
+          36.311
+        ],
+        [
+          65.74,
+          35.721
+        ],
+        [
+          67.047,
+          35.076
+        ],
+        [
+          68.343,
+          34.382
+        ],
+        [
+          69.629,
+          33.644
+        ],
+        [
+          70.905,
+          32.866
+        ],
+        [
+          72.173,
+          32.054
+        ],
+        [
+          73.436,
+          31.215
+        ],
+        [
+          74.693,
+          30.355
+        ],
+        [
+          75.947,
+          29.481
+        ],
+        [
+          77.2,
+          28.6
+        ]
+      ]
+    }
+  },
+  {
+    "id": "lentil",
+    "name": "Lentil (Masoor)",
+    "botanicalName": "Lens culinaris",
+    "category": "Pulse",
+    "origin": {
+      "region": "Near East / Fertile Crescent",
+      "latitude": 34.5,
+      "longitude": 36
+    },
+    "destinationInIndia": {
+      "region": "Harappan sites & Ganga Basin",
+      "latitude": 26.8,
+      "longitude": 80.9
+    },
+    "widespread": {
+      "startYear": -2000,
+      "label": "Bronze Age (~2000 BCE)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Lentils migrated into the northwestern subcontinent along early agricultural trade corridors. They rapidly became a key protein staple across the agrarian plains of the Ganga and Yamuna.",
+    "historicalNote": "Archaeological finds in Navdatoli and Harappan sites confirm lentils were integral to the Indian diet for over four millennia.",
+    "culinaryUsage": "Masoor dal, khichdi, and comforting daily dal tadkas.",
+    "route": {
+      "coordinates": [
+        [
+          36,
+          34.5
+        ],
+        [
+          37.724,
+          34.929
+        ],
+        [
+          39.447,
+          35.349
+        ],
+        [
+          41.167,
+          35.751
+        ],
+        [
+          42.882,
+          36.127
+        ],
+        [
+          44.591,
+          36.469
+        ],
+        [
+          46.294,
+          36.769
+        ],
+        [
+          47.987,
+          37.02
+        ],
+        [
+          49.671,
+          37.215
+        ],
+        [
+          51.345,
+          37.348
+        ],
+        [
+          53.007,
+          37.413
+        ],
+        [
+          54.657,
+          37.408
+        ],
+        [
+          56.294,
+          37.328
+        ],
+        [
+          57.918,
+          37.171
+        ],
+        [
+          59.528,
+          36.936
+        ],
+        [
+          61.125,
+          36.621
+        ],
+        [
+          62.708,
+          36.228
+        ],
+        [
+          64.278,
+          35.758
+        ],
+        [
+          65.836,
+          35.213
+        ],
+        [
+          67.381,
+          34.598
+        ],
+        [
+          68.914,
+          33.915
+        ],
+        [
+          70.437,
+          33.17
+        ],
+        [
+          71.951,
+          32.369
+        ],
+        [
+          73.456,
+          31.519
+        ],
+        [
+          74.953,
+          30.627
+        ],
+        [
+          76.445,
+          29.701
+        ],
+        [
+          77.933,
+          28.749
+        ],
+        [
+          79.417,
+          27.779
+        ],
+        [
+          80.9,
+          26.8
+        ]
+      ]
+    }
+  },
+  {
+    "id": "onion",
+    "name": "Onion (Pyaz)",
+    "botanicalName": "Allium cepa",
+    "category": "Vegetable",
+    "origin": {
+      "region": "Central Asia & Iranian Plateau",
+      "latitude": 35,
+      "longitude": 65
+    },
+    "destinationInIndia": {
+      "region": "Northwest India & Maharashtra",
+      "latitude": 20,
+      "longitude": 74
+    },
+    "widespread": {
+      "startYear": -800,
+      "label": "1st millennium BCE (~800 BCE)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "medium",
+    "illustration": null,
+    "description": "Native to Central Asia and Western Asia, onions entered India during the first millennium BCE. Early Ayurvedic medical compendiums like Charaka Samhita praised their medicinal efficacy while noting religious ascetic taboos.",
+    "historicalNote": "Known as palandu in Sanskrit, onions were shunned by orthodox Brahmin and Jain ascetics for their rajasic (stimulating) qualities, yet embraced in royal and commoner cooking.",
+    "culinaryUsage": "Foundation of Indian gravies, biryanis, raw kachumber, and pakoras.",
+    "route": {
+      "coordinates": [
+        [
+          65,
+          35
+        ],
+        [
+          65.506,
+          34.575
+        ],
+        [
+          66.01,
+          34.149
+        ],
+        [
+          66.509,
+          33.72
+        ],
+        [
+          67.002,
+          33.287
+        ],
+        [
+          67.485,
+          32.848
+        ],
+        [
+          67.957,
+          32.403
+        ],
+        [
+          68.417,
+          31.95
+        ],
+        [
+          68.861,
+          31.488
+        ],
+        [
+          69.29,
+          31.017
+        ],
+        [
+          69.701,
+          30.535
+        ],
+        [
+          70.093,
+          30.042
+        ],
+        [
+          70.466,
+          29.537
+        ],
+        [
+          70.818,
+          29.019
+        ],
+        [
+          71.15,
+          28.49
+        ],
+        [
+          71.461,
+          27.948
+        ],
+        [
+          71.751,
+          27.394
+        ],
+        [
+          72.022,
+          26.827
+        ],
+        [
+          72.272,
+          26.249
+        ],
+        [
+          72.504,
+          25.66
+        ],
+        [
+          72.719,
+          25.06
+        ],
+        [
+          72.917,
+          24.45
+        ],
+        [
+          73.1,
+          23.832
+        ],
+        [
+          73.271,
+          23.205
+        ],
+        [
+          73.43,
+          22.572
+        ],
+        [
+          73.581,
+          21.934
+        ],
+        [
+          73.724,
+          21.292
+        ],
+        [
+          73.863,
+          20.647
+        ],
+        [
+          74,
+          20
+        ]
+      ]
+    }
+  },
+  {
+    "id": "garlic",
+    "name": "Garlic (Lahsun)",
+    "botanicalName": "Allium sativum",
+    "category": "Spice",
+    "origin": {
+      "region": "Central Asia / Tien Shan",
+      "latitude": 42,
+      "longitude": 75
+    },
+    "destinationInIndia": {
+      "region": "Northwestern Subcontinent",
+      "latitude": 30,
+      "longitude": 74.5
+    },
+    "widespread": {
+      "startYear": -1000,
+      "label": "Ancient (~1000 BCE)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Garlic migrated into India from the wild mountains of Central Asia. The 4th-century CE Bower Manuscript found on the Silk Road contains an entire treatise on garlic’s divine healing powers.",
+    "historicalNote": "Ayurveda names it rasona (lacking one taste) because it possesses five of the six Ayurvedic rasas (all except sour).",
+    "culinaryUsage": "Ginger-garlic paste, dal tadkas, spicy chutneys, and pickles.",
+    "route": {
+      "coordinates": [
+        [
+          75,
+          42
+        ],
+        [
+          75.143,
+          41.565
+        ],
+        [
+          75.285,
+          41.13
+        ],
+        [
+          75.422,
+          40.694
+        ],
+        [
+          75.553,
+          40.26
+        ],
+        [
+          75.677,
+          39.825
+        ],
+        [
+          75.791,
+          39.391
+        ],
+        [
+          75.893,
+          38.958
+        ],
+        [
+          75.983,
+          38.525
+        ],
+        [
+          76.059,
+          38.092
+        ],
+        [
+          76.119,
+          37.66
+        ],
+        [
+          76.163,
+          37.229
+        ],
+        [
+          76.19,
+          36.799
+        ],
+        [
+          76.199,
+          36.369
+        ],
+        [
+          76.19,
+          35.94
+        ],
+        [
+          76.163,
+          35.512
+        ],
+        [
+          76.118,
+          35.084
+        ],
+        [
+          76.056,
+          34.658
+        ],
+        [
+          75.976,
+          34.232
+        ],
+        [
+          75.88,
+          33.806
+        ],
+        [
+          75.769,
+          33.382
+        ],
+        [
+          75.643,
+          32.958
+        ],
+        [
+          75.505,
+          32.534
+        ],
+        [
+          75.355,
+          32.111
+        ],
+        [
+          75.196,
+          31.688
+        ],
+        [
+          75.029,
+          31.266
+        ],
+        [
+          74.856,
+          30.844
+        ],
+        [
+          74.679,
+          30.422
+        ],
+        [
+          74.5,
+          30
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cumin",
+    "name": "Cumin (Jeera)",
+    "botanicalName": "Cuminum cyminum",
+    "category": "Spice",
+    "origin": {
+      "region": "Eastern Mediterranean & Levant",
+      "latitude": 34,
+      "longitude": 36
+    },
+    "destinationInIndia": {
+      "region": "Gujarat & Rajasthan",
+      "latitude": 24.5,
+      "longitude": 72.8
+    },
+    "widespread": {
+      "startYear": -1000,
+      "label": "Ancient (~1000 BCE)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Cumin was cultivated in the Mediterranean and Mesopotamia before spreading across Persia into western India. Today, Gujarat and Rajasthan grow and export the lion’s share of global cumin.",
+    "historicalNote": "The Sanskrit term jiraka stems from the root \"jri\", meaning that which aids digestion.",
+    "culinaryUsage": "Essential tempering (tadka/chaunk) spice for almost every Indian dish; jeera rice.",
+    "route": {
+      "coordinates": [
+        [
+          36,
+          34
+        ],
+        [
+          37.453,
+          34.196
+        ],
+        [
+          38.903,
+          34.386
+        ],
+        [
+          40.351,
+          34.562
+        ],
+        [
+          41.793,
+          34.719
+        ],
+        [
+          43.228,
+          34.849
+        ],
+        [
+          44.656,
+          34.947
+        ],
+        [
+          46.073,
+          35.008
+        ],
+        [
+          47.48,
+          35.026
+        ],
+        [
+          48.874,
+          34.997
+        ],
+        [
+          50.256,
+          34.917
+        ],
+        [
+          51.623,
+          34.783
+        ],
+        [
+          52.975,
+          34.593
+        ],
+        [
+          54.313,
+          34.343
+        ],
+        [
+          55.635,
+          34.034
+        ],
+        [
+          56.942,
+          33.665
+        ],
+        [
+          58.233,
+          33.235
+        ],
+        [
+          59.509,
+          32.748
+        ],
+        [
+          60.77,
+          32.203
+        ],
+        [
+          62.017,
+          31.604
+        ],
+        [
+          63.251,
+          30.955
+        ],
+        [
+          64.473,
+          30.258
+        ],
+        [
+          65.684,
+          29.518
+        ],
+        [
+          66.886,
+          28.742
+        ],
+        [
+          68.079,
+          27.933
+        ],
+        [
+          69.265,
+          27.098
+        ],
+        [
+          70.446,
+          26.243
+        ],
+        [
+          71.624,
+          25.375
+        ],
+        [
+          72.8,
+          24.5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "coriander",
+    "name": "Coriander (Dhania)",
+    "botanicalName": "Coriandrum sativum",
+    "category": "Spice",
+    "origin": {
+      "region": "Southern Europe & Mediterranean",
+      "latitude": 38,
+      "longitude": 23.5
+    },
+    "destinationInIndia": {
+      "region": "Indo-Gangetic Plain",
+      "latitude": 26,
+      "longitude": 78
+    },
+    "widespread": {
+      "startYear": -1000,
+      "label": "Ancient (~1000 BCE)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "medium",
+    "illustration": null,
+    "description": "One of the oldest cultivated herbs, coriander traveled via ancient Silk and spice routes into India where both its citrusy seeds and tender leaves became foundational to the spice box.",
+    "historicalNote": "Mentioned in Sanskrit treatises as dhanyaka, celebrated for balancing the heat of pungent spices.",
+    "culinaryUsage": "Ground coriander seed powder in gravies; chopped fresh leaves as universal garnish.",
+    "route": {
+      "coordinates": [
+        [
+          23.5,
+          38
+        ],
+        [
+          25.635,
+          38.426
+        ],
+        [
+          27.767,
+          38.841
+        ],
+        [
+          29.894,
+          39.234
+        ],
+        [
+          32.015,
+          39.596
+        ],
+        [
+          34.126,
+          39.917
+        ],
+        [
+          36.226,
+          40.186
+        ],
+        [
+          38.313,
+          40.395
+        ],
+        [
+          40.385,
+          40.537
+        ],
+        [
+          42.44,
+          40.603
+        ],
+        [
+          44.478,
+          40.589
+        ],
+        [
+          46.496,
+          40.488
+        ],
+        [
+          48.495,
+          40.296
+        ],
+        [
+          50.473,
+          40.011
+        ],
+        [
+          52.43,
+          39.63
+        ],
+        [
+          54.366,
+          39.153
+        ],
+        [
+          56.281,
+          38.582
+        ],
+        [
+          58.175,
+          37.916
+        ],
+        [
+          60.049,
+          37.16
+        ],
+        [
+          61.905,
+          36.318
+        ],
+        [
+          63.742,
+          35.394
+        ],
+        [
+          65.563,
+          34.395
+        ],
+        [
+          67.369,
+          33.329
+        ],
+        [
+          69.162,
+          32.202
+        ],
+        [
+          70.943,
+          31.025
+        ],
+        [
+          72.716,
+          29.806
+        ],
+        [
+          74.481,
+          28.555
+        ],
+        [
+          76.242,
+          27.283
+        ],
+        [
+          78,
+          26
+        ]
+      ]
+    }
+  },
+  {
+    "id": "okra",
+    "name": "Okra (Bhindi)",
+    "botanicalName": "Abelmoschus esculentus",
+    "category": "Vegetable",
+    "origin": {
+      "region": "Horn of Africa / Ethiopia",
+      "latitude": 9,
+      "longitude": 39
+    },
+    "destinationInIndia": {
+      "region": "Western Indian Coast & Deccan",
+      "latitude": 19,
+      "longitude": 73
+    },
+    "widespread": {
+      "startYear": 1200,
+      "label": "Medieval Era (~1200 CE)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "medium",
+    "illustration": null,
+    "description": "Native to Ethiopia and West Africa, okra traveled across the Red Sea and Arabian Sea through vibrant medieval maritime trade between East Africa and the Indian subcontinent.",
+    "historicalNote": "Referred to in vernacular Indian cookery as \"lady finger\" during the colonial era; prized for its crisp texture when cooked dry with amchur.",
+    "culinaryUsage": "Bhindi masala, kurkuri bhindi, and South Indian vendakkai sambar.",
+    "route": {
+      "coordinates": [
+        [
+          39,
+          9
+        ],
+        [
+          40.046,
+          9.928
+        ],
+        [
+          41.095,
+          10.849
+        ],
+        [
+          42.147,
+          11.756
+        ],
+        [
+          43.206,
+          12.641
+        ],
+        [
+          44.273,
+          13.499
+        ],
+        [
+          45.35,
+          14.323
+        ],
+        [
+          46.439,
+          15.106
+        ],
+        [
+          47.542,
+          15.844
+        ],
+        [
+          48.658,
+          16.533
+        ],
+        [
+          49.791,
+          17.166
+        ],
+        [
+          50.941,
+          17.742
+        ],
+        [
+          52.109,
+          18.258
+        ],
+        [
+          53.295,
+          18.711
+        ],
+        [
+          54.5,
+          19.1
+        ],
+        [
+          55.724,
+          19.425
+        ],
+        [
+          56.966,
+          19.686
+        ],
+        [
+          58.227,
+          19.885
+        ],
+        [
+          59.506,
+          20.024
+        ],
+        [
+          60.801,
+          20.104
+        ],
+        [
+          62.113,
+          20.13
+        ],
+        [
+          63.439,
+          20.106
+        ],
+        [
+          64.779,
+          20.037
+        ],
+        [
+          66.131,
+          19.928
+        ],
+        [
+          67.492,
+          19.784
+        ],
+        [
+          68.862,
+          19.613
+        ],
+        [
+          70.238,
+          19.421
+        ],
+        [
+          71.618,
+          19.214
+        ],
+        [
+          73,
+          19
+        ]
+      ]
+    }
+  },
+  {
+    "id": "black-pepper",
+    "name": "Black Pepper",
+    "botanicalName": "Piper nigrum",
+    "category": "Spice",
+    "origin": {
+      "region": "Western Ghats, Kerala (Malabar)",
+      "latitude": 10.2,
+      "longitude": 76.3
+    },
+    "destinationInIndia": {
+      "region": "Malabar Coast & Pan-India",
+      "latitude": 10.2,
+      "longitude": 76.3
+    },
+    "widespread": {
+      "startYear": -2000,
+      "label": "Ancient (~2000 BCE, Western Ghats)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "The \"King of Spices\" and the indigenous black gold that launched a thousand maritime voyages. Indigenous to the evergreen rainforests of the Western Ghats, black pepper was the original source of heat in Indian cooking long before chillies.",
+    "historicalNote": "Pliny the Elder famously complained that Rome sent 50 million sesterces annually to India for black pepper. Peppercorns were even found stuffed into the nostrils of Egyptian Pharaoh Ramesses II (d. 1213 BCE).",
+    "culinaryUsage": "Milagu rasam, South Indian ven pongal, garam masala, and ancient Ayurvedic medicines.",
+    "route": {
+      "coordinates": [
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ],
+        [
+          76.3,
+          10.2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "turmeric",
+    "name": "Turmeric (Haldi)",
+    "botanicalName": "Curcuma longa",
+    "category": "Spice",
+    "origin": {
+      "region": "Indian Subcontinent / Southern India",
+      "latitude": 15,
+      "longitude": 77
+    },
+    "destinationInIndia": {
+      "region": "Pan-Indian Cultivation",
+      "latitude": 17,
+      "longitude": 78.5
+    },
+    "widespread": {
+      "startYear": -2500,
+      "label": "Harappan Civilisation (~2500 BCE)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "The golden soul of Indian culinary and spiritual life. Residue analysis of Harappan cooking pots at Farmana (Haryana) confirmed turmeric and ginger used in curry dishes over 4,500 years ago.",
+    "historicalNote": "Called haridra (beloved of Hari) in Sanskrit; sacred in Vedic rituals for its purifying, antimicrobial, and auspicious qualities.",
+    "culinaryUsage": "Everyday curries, golden haldi doodh, auspicious ceremonies, and Ayurvedic healing.",
+    "route": {
+      "coordinates": [
+        [
+          77,
+          15
+        ],
+        [
+          77.042,
+          15.08
+        ],
+        [
+          77.085,
+          15.16
+        ],
+        [
+          77.128,
+          15.239
+        ],
+        [
+          77.171,
+          15.318
+        ],
+        [
+          77.215,
+          15.397
+        ],
+        [
+          77.259,
+          15.475
+        ],
+        [
+          77.304,
+          15.553
+        ],
+        [
+          77.35,
+          15.63
+        ],
+        [
+          77.397,
+          15.706
+        ],
+        [
+          77.446,
+          15.782
+        ],
+        [
+          77.495,
+          15.857
+        ],
+        [
+          77.545,
+          15.93
+        ],
+        [
+          77.597,
+          16.003
+        ],
+        [
+          77.65,
+          16.075
+        ],
+        [
+          77.704,
+          16.146
+        ],
+        [
+          77.76,
+          16.216
+        ],
+        [
+          77.816,
+          16.285
+        ],
+        [
+          77.874,
+          16.353
+        ],
+        [
+          77.933,
+          16.421
+        ],
+        [
+          77.993,
+          16.487
+        ],
+        [
+          78.054,
+          16.553
+        ],
+        [
+          78.116,
+          16.618
+        ],
+        [
+          78.179,
+          16.683
+        ],
+        [
+          78.242,
+          16.747
+        ],
+        [
+          78.306,
+          16.81
+        ],
+        [
+          78.371,
+          16.874
+        ],
+        [
+          78.435,
+          16.937
+        ],
+        [
+          78.5,
+          17
+        ]
+      ]
+    }
+  },
+  {
+    "id": "ginger",
+    "name": "Ginger (Adrak)",
+    "botanicalName": "Zingiber officinale",
+    "category": "Spice",
+    "origin": {
+      "region": "Tropical South Asia & Rainforests",
+      "latitude": 13.5,
+      "longitude": 76
+    },
+    "destinationInIndia": {
+      "region": "Pan-Indian Subcontinent",
+      "latitude": 21,
+      "longitude": 78
+    },
+    "widespread": {
+      "startYear": -2500,
+      "label": "Harappan Civilisation (~2500 BCE)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Indigenous to South Asia, ginger is one of humanity’s oldest medicinal spices. Archaeological starch grain analysis confirms its continuous culinary presence in India since the Bronze Age.",
+    "historicalNote": "The Sanskrit word shringavera (horn-shaped body) gave rise to the Greek zingiberis and English ginger.",
+    "culinaryUsage": "Adrak wali chai, ginger-garlic aromatics, subzis, and Ayurvedic digestion tonics.",
+    "route": {
+      "coordinates": [
+        [
+          76,
+          13.5
+        ],
+        [
+          76.029,
+          13.779
+        ],
+        [
+          76.059,
+          14.058
+        ],
+        [
+          76.09,
+          14.337
+        ],
+        [
+          76.123,
+          14.615
+        ],
+        [
+          76.158,
+          14.892
+        ],
+        [
+          76.195,
+          15.169
+        ],
+        [
+          76.235,
+          15.446
+        ],
+        [
+          76.278,
+          15.721
+        ],
+        [
+          76.325,
+          15.995
+        ],
+        [
+          76.376,
+          16.269
+        ],
+        [
+          76.432,
+          16.541
+        ],
+        [
+          76.492,
+          16.812
+        ],
+        [
+          76.556,
+          17.082
+        ],
+        [
+          76.625,
+          17.35
+        ],
+        [
+          76.699,
+          17.617
+        ],
+        [
+          76.777,
+          17.883
+        ],
+        [
+          76.86,
+          18.148
+        ],
+        [
+          76.948,
+          18.412
+        ],
+        [
+          77.04,
+          18.674
+        ],
+        [
+          77.135,
+          18.935
+        ],
+        [
+          77.235,
+          19.196
+        ],
+        [
+          77.338,
+          19.455
+        ],
+        [
+          77.443,
+          19.714
+        ],
+        [
+          77.552,
+          19.972
+        ],
+        [
+          77.662,
+          20.229
+        ],
+        [
+          77.774,
+          20.487
+        ],
+        [
+          77.887,
+          20.743
+        ],
+        [
+          78,
+          21
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cardamom",
+    "name": "Green Cardamom (Elaichi)",
+    "botanicalName": "Elettaria cardamomum",
+    "category": "Spice",
+    "origin": {
+      "region": "Cardamom Hills, Western Ghats",
+      "latitude": 9.8,
+      "longitude": 77.1
+    },
+    "destinationInIndia": {
+      "region": "Cardamom Hills & Pan-India",
+      "latitude": 9.8,
+      "longitude": 77.1
+    },
+    "widespread": {
+      "startYear": -1000,
+      "label": "Ancient (~1000 BCE, Western Ghats)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Known as the \"Queen of Spices\", green cardamom is indigenous to the mist-shrouded montane rainforests of the southern Western Ghats (Kerala and Tamil Nadu).",
+    "historicalNote": "Mentioned in the Sanskrit Charaka Samhita and exported through ancient Indian Ocean trade routes to Greece and Rome as a luxury aromatic.",
+    "culinaryUsage": "Biryanis, kheer, payasam, chai, sweet mithai, and mouth fresheners.",
+    "route": {
+      "coordinates": [
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ],
+        [
+          77.1,
+          9.8
+        ]
+      ]
+    }
+  },
+  {
+    "id": "mango",
+    "name": "Mango (Aam)",
+    "botanicalName": "Mangifera indica",
+    "category": "Fruit",
+    "origin": {
+      "region": "Northeastern India & Myanmar Borderlands",
+      "latitude": 24,
+      "longitude": 93
+    },
+    "destinationInIndia": {
+      "region": "Pan-Indian Subcontinent",
+      "latitude": 20,
+      "longitude": 78
+    },
+    "widespread": {
+      "startYear": -2000,
+      "label": "Ancient (~2000 BCE)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Revered as the \"King of Fruits\" and the national fruit of India, mango has been cultivated across the subcontinent for over 4,000 years, producing thousands of distinct regional cultivars (Alphonso, Dasheri, Langra, Banganapalli).",
+    "historicalNote": "Praised in the Brihadaranyaka Upanishad; the Buddha was gifted a mango grove in Rajgir by the physician Jivaka as a sanctuary.",
+    "culinaryUsage": "Aamras, mango lassi, kacha aam panna, pickles, and ripe summer feasts.",
+    "route": {
+      "coordinates": [
+        [
+          93,
+          24
+        ],
+        [
+          92.491,
+          23.756
+        ],
+        [
+          91.982,
+          23.514
+        ],
+        [
+          91.472,
+          23.274
+        ],
+        [
+          90.961,
+          23.038
+        ],
+        [
+          90.449,
+          22.807
+        ],
+        [
+          89.935,
+          22.582
+        ],
+        [
+          89.42,
+          22.364
+        ],
+        [
+          88.902,
+          22.153
+        ],
+        [
+          88.382,
+          21.952
+        ],
+        [
+          87.859,
+          21.761
+        ],
+        [
+          87.334,
+          21.579
+        ],
+        [
+          86.805,
+          21.408
+        ],
+        [
+          86.274,
+          21.249
+        ],
+        [
+          85.74,
+          21.1
+        ],
+        [
+          85.203,
+          20.963
+        ],
+        [
+          84.663,
+          20.837
+        ],
+        [
+          84.119,
+          20.722
+        ],
+        [
+          83.573,
+          20.618
+        ],
+        [
+          83.025,
+          20.524
+        ],
+        [
+          82.473,
+          20.439
+        ],
+        [
+          81.92,
+          20.364
+        ],
+        [
+          81.364,
+          20.296
+        ],
+        [
+          80.806,
+          20.235
+        ],
+        [
+          80.247,
+          20.181
+        ],
+        [
+          79.686,
+          20.131
+        ],
+        [
+          79.125,
+          20.085
+        ],
+        [
+          78.563,
+          20.042
+        ],
+        [
+          78,
+          20
+        ]
+      ]
+    }
+  },
+  {
+    "id": "jackfruit",
+    "name": "Jackfruit (Kathal)",
+    "botanicalName": "Artocarpus heterophyllus",
+    "category": "Fruit",
+    "origin": {
+      "region": "Western Ghats Rainforests",
+      "latitude": 11,
+      "longitude": 76
+    },
+    "destinationInIndia": {
+      "region": "Western Ghats & Eastern India",
+      "latitude": 15,
+      "longitude": 74
+    },
+    "widespread": {
+      "startYear": -2000,
+      "label": "Ancient (~2000 BCE)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "The largest tree-borne fruit in the world is indigenous to the rainforests of the Western Ghats. In ancient Tamil Sangam poetry, it was crowned as one of the three royal fruits (\"mukkani\": mango, banana, jackfruit).",
+    "historicalNote": "Green tender jackfruit has functioned as an ancient vegetarian meat substitute in Indian cooking for millennia.",
+    "culinaryUsage": "Raw kathal ki sabzi, Kerala chakka varatti, and deep-fried jackfruit chips.",
+    "route": {
+      "coordinates": [
+        [
+          76,
+          11
+        ],
+        [
+          75.906,
+          11.132
+        ],
+        [
+          75.813,
+          11.263
+        ],
+        [
+          75.72,
+          11.396
+        ],
+        [
+          75.628,
+          11.528
+        ],
+        [
+          75.536,
+          11.661
+        ],
+        [
+          75.447,
+          11.795
+        ],
+        [
+          75.359,
+          11.929
+        ],
+        [
+          75.272,
+          12.065
+        ],
+        [
+          75.188,
+          12.201
+        ],
+        [
+          75.106,
+          12.338
+        ],
+        [
+          75.026,
+          12.477
+        ],
+        [
+          74.948,
+          12.617
+        ],
+        [
+          74.873,
+          12.758
+        ],
+        [
+          74.8,
+          12.9
+        ],
+        [
+          74.73,
+          13.043
+        ],
+        [
+          74.662,
+          13.188
+        ],
+        [
+          74.597,
+          13.334
+        ],
+        [
+          74.534,
+          13.481
+        ],
+        [
+          74.474,
+          13.63
+        ],
+        [
+          74.415,
+          13.779
+        ],
+        [
+          74.359,
+          13.929
+        ],
+        [
+          74.304,
+          14.081
+        ],
+        [
+          74.251,
+          14.233
+        ],
+        [
+          74.199,
+          14.385
+        ],
+        [
+          74.148,
+          14.538
+        ],
+        [
+          74.098,
+          14.692
+        ],
+        [
+          74.049,
+          14.846
+        ],
+        [
+          74,
+          15
+        ]
+      ]
+    }
+  },
+  {
+    "id": "rice",
+    "name": "Rice (Chawal)",
+    "botanicalName": "Oryza sativa indica",
+    "category": "Grain",
+    "origin": {
+      "region": "Gangetic Plain / Lahuradewa & Yangtze",
+      "latitude": 26.5,
+      "longitude": 83
+    },
+    "destinationInIndia": {
+      "region": "Pan-Indian River Basins",
+      "latitude": 22,
+      "longitude": 82
+    },
+    "widespread": {
+      "startYear": -3000,
+      "label": "Neolithic (~3000 BCE / Lahuradewa ~6500 BCE)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Indica rice was independently domesticated along the middle Gangetic plain (evidenced at Lahuradewa, UP). It is the sacred, foundational carbohydrate of South Asian civilization.",
+    "historicalNote": "Vedic scriptures celebrate akshata (unbroken rice grains) as symbols of fertility, life, and abundance in every Hindu rite of passage.",
+    "culinaryUsage": "Steamed rice, biryani, idli, dosa, kheer, and fermented regional batters.",
+    "route": {
+      "coordinates": [
+        [
+          83,
+          26.5
+        ],
+        [
+          82.989,
+          26.334
+        ],
+        [
+          82.979,
+          26.167
+        ],
+        [
+          82.967,
+          26.001
+        ],
+        [
+          82.955,
+          25.835
+        ],
+        [
+          82.941,
+          25.67
+        ],
+        [
+          82.926,
+          25.505
+        ],
+        [
+          82.909,
+          25.34
+        ],
+        [
+          82.89,
+          25.175
+        ],
+        [
+          82.869,
+          25.011
+        ],
+        [
+          82.846,
+          24.848
+        ],
+        [
+          82.82,
+          24.685
+        ],
+        [
+          82.791,
+          24.523
+        ],
+        [
+          82.759,
+          24.361
+        ],
+        [
+          82.725,
+          24.2
+        ],
+        [
+          82.688,
+          24.04
+        ],
+        [
+          82.648,
+          23.88
+        ],
+        [
+          82.605,
+          23.721
+        ],
+        [
+          82.56,
+          23.562
+        ],
+        [
+          82.512,
+          23.404
+        ],
+        [
+          82.462,
+          23.247
+        ],
+        [
+          82.409,
+          23.09
+        ],
+        [
+          82.355,
+          22.933
+        ],
+        [
+          82.298,
+          22.777
+        ],
+        [
+          82.24,
+          22.621
+        ],
+        [
+          82.181,
+          22.466
+        ],
+        [
+          82.121,
+          22.31
+        ],
+        [
+          82.061,
+          22.155
+        ],
+        [
+          82,
+          22
+        ]
+      ]
+    }
+  },
+  {
+    "id": "banana",
+    "name": "Banana & Plantain",
+    "botanicalName": "Musa acuminata / balbisiana",
+    "category": "Fruit",
+    "origin": {
+      "region": "Southeast Asia / Indo-Malayan Archipelago",
+      "latitude": 3.5,
+      "longitude": 101.5
+    },
+    "destinationInIndia": {
+      "region": "Coromandel, Kerala & Assam",
+      "latitude": 10.8,
+      "longitude": 78.6
+    },
+    "widespread": {
+      "startYear": -1500,
+      "label": "Ancient (~1500 BCE)"
+    },
+    "nativeToSubcontinent": false,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Bananas arrived in southern India through early maritime contacts across the Bay of Bengal during the Bronze Age. In South India, every single part of the plant—fruit, flower, stem, and leaf—is consumed or used as sacred tableware.",
+    "historicalNote": "Known as kadali in Sanskrit; served traditionally on fresh green banana leaves (ilayil oonu) across Kerala and Tamil Nadu.",
+    "culinaryUsage": "Banana chips, vazhaipoo (banana blossom) vadai, raw plantain thoran, and ripe fruit offerings.",
+    "route": {
+      "coordinates": [
+        [
+          101.5,
+          3.5
+        ],
+        [
+          100.584,
+          3.453
+        ],
+        [
+          99.669,
+          3.41
+        ],
+        [
+          98.757,
+          3.375
+        ],
+        [
+          97.848,
+          3.351
+        ],
+        [
+          96.945,
+          3.342
+        ],
+        [
+          96.047,
+          3.351
+        ],
+        [
+          95.156,
+          3.382
+        ],
+        [
+          94.272,
+          3.437
+        ],
+        [
+          93.398,
+          3.52
+        ],
+        [
+          92.532,
+          3.631
+        ],
+        [
+          91.677,
+          3.774
+        ],
+        [
+          90.832,
+          3.949
+        ],
+        [
+          89.997,
+          4.159
+        ],
+        [
+          89.174,
+          4.402
+        ],
+        [
+          88.362,
+          4.68
+        ],
+        [
+          87.56,
+          4.992
+        ],
+        [
+          86.77,
+          5.338
+        ],
+        [
+          85.989,
+          5.717
+        ],
+        [
+          85.219,
+          6.127
+        ],
+        [
+          84.458,
+          6.566
+        ],
+        [
+          83.706,
+          7.032
+        ],
+        [
+          82.961,
+          7.522
+        ],
+        [
+          82.223,
+          8.034
+        ],
+        [
+          81.491,
+          8.565
+        ],
+        [
+          80.764,
+          9.11
+        ],
+        [
+          80.041,
+          9.667
+        ],
+        [
+          79.32,
+          10.232
+        ],
+        [
+          78.6,
+          10.8
+        ]
+      ]
+    }
+  },
+  {
+    "id": "sugarcane",
+    "name": "Sugarcane & Jaggery (Gur)",
+    "botanicalName": "Saccharum officinarum / barberi",
+    "category": "Oil & Sweetener",
+    "origin": {
+      "region": "New Guinea & Tropical India",
+      "latitude": 18,
+      "longitude": 84
+    },
+    "destinationInIndia": {
+      "region": "Northern River Basins & Maharashtra",
+      "latitude": 25,
+      "longitude": 82
+    },
+    "widespread": {
+      "startYear": -2000,
+      "label": "Ancient (~2000 BCE)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "India was the birthplace of granulated crystal sugar. While wild canes grew in the tropics, Indian artisans during the Gupta period (~350 CE) pioneered the chemical process of crystallizing sugarcane juice into granulated \"sharkara\" (the etymological root of \"sugar\").",
+    "historicalNote": "The Atharvaveda mentions \"ikshu\" (sugarcane), and Buddhist texts recount traveling Indian merchants who introduced crystalline sugar to China.",
+    "culinaryUsage": "Traditional unrefined gur (jaggery), mithai, payasam, and sugarcane juice.",
+    "route": {
+      "coordinates": [
+        [
+          84,
+          18
+        ],
+        [
+          83.889,
+          18.239
+        ],
+        [
+          83.779,
+          18.478
+        ],
+        [
+          83.67,
+          18.717
+        ],
+        [
+          83.562,
+          18.957
+        ],
+        [
+          83.457,
+          19.197
+        ],
+        [
+          83.353,
+          19.438
+        ],
+        [
+          83.253,
+          19.679
+        ],
+        [
+          83.155,
+          19.922
+        ],
+        [
+          83.061,
+          20.165
+        ],
+        [
+          82.97,
+          20.41
+        ],
+        [
+          82.884,
+          20.656
+        ],
+        [
+          82.802,
+          20.903
+        ],
+        [
+          82.724,
+          21.151
+        ],
+        [
+          82.65,
+          21.4
+        ],
+        [
+          82.581,
+          21.651
+        ],
+        [
+          82.516,
+          21.903
+        ],
+        [
+          82.455,
+          22.156
+        ],
+        [
+          82.399,
+          22.41
+        ],
+        [
+          82.347,
+          22.665
+        ],
+        [
+          82.298,
+          22.922
+        ],
+        [
+          82.253,
+          23.179
+        ],
+        [
+          82.21,
+          23.438
+        ],
+        [
+          82.171,
+          23.697
+        ],
+        [
+          82.134,
+          23.957
+        ],
+        [
+          82.099,
+          24.217
+        ],
+        [
+          82.065,
+          24.478
+        ],
+        [
+          82.032,
+          24.739
+        ],
+        [
+          82,
+          25
+        ]
+      ]
+    }
+  },
+  {
+    "id": "sesame",
+    "name": "Sesame (Til)",
+    "botanicalName": "Sesamum indicum",
+    "category": "Nut & Seed",
+    "origin": {
+      "region": "Indus Valley / Subcontinent",
+      "latitude": 27.5,
+      "longitude": 69.5
+    },
+    "destinationInIndia": {
+      "region": "Indus Valley & Pan-India",
+      "latitude": 24,
+      "longitude": 76
+    },
+    "widespread": {
+      "startYear": -2500,
+      "label": "Harappan Civilisation (~2500 BCE)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "One of humanity’s oldest cultivated oilseeds. The Sanskrit word for oil, \"taila\", is directly derived from \"tila\" (sesame), testifying that sesame was the primordial cooking oil of ancient India.",
+    "historicalNote": "Charred sesame seeds have been recovered from Harappa and Mohenjo-daro excavations; til remains sacred in Hindu shraddha ancestral rituals.",
+    "culinaryUsage": "Gingelly (sesame) oil, til ladoos, Makar Sankranti sweets, and spice powders (milagai podi).",
+    "route": {
+      "coordinates": [
+        [
+          69.5,
+          27.5
+        ],
+        [
+          69.752,
+          27.411
+        ],
+        [
+          70.003,
+          27.322
+        ],
+        [
+          70.254,
+          27.232
+        ],
+        [
+          70.505,
+          27.141
+        ],
+        [
+          70.754,
+          27.048
+        ],
+        [
+          71.002,
+          26.953
+        ],
+        [
+          71.249,
+          26.855
+        ],
+        [
+          71.494,
+          26.754
+        ],
+        [
+          71.737,
+          26.65
+        ],
+        [
+          71.979,
+          26.543
+        ],
+        [
+          72.219,
+          26.432
+        ],
+        [
+          72.456,
+          26.317
+        ],
+        [
+          72.692,
+          26.198
+        ],
+        [
+          72.925,
+          26.075
+        ],
+        [
+          73.156,
+          25.948
+        ],
+        [
+          73.385,
+          25.817
+        ],
+        [
+          73.612,
+          25.682
+        ],
+        [
+          73.836,
+          25.543
+        ],
+        [
+          74.059,
+          25.4
+        ],
+        [
+          74.28,
+          25.254
+        ],
+        [
+          74.499,
+          25.105
+        ],
+        [
+          74.716,
+          24.953
+        ],
+        [
+          74.932,
+          24.798
+        ],
+        [
+          75.147,
+          24.641
+        ],
+        [
+          75.361,
+          24.482
+        ],
+        [
+          75.575,
+          24.322
+        ],
+        [
+          75.787,
+          24.161
+        ],
+        [
+          76,
+          24
+        ]
+      ]
+    }
+  },
+  {
+    "id": "mustard-seed",
+    "name": "Mustard Seed (Sarson)",
+    "botanicalName": "Brassica juncea / nigra",
+    "category": "Spice",
+    "origin": {
+      "region": "Himalayan Foothills & Subcontinent",
+      "latitude": 30.5,
+      "longitude": 77
+    },
+    "destinationInIndia": {
+      "region": "Bengal, Punjab & Eastern India",
+      "latitude": 24,
+      "longitude": 86
+    },
+    "widespread": {
+      "startYear": -2500,
+      "label": "Harappan Civilisation (~2500 BCE)"
+    },
+    "nativeToSubcontinent": true,
+    "confidence": "high",
+    "illustration": null,
+    "description": "Found in abundance at Chanhu-daro and Harappan sites, mustard seeds and pungent mustard oil have seasoned eastern and northern Indian fare for millennia.",
+    "historicalNote": "Sarson is immortalized in the famous Buddhist parable of Kisa Gotami, where the Buddha asks her to fetch a handful of mustard seeds from a house that had never witnessed death.",
+    "culinaryUsage": "Sarson ka saag, Bengali shorshe maach (mustard fish), and crackling tadka seeds.",
+    "route": {
+      "coordinates": [
+        [
+          77,
+          30.5
+        ],
+        [
+          77.358,
+          30.318
+        ],
+        [
+          77.715,
+          30.136
+        ],
+        [
+          78.072,
+          29.952
+        ],
+        [
+          78.427,
+          29.767
+        ],
+        [
+          78.78,
+          29.579
+        ],
+        [
+          79.131,
+          29.388
+        ],
+        [
+          79.48,
+          29.193
+        ],
+        [
+          79.826,
+          28.995
+        ],
+        [
+          80.168,
+          28.792
+        ],
+        [
+          80.507,
+          28.584
+        ],
+        [
+          80.842,
+          28.371
+        ],
+        [
+          81.174,
+          28.153
+        ],
+        [
+          81.502,
+          27.929
+        ],
+        [
+          81.825,
+          27.7
+        ],
+        [
+          82.144,
+          27.465
+        ],
+        [
+          82.46,
+          27.224
+        ],
+        [
+          82.771,
+          26.978
+        ],
+        [
+          83.079,
+          26.727
+        ],
+        [
+          83.382,
+          26.47
+        ],
+        [
+          83.683,
+          26.209
+        ],
+        [
+          83.98,
+          25.943
+        ],
+        [
+          84.274,
+          25.673
+        ],
+        [
+          84.566,
+          25.4
+        ],
+        [
+          84.855,
+          25.124
+        ],
+        [
+          85.143,
+          24.845
+        ],
+        [
+          85.429,
+          24.564
+        ],
+        [
+          85.715,
+          24.283
+        ],
+        [
+          86,
+          24
+        ]
+      ]
+    }
+  }
+]
