@@ -11,7 +11,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/rice.png"
   },
   {
     "id": "wheat",
@@ -25,7 +25,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/wheat.png"
   },
   {
     "id": "barley",
@@ -39,7 +39,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/barley.png"
   },
   {
     "id": "sorghum-jowar",
@@ -53,7 +53,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/sorghum-jowar.png"
   },
   {
     "id": "pearl-millet-bajra",
@@ -67,7 +67,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/pearl-millet-bajra.png"
   },
   {
     "id": "finger-millet-ragi",
@@ -81,7 +81,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/finger-millet-ragi.png"
   },
   {
     "id": "little-millet-kutki",
@@ -95,7 +95,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/little-millet-kutki.png"
   },
   {
     "id": "kodo-millet",
@@ -109,7 +109,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/kodo-millet.png"
   },
   {
     "id": "foxtail-millet",
@@ -123,7 +123,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/foxtail-millet.png"
   },
   {
     "id": "barnyard-millet",
@@ -137,7 +137,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/barnyard-millet.png"
   },
   {
     "id": "proso-millet",
@@ -151,7 +151,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/proso-millet.png"
   },
   {
     "id": "maize-corn",
@@ -165,7 +165,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/maize-corn.png"
   },
   {
     "id": "amaranth-grain-rajgira",
@@ -179,7 +179,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/amaranth-grain-rajgira.png"
   },
   {
     "id": "chickpea-chana",
@@ -193,7 +193,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/chickpea-chana.png"
   },
   {
     "id": "lentil-masoor",
@@ -207,7 +207,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/lentil-masoor.png"
   },
   {
     "id": "field-pea-matar",
@@ -221,7 +221,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/field-pea-matar.png"
   },
   {
     "id": "green-gram-moong",
@@ -235,7 +235,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/green-gram-moong.png"
   },
   {
     "id": "black-gram-urad",
@@ -249,7 +249,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/black-gram-urad.png"
   },
   {
     "id": "pigeon-pea-toor-arhar",
@@ -263,7 +263,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/pigeon-pea-toor-arhar.png"
   },
   {
     "id": "moth-bean-matki",
@@ -277,7 +277,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/moth-bean-matki.png"
   },
   {
     "id": "horse-gram-kulthi",
@@ -291,7 +291,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/horse-gram-kulthi.png"
   },
   {
     "id": "cowpea-lobia",
@@ -305,7 +305,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/cowpea-lobia.png"
   },
   {
     "id": "hyacinth-bean-avarekai-sem",
@@ -319,7 +319,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/hyacinth-bean-avarekai-sem.png"
   },
   {
     "id": "rice-bean",
@@ -333,7 +333,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/rice-bean.png"
   },
   {
     "id": "cluster-bean-guar",
@@ -347,7 +347,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/cluster-bean-guar.png"
   },
   {
     "id": "common-bean-french-bean",
@@ -361,7 +361,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/common-bean-french-bean.png"
   },
   {
     "id": "kidney-bean-rajma",
@@ -375,7 +375,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/kidney-bean-rajma.png"
   },
   {
     "id": "soybean",
@@ -389,7 +389,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/soybean.png"
   },
   {
     "id": "potato-aloo",
@@ -403,7 +403,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/potato-aloo.png"
   },
   {
     "id": "sweet-potato",
@@ -417,7 +417,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/sweet-potato.png"
   },
   {
     "id": "cassava-tapioca",
@@ -431,7 +431,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/cassava-tapioca.png"
   },
   {
     "id": "tomato",
@@ -445,7 +445,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/tomato.png"
   },
   {
     "id": "chilli-pepper",
@@ -459,7 +459,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/chilli-pepper.png"
   },
   {
     "id": "bell-pepper-capsicum",
@@ -473,7 +473,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/bell-pepper-capsicum.png"
   },
   {
     "id": "pumpkin-american-squash",
@@ -487,7 +487,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/pumpkin-american-squash.png"
   },
   {
     "id": "cucumber",
@@ -501,7 +501,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/cucumber.png"
   },
   {
     "id": "brinjal-eggplant",
@@ -515,7 +515,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/brinjal-eggplant.png"
   },
   {
     "id": "okra-bhindi",
@@ -529,7 +529,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/okra-bhindi.png"
   },
   {
     "id": "onion",
@@ -543,7 +543,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/onion.png"
   },
   {
     "id": "garlic",
@@ -557,7 +557,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/garlic.png"
   },
   {
     "id": "ginger",
@@ -571,7 +571,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/ginger.png"
   },
   {
     "id": "turmeric",
@@ -585,7 +585,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/turmeric.png"
   },
   {
     "id": "taro-arbi",
@@ -599,7 +599,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/taro-arbi.png"
   },
   {
     "id": "greater-yam-ratalu",
@@ -613,7 +613,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/greater-yam-ratalu.png"
   },
   {
     "id": "elephant-foot-yam-suran",
@@ -627,7 +627,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/elephant-foot-yam-suran.png"
   },
   {
     "id": "green-peas",
@@ -641,7 +641,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/green-peas.png"
   },
   {
     "id": "radish",
@@ -655,7 +655,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/radish.png"
   },
   {
     "id": "carrot",
@@ -669,7 +669,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/carrot.png"
   },
   {
     "id": "turnip",
@@ -683,7 +683,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/turnip.png"
   },
   {
     "id": "cabbage",
@@ -697,7 +697,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/cabbage.png"
   },
   {
     "id": "cauliflower",
@@ -711,7 +711,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/cauliflower.png"
   },
   {
     "id": "broccoli",
@@ -725,7 +725,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/broccoli.png"
   },
   {
     "id": "beetroot",
@@ -739,7 +739,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/beetroot.png"
   },
   {
     "id": "spinach-palak",
@@ -753,7 +753,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/spinach-palak.png"
   },
   {
     "id": "amaranth-greens-chaulai",
@@ -767,7 +767,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/amaranth-greens-chaulai.png"
   },
   {
     "id": "mustard-greens-sarson",
@@ -781,7 +781,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/mustard-greens-sarson.png"
   },
   {
     "id": "fenugreek-leaves-methi",
@@ -795,7 +795,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/fenugreek-leaves-methi.png"
   },
   {
     "id": "moringa-drumstick-pods",
@@ -809,7 +809,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/moringa-drumstick-pods.png"
   },
   {
     "id": "bottle-gourd-lauki",
@@ -823,7 +823,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/bottle-gourd-lauki.png"
   },
   {
     "id": "bitter-gourd-karela",
@@ -837,7 +837,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/bitter-gourd-karela.png"
   },
   {
     "id": "ridge-gourd-turai",
@@ -851,7 +851,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/ridge-gourd-turai.png"
   },
   {
     "id": "snake-gourd-padwal",
@@ -865,7 +865,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/snake-gourd-padwal.png"
   },
   {
     "id": "ash-gourd-winter-melon",
@@ -879,7 +879,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/ash-gourd-winter-melon.png"
   },
   {
     "id": "mango",
@@ -893,7 +893,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/mango.png"
   },
   {
     "id": "banana",
@@ -907,7 +907,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/banana.png"
   },
   {
     "id": "jackfruit",
@@ -921,7 +921,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/jackfruit.png"
   },
   {
     "id": "jamun",
@@ -935,7 +935,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/jamun.png"
   },
   {
     "id": "amla-indian-gooseberry",
@@ -949,7 +949,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/amla-indian-gooseberry.png"
   },
   {
     "id": "bael",
@@ -963,7 +963,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/bael.png"
   },
   {
     "id": "wood-apple-kaitha",
@@ -977,7 +977,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/wood-apple-kaitha.png"
   },
   {
     "id": "ber-indian-jujube",
@@ -991,7 +991,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/ber-indian-jujube.png"
   },
   {
     "id": "karonda",
@@ -1005,7 +1005,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/karonda.png"
   },
   {
     "id": "kokum",
@@ -1019,7 +1019,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/kokum.png"
   },
   {
     "id": "tamarind",
@@ -1033,7 +1033,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/tamarind.png"
   },
   {
     "id": "pomegranate",
@@ -1047,7 +1047,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/pomegranate.png"
   },
   {
     "id": "dates",
@@ -1061,7 +1061,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/dates.png"
   },
   {
     "id": "fig",
@@ -1075,7 +1075,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/fig.png"
   },
   {
     "id": "grapes",
@@ -1089,7 +1089,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/grapes.png"
   },
   {
     "id": "apple",
@@ -1103,7 +1103,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/apple.png"
   },
   {
     "id": "pear",
@@ -1117,7 +1117,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/pear.png"
   },
   {
     "id": "peach",
@@ -1131,7 +1131,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/peach.png"
   },
   {
     "id": "apricot",
@@ -1145,7 +1145,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/apricot.png"
   },
   {
     "id": "plum",
@@ -1159,7 +1159,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/plum.png"
   },
   {
     "id": "watermelon",
@@ -1173,7 +1173,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/watermelon.png"
   },
   {
     "id": "muskmelon-kharbuja",
@@ -1187,7 +1187,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/muskmelon-kharbuja.png"
   },
   {
     "id": "sweet-orange",
@@ -1201,7 +1201,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/sweet-orange.png"
   },
   {
     "id": "mandarin",
@@ -1215,7 +1215,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/mandarin.png"
   },
   {
     "id": "lemon",
@@ -1229,7 +1229,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/lemon.png"
   },
   {
     "id": "lime",
@@ -1243,7 +1243,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/lime.png"
   },
   {
     "id": "pomelo",
@@ -1257,7 +1257,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/pomelo.png"
   },
   {
     "id": "coconut",
@@ -1271,7 +1271,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/coconut.png"
   },
   {
     "id": "guava",
@@ -1285,7 +1285,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/guava.png"
   },
   {
     "id": "papaya",
@@ -1299,7 +1299,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/papaya.png"
   },
   {
     "id": "pineapple",
@@ -1313,7 +1313,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/pineapple.png"
   },
   {
     "id": "custard-apple-sitaphal",
@@ -1327,7 +1327,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/custard-apple-sitaphal.png"
   },
   {
     "id": "sapodilla-chikoo",
@@ -1341,7 +1341,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/sapodilla-chikoo.png"
   },
   {
     "id": "avocado",
@@ -1355,7 +1355,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/avocado.png"
   },
   {
     "id": "strawberry",
@@ -1369,7 +1369,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/strawberry.png"
   },
   {
     "id": "black-pepper",
@@ -1383,7 +1383,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/black-pepper.png"
   },
   {
     "id": "long-pepper-pippali",
@@ -1397,7 +1397,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/long-pepper-pippali.png"
   },
   {
     "id": "green-cardamom",
@@ -1411,7 +1411,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/green-cardamom.png"
   },
   {
     "id": "black-large-cardamom",
@@ -1425,7 +1425,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/black-large-cardamom.png"
   },
   {
     "id": "cinnamon",
@@ -1439,7 +1439,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/cinnamon.png"
   },
   {
     "id": "cassia",
@@ -1453,7 +1453,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/cassia.png"
   },
   {
     "id": "clove",
@@ -1467,7 +1467,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/clove.png"
   },
   {
     "id": "nutmeg",
@@ -1481,7 +1481,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/nutmeg.png"
   },
   {
     "id": "mace",
@@ -1495,7 +1495,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/mace.png"
   },
   {
     "id": "cumin",
@@ -1509,7 +1509,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/cumin.png"
   },
   {
     "id": "coriander-seed",
@@ -1523,7 +1523,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/coriander-seed.png"
   },
   {
     "id": "fennel",
@@ -1537,7 +1537,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/fennel.png"
   },
   {
     "id": "fenugreek-seed",
@@ -1551,7 +1551,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/fenugreek-seed.png"
   },
   {
     "id": "mustard-seed",
@@ -1565,7 +1565,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/mustard-seed.png"
   },
   {
     "id": "ajwain-carom",
@@ -1579,7 +1579,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/ajwain-carom.png"
   },
   {
     "id": "nigella-kalonji",
@@ -1593,7 +1593,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/nigella-kalonji.png"
   },
   {
     "id": "asafoetida-hing",
@@ -1607,7 +1607,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/asafoetida-hing.png"
   },
   {
     "id": "saffron",
@@ -1621,7 +1621,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "low",
-    "illustration": null
+    "illustration": "/ingredients/saffron.png"
   },
   {
     "id": "star-anise",
@@ -1635,7 +1635,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/star-anise.png"
   },
   {
     "id": "caraway",
@@ -1649,7 +1649,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/caraway.png"
   },
   {
     "id": "aniseed",
@@ -1663,7 +1663,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/aniseed.png"
   },
   {
     "id": "poppy-seed",
@@ -1677,7 +1677,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/poppy-seed.png"
   },
   {
     "id": "indian-bay-leaf-tejpat",
@@ -1691,7 +1691,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/indian-bay-leaf-tejpat.png"
   },
   {
     "id": "vanilla",
@@ -1705,7 +1705,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/vanilla.png"
   },
   {
     "id": "sesame-til",
@@ -1719,7 +1719,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/sesame-til.png"
   },
   {
     "id": "cashew",
@@ -1733,7 +1733,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/cashew.png"
   },
   {
     "id": "peanut-groundnut",
@@ -1747,7 +1747,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/peanut-groundnut.png"
   },
   {
     "id": "almond",
@@ -1761,7 +1761,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/almond.png"
   },
   {
     "id": "walnut",
@@ -1775,7 +1775,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/walnut.png"
   },
   {
     "id": "pistachio",
@@ -1789,7 +1789,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/pistachio.png"
   },
   {
     "id": "areca-nut-supari",
@@ -1803,7 +1803,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/areca-nut-supari.png"
   },
   {
     "id": "pine-nut-chilgoza",
@@ -1817,7 +1817,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/pine-nut-chilgoza.png"
   },
   {
     "id": "sunflower-seed",
@@ -1831,7 +1831,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/sunflower-seed.png"
   },
   {
     "id": "flaxseed-linseed",
@@ -1845,7 +1845,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/flaxseed-linseed.png"
   },
   {
     "id": "safflower-seed",
@@ -1859,7 +1859,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/safflower-seed.png"
   },
   {
     "id": "mint",
@@ -1873,7 +1873,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/mint.png"
   },
   {
     "id": "basil-tulsi",
@@ -1887,7 +1887,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/basil-tulsi.png"
   },
   {
     "id": "lemongrass",
@@ -1901,7 +1901,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/lemongrass.png"
   },
   {
     "id": "dill",
@@ -1915,7 +1915,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/dill.png"
   },
   {
     "id": "curry-leaves",
@@ -1929,7 +1929,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/curry-leaves.png"
   },
   {
     "id": "makhana-fox-nut",
@@ -1943,7 +1943,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/makhana-fox-nut.png"
   },
   {
     "id": "lotus-seeds",
@@ -1957,7 +1957,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/lotus-seeds.png"
   },
   {
     "id": "water-chestnut-singhara",
@@ -1971,7 +1971,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/water-chestnut-singhara.png"
   },
   {
     "id": "betel-leaf",
@@ -1985,7 +1985,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/betel-leaf.png"
   },
   {
     "id": "coriander-leaves-cilantro",
@@ -1999,7 +1999,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/coriander-leaves-cilantro.png"
   },
   {
     "id": "oregano",
@@ -2013,7 +2013,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/oregano.png"
   },
   {
     "id": "parsley",
@@ -2027,7 +2027,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/parsley.png"
   },
   {
     "id": "coffee",
@@ -2041,7 +2041,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/coffee.png"
   },
   {
     "id": "tea",
@@ -2055,7 +2055,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/tea.png"
   },
   {
     "id": "sugarcane",
@@ -2069,7 +2069,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/sugarcane.png"
   },
   {
     "id": "jaggery",
@@ -2083,7 +2083,7 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "high",
-    "illustration": null
+    "illustration": "/ingredients/jaggery.png"
   },
   {
     "id": "cocoa-cacao",
@@ -2097,6 +2097,6 @@
       "simulationYearNote": "Approximate visualization anchor; not an exact historical date."
     },
     "confidence": "medium",
-    "illustration": null
+    "illustration": "/ingredients/cocoa-cacao.png"
   }
 ]

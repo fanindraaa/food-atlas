@@ -1,0 +1,167 @@
+{
+  "styleName": "painted-editorial-food-illustration",
+  "version": "1.0",
+  "purpose": "Master style specification for a consistent set of 150 food and ingredient illustrations.",
+  "creativeDirection": {
+    "description": "Hand-painted editorial food illustrations inspired by vintage illustrated cookbooks and food atlases, with a contemporary cut-out collage sensibility.",
+    "referenceStyle": "Use the supplied reference images as the visual style anchor without copying any specific composition.",
+    "keywords": [
+      "hand-painted",
+      "gouache",
+      "colored pencil",
+      "editorial",
+      "tactile",
+      "slightly naive",
+      "natural",
+      "cookbook illustration"
+    ]
+  },
+  "painting": {
+    "medium": [
+      "gouache",
+      "colored pencil",
+      "opaque watercolor"
+    ],
+    "texture": [
+      "visible brush texture",
+      "subtle pigment variation",
+      "slightly uneven paint coverage",
+      "tactile hand-painted surface"
+    ],
+    "edges": [
+      "slightly imperfect painted edges",
+      "organic contours",
+      "small natural irregularities"
+    ],
+    "shading": "Painterly tonal variation and restrained soft shadows; never photographic rendering.",
+    "detailLevel": "Medium to high, prioritizing recognizable culinary and botanical characteristics."
+  },
+  "subjectTreatment": {
+    "primaryRule": "The ingredient must be immediately recognizable and remain the clear visual hero.",
+    "proportions": "Slightly naive or simplified proportions are desirable when they reinforce the illustrated cookbook character.",
+    "naturalVariation": "Preserve believable natural variation in shape, skin, texture, seeds, leaves, fibers, stems, and surface imperfections.",
+    "cutForms": "When useful, show a naturally cut, peeled, split, cracked, opened, or sliced section.",
+    "avoid": [
+      "photorealism",
+      "3D rendering",
+      "plastic-looking surfaces",
+      "glossy product photography",
+      "generic stock illustration",
+      "flat vector geometry"
+    ]
+  },
+  "composition": {
+    "default": "Single centered hero ingredient, isolated from its environment.",
+    "scale": "Large and clearly recognizable with comfortable transparent margins.",
+    "orientation": "Most informative natural orientation, generally front-facing or three-quarter view.",
+    "overlap": "Small overlaps between naturally related ingredient parts are allowed.",
+    "grounding": "No ground plane or environmental scene. A very subtle painted contact shadow is allowed only when it remains isolated on transparency.",
+    "symmetry": "Preserve natural organic asymmetry.",
+    "cropping": "Do not crop the main ingredient unless intentionally revealing internal structure."
+  },
+  "background": {
+    "type": "transparent",
+    "alpha": true,
+    "required": true,
+    "backgroundColor": null,
+    "rule": "Absolutely no white, cream, beige, paper, table, wall, landscape, or environmental background.",
+    "shadowRule": "Any painted shadow must also be isolated on transparency.",
+    "edgeQuality": "Clean alpha separation while preserving organic painted contours."
+  },
+  "color": {
+    "palette": "Rich, natural ingredient colors inspired by the supplied references.",
+    "saturation": "Lively and moderately rich, never neon.",
+    "colorVariation": "Subtle hue and value variation inside painted forms.",
+    "blackUsage": "Avoid heavy black outlines; use darker versions of local colors.",
+    "backgroundColor": "none; transparent"
+  },
+  "linework": {
+    "outline": "Avoid uniform vector outlines.",
+    "definition": "Use painted edges, brush marks, pigment boundaries, and selective darker strokes.",
+    "lineWeight": "Organic and variable."
+  },
+  "lighting": {
+    "style": "Illustrated lighting rather than photographic lighting.",
+    "contrast": "Moderate and readable.",
+    "highlights": "Painted and restrained.",
+    "shadows": "Soft, subtle, painterly, and integrated into the ingredient."
+  },
+  "consistencyRules": [
+    "All 150 images must look like they belong to the same illustrated cookbook or food atlas.",
+    "Keep the same painting medium, edge treatment, color behavior, and simplification level throughout.",
+    "Let each ingredient retain its natural colors and structure while keeping the illustration language consistent.",
+    "Prefer recognizable natural forms over decorative compositions.",
+    "Keep every subject isolated on transparency.",
+    "Do not introduce scene-specific backgrounds or props."
+  ],
+  "promptTemplate": {
+    "template": "A hand-painted editorial illustration of {INGREDIENT}. Vintage illustrated cookbook and food atlas aesthetic, gouache and colored-pencil painting, tactile hand-painted texture, visible brushwork, slightly imperfect painted edges, organic contours, rich natural ingredient colors, subtle pigment variation, charmingly naive proportions, restrained painterly shading, natural asymmetry, clear recognizable anatomy. Show {VISUAL_FORM}. Isolated single hero subject, large and centered, informative natural orientation, clean transparent background, transparent alpha. Any optional contact shadow must also be isolated on transparency. The final image should feel like one illustration from a cohesive hand-painted food atlas.",
+    "visualFormExamples": [
+      "whole ingredient",
+      "whole ingredient with a natural cut section",
+      "root with a small amount of attached stem",
+      "pod opened to reveal seeds",
+      "fruit with one cut half",
+      "spice with its natural plant form when useful",
+      "grain or seed shown in a small natural cluster"
+    ]
+  },
+  "negativePrompt": [
+    "photorealistic",
+    "photography",
+    "3D render",
+    "CGI",
+    "vector art",
+    "flat vector illustration",
+    "anime",
+    "hyper-realistic",
+    "glossy commercial product image",
+    "plastic texture",
+    "metallic texture",
+    "heavy black outline",
+    "uniform vector outline",
+    "perfect geometric symmetry",
+    "neon colors",
+    "white background",
+    "cream background",
+    "beige background",
+    "paper background",
+    "table",
+    "kitchen",
+    "plate",
+    "bowl",
+    "utensils",
+    "packaging",
+    "labels",
+    "text",
+    "typography",
+    "logo",
+    "watermark",
+    "people",
+    "hands",
+    "scenery",
+    "decorative props",
+    "opaque shadow",
+    "opaque backdrop"
+  ],
+  "technicalOutput": {
+    "format": "PNG",
+    "recommendedColorMode": "RGBA",
+    "transparencyRequired": true,
+    "alphaChannelRequired": true,
+    "background": "fully transparent",
+    "recommendedCanvas": "1024x1024",
+    "webOptimization": "Convert to WebP only after verifying that transparency and edge quality are preserved."
+  },
+  "qualityChecklist": [
+    "Background is genuinely transparent, not white.",
+    "Ingredient is immediately recognizable.",
+    "Image looks hand-painted rather than photographic or vector-based.",
+    "Edges are organic and slightly imperfect.",
+    "Colors are rich and natural.",
+    "Ingredient is the clear hero.",
+    "No text, labels, props, people, or environmental elements.",
+    "Image belongs visually with the other illustrations.",
+    "Alpha edges have no white or colored halo."
+  ]
+}

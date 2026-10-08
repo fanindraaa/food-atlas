@@ -146,8 +146,17 @@ export default function IngredientCatalogue({
                   }`}
                 >
                   <div className="flex items-start gap-2.5">
-                    {/* Small square indicator instead of circular dot */}
-                    <span className="mt-1 h-2 w-2 shrink-0 bg-neutral-900" />
+                    {ing.illustration ? (
+                      <div className="mt-0.5 h-8 w-8 shrink-0 overflow-hidden rounded-[2px] border border-neutral-300 bg-neutral-50 p-0.5">
+                        <img
+                          src={ing.illustration}
+                          alt={ing.name}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <span className="mt-1 h-2 w-2 shrink-0 bg-neutral-900" />
+                    )}
 
                     <div>
                       <div className="flex items-center gap-2">

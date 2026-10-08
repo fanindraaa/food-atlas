@@ -1,0 +1,25 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <ellipse cx="512" cy="760" rx="230" ry="24" fill="#2B2620" opacity="0.12"/>
+  
+      <g transform="translate(512, 480)">
+        <!-- Whole nut / shell -->
+        <g transform="translate(40, -20) rotate(-14)">
+          <path d="M -120,-160 C 20,-200 140,-150 170,-40 C 190,70 140,180 40,210 C -60,230 -160,170 -180,60 C -190,-40 -160,-130 -120,-160 Z"
+                fill="#D9452E" stroke="#2B1A0E" stroke-width="3"/>
+          <path d="M -100,-140 C 20,-175 120,-130 145,-35 C 160,55 120,150 35,175 C -10,130 -40,30 -70,-60 Z"
+                fill="#E8D5B5" stroke="#D9452E" stroke-width="2"/>
+          <!-- Shell furrow texture -->
+          <path d="M -10,-170 Q -40,20 10,195" stroke="#2B1A0E" stroke-width="3" fill="none" opacity="0.6"/>
+          <path d="M 40,-150 Q 10,20 60,180" stroke="#2B1A0E" stroke-width="2.5" fill="none" opacity="0.5"/>
+        </g>
+        <!-- Extracted edible kernel -->
+        <g transform="translate(-120, 80) rotate(18)">
+          <ellipse cx="0" cy="0" rx="110" ry="85" fill="#E8D5B5" stroke="#2B1A0E" stroke-width="3"/>
+          <ellipse cx="-4" cy="-3" rx="92" ry="70" fill="#FFF2D6" stroke="#E8D5B5" stroke-width="2.5"/>
+          <path d="M -50,-10 Q 0,-30 50,-10" stroke="#D9452E" stroke-width="3" fill="none" opacity="0.6"/>
+          <path d="M -35,20 Q 5,5 40,25" stroke="#D9452E" stroke-width="2.5" fill="none" opacity="0.5"/>
+        </g>
+      </g>
+    
+</svg>

@@ -145,7 +145,7 @@ html,
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: "Timeless", serif; /* 4 */
+  font-family: "Timeless Sans", "Timeless", sans-serif; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
@@ -225,7 +225,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: "Timeless", serif; /* 1 */
+  font-family: "Timeless Sans", "Timeless", sans-serif; /* 1 */
   font-feature-settings: normal; /* 2 */
   font-variation-settings: normal; /* 3 */
   font-size: 1em; /* 4 */
@@ -757,6 +757,9 @@ video {
 .w-6 {
   width: 1.5rem;
 }
+.w-8 {
+  width: 2rem;
+}
 .w-\[1px\] {
   width: 1px;
 }
@@ -897,6 +900,9 @@ video {
 }
 .rounded {
   border-radius: 0.25rem;
+}
+.rounded-\[2px\] {
+  border-radius: 2px;
 }
 .rounded-\[3px\] {
   border-radius: 3px;
@@ -1105,7 +1111,7 @@ video {
   text-align: right;
 }
 .font-serif {
-  font-family: "Timeless", serif;
+  font-family: "Timeless Sans", "Timeless", sans-serif;
 }
 .text-2xl {
   font-size: 28px;
@@ -1218,6 +1224,10 @@ video {
 }
 .blur-\[1px\] {
   --tw-blur: blur(1px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.drop-shadow-sm {
+  --tw-drop-shadow: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .grayscale {

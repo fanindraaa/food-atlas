@@ -1,0 +1,36 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <ellipse cx="512" cy="760" rx="230" ry="24" fill="#2B2620" opacity="0.12"/>
+  
+      <g transform="translate(512, 480)">
+        <!-- Main spice hero piece -->
+        <g transform="rotate(-15)">
+          <path d="M -80,-210 C 60,-180 110,-50 90,80 C 70,190 -10,240 -60,250 C -110,230 -140,140 -130,20 C -120,-90 -100,-180 -80,-210 Z"
+                fill="#1F1E21" stroke="#38363B" stroke-width="3"/>
+          <!-- Ribs / striations -->
+          <path d="M -70,-200 Q 20,20 -50,240" stroke="#38363B" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M -70,-200 Q 60,20 -20,240" stroke="#38363B" stroke-width="2.5" fill="none" opacity="0.6"/>
+          <path d="M -70,-200 Q -30,20 -80,240" stroke="#FFF" stroke-width="2" fill="none" opacity="0.4"/>
+          <!-- Stem attachment -->
+          <path d="M -85,248 Q -95,280 -80,295 Q -70,275 -75,248 Z" fill="#523B22" stroke="#332212" stroke-width="2"/>
+        </g>
+        <!-- Secondary opened piece or scattered spice grains -->
+        <g transform="translate(-100, 70) rotate(35)">
+          <path d="M -40,-90 C 20,-70 50,-10 40,50 C 30,100 0,130 -30,140 C -10,90 0,30 -15,-30 Z" fill="#1F1E21" stroke="#38363B" stroke-width="2.5"/>
+          <path d="M -35,-80 C 5,-50 15,-10 5,45 C -5,75 -15,95 -25,105 C -15,70 -10,25 -20,-30 Z" fill="#E8DEC5" opacity="0.9"/>
+          <!-- Aromatic dark spice seeds -->
+          <circle cx="-10" cy="-5" r="14" fill="#38363B" stroke="#1F130B" stroke-width="1.8"/>
+          <circle cx="5" cy="12" r="13" fill="#38363B" stroke="#1F130B" stroke-width="1.8"/>
+          <circle cx="-12" cy="28" r="14" fill="#38363B" stroke="#1F130B" stroke-width="1.8"/>
+          <circle cx="2" cy="45" r="13" fill="#38363B" stroke="#1F130B" stroke-width="1.8"/>
+          <circle cx="-8" cy="62" r="12" fill="#38363B" stroke="#1F130B" stroke-width="1.8"/>
+        </g>
+        <!-- Foreground individual seeds -->
+        <g transform="translate(40, 160)">
+          <ellipse cx="0" cy="0" rx="14" ry="10" fill="#38363B" stroke="#1A0F08" stroke-width="2" transform="rotate(-15)"/>
+          <ellipse cx="30" cy="12" rx="13" ry="9" fill="#38363B" stroke="#1A0F08" stroke-width="2" transform="rotate(25)"/>
+          <ellipse cx="55" cy="-5" rx="11" ry="8" fill="#38363B" stroke="#1A0F08" stroke-width="2" transform="rotate(-30)"/>
+        </g>
+      </g>
+    
+</svg>

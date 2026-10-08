@@ -25,7 +25,7 @@ export default function IngredientIllustration({
         <img
           src={src}
           alt={`Botanical illustration of ${name}`}
-          className="h-full w-full object-contain filter grayscale contrast-110"
+          className="h-full w-full object-contain drop-shadow-sm transition-transform duration-200"
         />
       ) : (
         /* Empty archival botanical plate placeholder with precision registration ticks */

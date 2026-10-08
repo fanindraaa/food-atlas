@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "next start"
+    "start": "next start",
+    "generate:illustrations": "node scripts/render_all_specimens.mjs",
+    "generate:ai-illustrations": "node scripts/generate_ai_illustrations.mjs"
   },
   "keywords": [],
   "author": "",
