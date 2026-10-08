@@ -35,7 +35,7 @@ export default function Header({
       <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pointer-events-auto">
         {/* Floating Editorial Masthead */}
         <div className="flex flex-col">
-          <h1 className="font-serif text-[24px] sm:text-[30px] font-semibold text-neutral-900 leading-none tracking-tight">
+          <h1 className="font-sans text-[24px] sm:text-[30px] font-semibold text-neutral-900 leading-none tracking-tight">
             The Food Atlas
           </h1>
           <p className="font-sans text-[13px] font-medium text-neutral-500 mt-1">

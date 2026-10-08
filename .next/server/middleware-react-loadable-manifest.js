@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST='{"app/page.tsx -> @/map/FoodMap":{"id":2624,"files":["static/chunks/624.17e9e3bb325d55db.js"]}}';

@@ -1,19 +1,8 @@
-# The Journey of Food (ਭਾਰਤ ਦਾ ਭੋਜਨ ਸਫ਼ਰ / भारत की खानपान यात्रा)
+# The Journey of Food
 
 An interactive historical, botanical, and cartographic single-page web experience exploring how ingredients traveled across oceans, Silk Roads, and ancient maritime trade networks to become part of India's culinary identity over 5,000 years of history.
 
 > **"Move backward through time and watch India's pantry change."**
-
----
-
-## 🌾 Design Philosophy
-
-The interface is built to evoke an **old scientific / botanical / cartographic manuscript brought to life with modern interaction design**:
-* **Handmade Paper Surface**: Warm cream tones, subtle grain and fiber textures, soft archival vignette, and margin registration marks (`REG. NO. 1884/K-9`).
-* **Editorial & Historical Typography**: Paired classic display serifs (*EB Garamond*) with restrained sans-serif metadata (*Inter*) and archival monospace labels.
-* **Museum Walkthrough**: Tactile time-scrubber with continuous year resolution from **3000 BCE** to **2026 CE**, featuring playback controls, milestone notches, and keyboard accessibility.
-* **Botanical Specimen Pins**: Minimal wax-seal markers with category glyphs and delicate labels with smooth opacity and scale transitions (`scale(0.65)` to `scale(1)`).
-* **Future Sketch Architecture**: Illustration slots (`IngredientIllustration`) render an archival botanical plate placeholder with registration ticks—ready for hand-drawn specimen illustrations to be dropped into `/public/ingredients/` without changing any UI code.
 
 ---
 

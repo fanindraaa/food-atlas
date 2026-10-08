@@ -238,7 +238,7 @@ export default function TimelineSlider({
             <button
               onClick={togglePlay}
               onMouseEnter={() => sound.playHover()}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-sans text-[13px] font-semibold text-white bg-accent hover:bg-accent-hover active:scale-[0.98] shadow-accent transition-all"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-sans text-[13px] font-semibold text-white bg-accent hover:bg-accent-hover active:scale-[0.98] transition-all"
               aria-label={isPlaying ? 'Pause simulation' : 'Play simulation'}
             >
               {isPlaying ? (

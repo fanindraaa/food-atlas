@@ -20,8 +20,8 @@ const FoodMap = dynamic(() => import('@/map/FoodMap'), {
   ssr: false,
   loading: () => (
     <div className="fixed inset-0 flex items-center justify-center bg-neutral-100">
-      <div className="flex flex-col items-center space-y-3 font-serif">
-        <span className="font-serif text-sm text-neutral-600">
+      <div className="flex flex-col items-center space-y-3 font-sans">
+        <span className="font-sans text-sm text-neutral-600">
           Unfolding cartographic instrument...
         </span>
       </div>

@@ -49,10 +49,10 @@ export default function HistoricalStatus({
 
   return (
     <div
-      className="fixed bottom-28 sm:bottom-32 left-0 right-0 z-20 flex justify-center px-4 pointer-events-none select-none"
+      className="fixed bottom-40 left-0 right-0 z-20 flex justify-center px-4 pointer-events-none select-none"
       aria-live="polite"
     >
-      <div className="pointer-events-auto max-w-2xl px-5 py-2.5 rounded-[18px] bg-white/80 backdrop-blur-xl border border-black/[0.06] shadow-soft flex items-center justify-between gap-4 transition-all duration-300">
+      <div className="pointer-events-auto max-w-3xl px-4 py-3 rounded-md bg-white/80 backdrop-blur-xl border border-black/[0.06] shadow-soft flex items-center justify-between gap-4 transition-all duration-300">
         <div
           className={`flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2.5 transition-all duration-200 ${
             isTransitioning ? 'opacity-0 -translate-y-1 blur-[1px]' : 'opacity-100 translate-y-0 blur-0'

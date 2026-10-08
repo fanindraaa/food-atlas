@@ -60,7 +60,6 @@
   --blur: blur(20px);
 
   --font-sans: "Timeless Sans", "Timeless", system-ui, sans-serif;
-  --font-serif: "Timeless Serif", "Timeless Sans", Georgia, serif;
 }
 
 @layer base {
