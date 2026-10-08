@@ -2,9 +2,9 @@
 
 import React, { useState, useMemo } from 'react';
 import { FoodIngredient } from '@/types/simulation';
-import { getIngredientState } from '@/utils/simulationEngine';
+import { getIngredientState, getSimulationAnchorYears } from '@/utils/simulationEngine';
 import { sound } from '@/utils/sound';
-import { formatYear } from '@/utils/timeline';
+import { formatYear, MIN_YEAR, MAX_YEAR } from '@/utils/timeline';
 import { X, Search } from 'lucide-react';
 
 interface IngredientCatalogueProps {
@@ -12,7 +12,7 @@ interface IngredientCatalogueProps {
   onClose: () => void;
   ingredients: FoodIngredient[];
   currentYear: number;
-  onSelectIngredient: (ingredient: FoodIngredient) => void;
+  onSelectIngredient: (ingredient: FoodIngredient, targetYear?: number) => void;
   selectedIngredientId?: string;
 }
 
@@ -50,22 +50,33 @@ export default function IngredientCatalogue({
 
   if (!isOpen) return null;
 
+  const handleItemClick = (ing: FoodIngredient) => {
+    sound.playClick();
+    // Compute the first time it got introduced to India
+    const anchors = getSimulationAnchorYears(ing);
+    const introYear = Math.max(MIN_YEAR, Math.min(MAX_YEAR, anchors.arrivalYear));
+    onSelectIngredient(ing, introYear);
+  };
+
   return (
     <div
-      className="fixed inset-0 z-40 flex justify-start bg-neutral-900/40 backdrop-blur-sm transition-opacity select-none"
+      className="fixed inset-0 z-40 flex justify-start bg-black/20 backdrop-blur-sm transition-opacity select-none"
       role="dialog"
       aria-modal="true"
       aria-labelledby="catalogue-title"
     >
-      <div className="relative w-full max-w-md bg-white border-r border-neutral-300 shadow-xl flex flex-col h-full animate-in slide-in-from-left duration-200">
+      <div className="relative w-full max-w-md bg-white/90 backdrop-blur-2xl border-r border-black/[0.06] shadow-elevated flex flex-col h-full animate-in slide-in-from-left duration-250">
         {/* Header */}
-        <div className="p-6 border-b border-neutral-300">
+        <div className="p-6 pb-4 border-b border-black/[0.05]">
           <div className="flex items-start justify-between">
             <div>
-              <span className="font-serif text-xs text-neutral-500">
+              <span className="font-sans text-[12px] font-medium text-neutral-400">
                 Index of 150 historical records
               </span>
-              <h2 id="catalogue-title" className="font-serif text-2xl font-semibold text-neutral-900 leading-tight">
+              <h2
+                id="catalogue-title"
+                className="font-sans text-[22px] font-semibold text-neutral-900 leading-tight tracking-tight mt-0.5"
+              >
                 Ingredients
               </h2>
             </div>
@@ -75,26 +86,22 @@ export default function IngredientCatalogue({
                 onClose();
               }}
               onMouseEnter={() => sound.playHover()}
-              className="btn-mechanical btn-mechanical-icon"
+              className="p-1.5 rounded-full text-neutral-400 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
               aria-label="Close index"
             >
-              <X className="h-4 w-4 text-neutral-900" />
+              <X className="h-4 w-4" />
             </button>
           </div>
 
-          <p className="mt-1 font-serif text-xs text-neutral-600">
-            Historical statuses evaluated at {formatYear(currentYear)}.
-          </p>
-
           {/* Search Box */}
           <div className="relative mt-4">
-            <Search className="pointer-events-none absolute left-3 top-2.5 h-3.5 w-3.5 text-neutral-400" />
+            <Search className="pointer-events-none absolute left-3.5 top-3 h-3.5 w-3.5 text-neutral-400" />
             <input
               type="text"
               placeholder="Search by ingredient, origin, or era..."
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="w-full border border-neutral-300 bg-neutral-50 pl-9 pr-3 py-1.5 font-serif text-xs text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:bg-white focus:outline-none rounded-[3px]"
+              className="w-full rounded-xl border border-black/[0.08] bg-black/[0.02] pl-9 pr-3.5 py-2 font-sans text-[13px] text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/15 transition-all"
             />
           </div>
 
@@ -108,10 +115,10 @@ export default function IngredientCatalogue({
                   setSelectedCategory(cat);
                 }}
                 onMouseEnter={() => sound.playHover()}
-                className={`px-2 py-0.5 font-serif text-xs border rounded-[3px] transition-colors ${
+                className={`px-2.5 py-1 font-sans text-[12px] rounded-lg transition-all ${
                   selectedCategory === cat
-                    ? 'bg-neutral-900 text-white border-neutral-900 font-semibold'
-                    : 'bg-white text-neutral-700 border-neutral-300 hover:border-neutral-900'
+                    ? 'bg-accent text-white font-semibold shadow-sm'
+                    : 'bg-black/[0.03] text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.06]'
                 }`}
               >
                 {cat}
@@ -123,8 +130,8 @@ export default function IngredientCatalogue({
         {/* Scrollable Ingredient List */}
         <div className="flex-1 overflow-y-auto p-4 space-y-2">
           {filtered.length === 0 ? (
-            <div className="p-8 text-center font-serif text-xs text-neutral-500">
-              No botanical records matching search criteria.
+            <div className="p-8 text-center font-sans text-[13px] text-neutral-400">
+              No historical records matching search criteria.
             </div>
           ) : (
             filtered.map(ing => {
@@ -134,20 +141,17 @@ export default function IngredientCatalogue({
               return (
                 <div
                   key={ing.id}
-                  onClick={() => {
-                    sound.playClick();
-                    onSelectIngredient(ing);
-                  }}
+                  onClick={() => handleItemClick(ing)}
                   onMouseEnter={() => sound.playHover()}
-                  className={`group relative flex items-start justify-between p-3 border rounded-[3px] cursor-pointer transition select-none ${
+                  className={`group relative flex items-start justify-between p-3 rounded-xl cursor-pointer transition-all ${
                     isSelected
-                      ? 'border-neutral-900 bg-neutral-100 shadow-[0_2px_0_#111111]'
-                      : 'border-neutral-300 bg-white hover:border-neutral-900 hover:bg-neutral-50'
+                      ? 'border border-accent/40 bg-accent/[0.06] shadow-subtle'
+                      : 'border border-black/[0.04] bg-white/70 hover:bg-white hover:border-black/[0.08] hover:shadow-subtle'
                   }`}
                 >
-                  <div className="flex items-start gap-2.5">
+                  <div className="flex items-start gap-3">
                     {ing.illustration ? (
-                      <div className="mt-0.5 h-8 w-8 shrink-0 overflow-hidden rounded-[2px] border border-neutral-300 bg-neutral-50 p-0.5">
+                      <div className="mt-0.5 h-10 w-10 shrink-0 aspect-square overflow-hidden rounded-lg flex items-center justify-center p-0.5">
                         <img
                           src={ing.illustration}
                           alt={ing.name}
@@ -155,24 +159,21 @@ export default function IngredientCatalogue({
                         />
                       </div>
                     ) : (
-                      <span className="mt-1 h-2 w-2 shrink-0 bg-neutral-900" />
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-neutral-300" />
                     )}
 
                     <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-serif text-sm font-semibold text-neutral-900 group-hover:text-neutral-950">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-sans text-[14px] font-semibold text-neutral-900 group-hover:text-black">
                           {ing.name}
                         </span>
-                        <span className="font-serif text-[10px] text-neutral-500 border border-neutral-300 px-1 py-0.2">
-                          {ing.confidence}
-                        </span>
                       </div>
 
-                      <div className="font-serif text-xs text-neutral-500">
-                        {ing.category} — {state.isNative ? 'Native' : ing.origin.split(';')[0].trim()}
+                      <div className="font-sans text-[12px] text-neutral-500 mt-0.5">
+                        {ing.category} · {state.isNative ? 'Native' : ing.origin.split(';')[0].trim()}
                       </div>
 
-                      <div className="mt-0.5 font-serif text-xs text-neutral-700">
+                      <div className="font-sans text-[11px] text-neutral-400 mt-0.5">
                         {ing.widespreadAdoption.period}
                       </div>
                     </div>
@@ -180,7 +181,17 @@ export default function IngredientCatalogue({
 
                   {/* Status Indicator at current year */}
                   <div className="shrink-0 text-right">
-                    <span className="inline-block px-1.5 py-0.5 border border-neutral-300 bg-neutral-50 font-serif text-[11px] text-neutral-700">
+                    <span className={`inline-block px-2 py-0.5 rounded-md font-sans text-[11px] font-medium ${
+                      state.phase === 'widespread'
+                        ? 'bg-neutral-100 text-neutral-700'
+                        : state.phase === 'spreading'
+                        ? 'bg-accent/10 text-accent'
+                        : state.phase === 'arrived'
+                        ? 'bg-accent/15 text-accent font-semibold'
+                        : state.phase === 'traveling'
+                        ? 'bg-neutral-100 text-neutral-600'
+                        : 'bg-black/[0.03] text-neutral-400'
+                    }`}>
                       {state.phase === 'widespread'
                         ? 'Widespread'
                         : state.phase === 'spreading'

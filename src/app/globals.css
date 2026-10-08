@@ -18,27 +18,49 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Timeless Serif";
+  src: url("/TimelessSerifVF.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --black: #000000;
-  --near-black: #111111;
-  --ink: #222222;
-  --dark-gray: #333333;
-  --mid-gray: #555555;
-  --gray: #777777;
-  --muted-gray: #999999;
-  --light-gray: #bbbbbb;
-  --border: #dddddd;
-  --border-light: #eeeeee;
-  --surface: #f5f5f5;
-  --white: #ffffff;
+  --background: #f6f7f9;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-solid: #ffffff;
+  --surface-elevated: rgba(255, 255, 255, 0.94);
+  --surface-subtle: rgba(248, 249, 250, 0.85);
 
-  --font-sans: "Timeless Sans", "Timeless", sans-serif;
-  --font-serif: "Timeless Sans", "Timeless", sans-serif;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #9ca3af;
+  --text-muted: #6b7280;
 
-  --text-base: 15px;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-medium: rgba(0, 0, 0, 0.1);
+  --border-focus: rgba(0, 102, 255, 0.4);
 
-  --weight-medium: 500;
-  --weight-semibold: 600;
+  --accent: #0066ff;
+  --accent-hover: #0052cc;
+  --accent-soft: rgba(0, 102, 255, 0.08);
+  --accent-glow: rgba(0, 102, 255, 0.25);
+  --accent-text: #ffffff;
+
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.07);
+  --shadow-elevated: 0 20px 48px rgba(0, 0, 0, 0.09);
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --blur: blur(20px);
+
+  --font-sans: "Timeless Sans", "Timeless", system-ui, sans-serif;
+  --font-serif: "Timeless Serif", "Timeless Sans", Georgia, serif;
 }
 
 @layer base {
@@ -52,171 +74,172 @@
 
   html,
   body {
-    background-color: #f5f5f5;
-    color: #111111;
-    font-family: "Timeless Sans", "Timeless", sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
     font-size: 15px;
-    font-weight: 500; /* sans medium */
+    font-weight: 500;
     line-height: 1.5;
     margin: 0;
     padding: 0;
     overflow: hidden;
     height: 100%;
     width: 100%;
-    font-feature-settings: "ss02" 1, "ss03" 1, "ss06" 1, "ss07" 1;
-    -webkit-font-feature-settings: "ss02" 1, "ss03" 1, "ss06" 1, "ss07" 1;
-    -moz-font-feature-settings: "ss02" 1, "ss03" 1, "ss06" 1, "ss07" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Timeless Sans", "Timeless", sans-serif;
-    font-weight: 600; /* sans semibold */
+    font-family: var(--font-sans);
+    font-weight: 600;
     margin: 0;
   }
 
   svg text {
-    font-family: "Timeless Sans", "Timeless", sans-serif;
+    font-family: var(--font-sans);
     font-feature-settings: "ss02" 1, "ss03" 1, "ss06" 1, "ss07" 1;
   }
 }
 
 /* =========================================================
-   MECHANICAL BUTTON SYSTEM — PRECISION INSTRUMENT CONTROLS
+   FLOATING SURFACES & CONTAINERS
    ========================================================= */
+.floating-surface {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+.floating-surface-elevated {
+  background: var(--surface-elevated);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* =========================================================
+   REFINED TACTILE BUTTON SYSTEM
+   ========================================================= */
+.btn-floating,
 .btn-mechanical {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "Timeless Sans", "Timeless", sans-serif;
+  font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 500;
-  color: #111111;
-  background-color: #ffffff;
-  border: 1px solid #222222;
-  border-radius: 4px;
-  padding: 5px 12px;
-  transform: translateY(0);
-  box-shadow:
-    0 3px 0 #111111,
-    0 5px 10px rgba(0, 0, 0, 0.08);
-  transition:
-    transform 80ms ease,
-    box-shadow 80ms ease,
-    background-color 80ms ease,
-    color 80ms ease;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 6px 13px;
+  box-shadow: var(--shadow-subtle);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   user-select: none;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
+.btn-floating:hover,
 .btn-mechanical:hover {
+  background: #ffffff;
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   transform: translateY(-1px);
-  box-shadow:
-    0 4px 0 #111111,
-    0 7px 14px rgba(0, 0, 0, 0.12);
-  background-color: #f5f5f5;
 }
 
+.btn-floating:active,
 .btn-mechanical:active {
-  transform: translateY(2px);
-  box-shadow:
-    0 1px 0 #111111,
-    0 2px 4px rgba(0, 0, 0, 0.08);
+  transform: scale(0.98) translateY(0);
+  background: rgba(243, 244, 246, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
+.btn-floating:focus-visible,
 .btn-mechanical:focus-visible {
-  outline: 2px solid #111111;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2.5px rgba(0, 102, 255, 0.35);
 }
 
+.btn-floating-primary {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3) !important;
+  font-weight: 600 !important;
+}
+
+.btn-floating-primary:hover {
+  background: var(--accent-hover) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+.btn-floating-primary:active {
+  background: #0047b3 !important;
+  transform: scale(0.98) translateY(0);
+}
+
+.btn-floating-active,
 .btn-mechanical.active,
 .btn-mechanical-active {
-  background-color: #111111;
-  color: #ffffff;
-  border-color: #000000;
+  background: var(--accent-soft) !important;
+  color: var(--accent) !important;
+  border-color: rgba(0, 102, 255, 0.25) !important;
+  font-weight: 600 !important;
 }
 
-.btn-mechanical.active:hover,
-.btn-mechanical-active:hover {
-  background-color: #222222;
-}
-
+.btn-floating-sm,
 .btn-mechanical-sm {
   font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 10px;
 }
 
+.btn-floating-icon,
 .btn-mechanical-icon {
-  padding: 6px;
-  border-radius: 4px;
+  padding: 7px;
+  border-radius: 10px;
 }
 
 /* =========================================================
-   STATUS INSTRUMENT PILL (Rounded container above timeline)
+   STATUS INSTRUMENT PILL
    ========================================================= */
 .status-pill {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid #dddddd;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
 }
 
 /* =========================================================
-   EDITORIAL OVERLAYS & PANELS (Hairline rules, breathing space)
+   EDITORIAL OVERLAYS & PANELS
    ========================================================= */
 .editorial-overlay {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid #dddddd;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  box-shadow: var(--shadow-elevated);
 }
 
 .hairline-rule {
-  border-bottom: 1px solid #dddddd;
-}
-
-.hairline-rule-dark {
-  border-bottom: 1px solid #111111;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* =========================================================
-   TIMELINE MECHANICAL SLIDER INPUT
+   ACCESSIBILITY: REDUCED MOTION
    ========================================================= */
-.mechanical-slider-input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 28px;
-  border-radius: 2px;
-  background: #ffffff;
-  border: 1px solid #111111;
-  box-shadow: 0 2px 0 #111111, 0 3px 6px rgba(0, 0, 0, 0.1);
-  cursor: grab;
-}
-
-.mechanical-slider-input:active::-webkit-slider-thumb {
-  cursor: grabbing;
-  transform: translateY(1px);
-  box-shadow: 0 1px 0 #111111, 0 2px 4px rgba(0, 0, 0, 0.08);
-}
-
-.mechanical-slider-input::-moz-range-thumb {
-  width: 20px;
-  height: 28px;
-  border-radius: 2px;
-  background: #ffffff;
-  border: 1px solid #111111;
-  box-shadow: 0 2px 0 #111111, 0 3px 6px rgba(0, 0, 0, 0.1);
-  cursor: grab;
-}
-
-/* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -5,12 +5,11 @@ import {
   formatYear,
   sliderProgressToYear,
   yearToSliderProgress,
-  TIMELINE_MILESTONES,
   MIN_YEAR,
   MAX_YEAR,
 } from '@/utils/timeline';
-import { getHistoricalNarrative, getSimulationAnchorYears } from '@/utils/simulationEngine';
-import { FoodIngredient, TimelineMilestone } from '@/types/simulation';
+import { getSimulationAnchorYears } from '@/utils/simulationEngine';
+import { FoodIngredient } from '@/types/simulation';
 import { sound } from '@/utils/sound';
 import { Play, Pause, RotateCcw } from 'lucide-react';
 
@@ -21,6 +20,17 @@ interface TimelineSliderProps {
   visibleCount: number;
   totalCount: number;
 }
+
+// Sparse milestone markers for an uncluttered, elegant timeline
+const SPARSE_MILESTONES = [
+  { year: -3000, label: '3000 BCE' },
+  { year: -1000, label: '1000 BCE' },
+  { year: 0, label: '0' },
+  { year: 1000, label: '1000 CE' },
+  { year: 1500, label: '1500' },
+  { year: 1800, label: '1800' },
+  { year: 2026, label: '2026' },
+];
 
 export default function TimelineSlider({
   currentYear,
@@ -41,7 +51,6 @@ export default function TimelineSlider({
   currentYearRef.current = currentYear;
 
   const lastMilestoneYearRef = useRef<number | null>(null);
-
   const progressPercent = yearToSliderProgress(currentYear);
 
   // Simulation Playback Loop
@@ -61,7 +70,7 @@ export default function TimelineSlider({
 
           const nextYear = prev + step;
 
-          // Check for milestone brief pause
+          // Check for milestone pause
           if (speed <= 1 && lastMilestoneYearRef.current !== nextYear) {
             const milestone = ingredients.find(ing => {
               const anchors = getSimulationAnchorYears(ing);
@@ -171,45 +180,38 @@ export default function TimelineSlider({
 
   return (
     <footer
-      className="fixed bottom-0 left-0 right-0 z-20 select-none pointer-events-none pt-12 pb-5 px-4 sm:px-8"
-      style={{
-        background:
-          'linear-gradient(to top, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0) 100%)',
-      }}
+      className="fixed bottom-4 sm:bottom-6 left-0 right-0 z-20 pointer-events-none select-none flex justify-center px-3 sm:px-6"
       role="region"
-      aria-label="Timeline measuring instrument"
+      aria-label="Historical timeline navigation instrument"
     >
-      <div className="mx-auto max-w-5xl pointer-events-auto">
-        {/* Upper Row: Strong Current Year Typography & Mechanical Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-3">
-          {/* Section 34: Current Year as Strong Typographic Element */}
-          <div className="flex items-baseline gap-3">
+      <div className="w-full max-w-4xl p-4 sm:p-5 rounded-[22px] bg-white/85 backdrop-blur-2xl border border-black/[0.06] shadow-elevated pointer-events-auto">
+        {/* Upper Row: Strong Current Year Typography & Consolidated Controls Group */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+          {/* Current Year display (Measuring instrument text removed as requested) */}
+          <div className="flex items-baseline gap-2">
             <span
-              className="font-serif text-3xl sm:text-4xl font-semibold text-neutral-900 leading-none"
+              className="font-sans text-[26px] sm:text-[32px] font-semibold text-neutral-900 leading-none tracking-tight"
               aria-live="polite"
               aria-atomic="true"
             >
               {formatYear(currentYear)}
             </span>
-            <span className="font-serif text-xs text-neutral-500">
-              Measuring instrument
-            </span>
           </div>
 
-          {/* Mechanical Instrumental Controls */}
-          <div className="flex items-center gap-2">
-            {/* Direction Selection */}
-            <div className="flex items-center rounded border border-neutral-300 bg-white p-0.5">
+          {/* Consolidated Floating Control Group */}
+          <div className="flex items-center gap-2 self-stretch sm:self-auto justify-between sm:justify-end">
+            {/* Direction Segmented Control */}
+            <div className="flex items-center p-0.5 rounded-xl bg-black/[0.04] border border-black/[0.04]">
               <button
                 onClick={() => {
                   sound.playClick();
                   setPlayDirection('backward');
                 }}
                 onMouseEnter={() => sound.playHover()}
-                className={`px-2 py-0.5 font-serif text-xs rounded transition-colors ${
+                className={`px-2.5 py-1 font-sans text-[12px] rounded-lg transition-all ${
                   playDirection === 'backward'
-                    ? 'bg-neutral-900 text-white font-semibold'
-                    : 'text-neutral-600 hover:text-neutral-900'
+                    ? 'bg-white text-neutral-900 font-semibold shadow-subtle'
+                    : 'text-neutral-500 hover:text-neutral-900'
                 }`}
                 title="Rewind backwards through history"
               >
@@ -221,10 +223,10 @@ export default function TimelineSlider({
                   setPlayDirection('forward');
                 }}
                 onMouseEnter={() => sound.playHover()}
-                className={`px-2 py-0.5 font-serif text-xs rounded transition-colors ${
+                className={`px-2.5 py-1 font-sans text-[12px] rounded-lg transition-all ${
                   playDirection === 'forward'
-                    ? 'bg-neutral-900 text-white font-semibold'
-                    : 'text-neutral-600 hover:text-neutral-900'
+                    ? 'bg-white text-neutral-900 font-semibold shadow-subtle'
+                    : 'text-neutral-500 hover:text-neutral-900'
                 }`}
                 title="Advance simulation forward"
               >
@@ -232,28 +234,28 @@ export default function TimelineSlider({
               </button>
             </div>
 
-            {/* Play / Pause Mechanical Button */}
+            {/* Simulate / Pause Primary Action (Electric Blue Accent) */}
             <button
               onClick={togglePlay}
               onMouseEnter={() => sound.playHover()}
-              className="btn-mechanical"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-sans text-[13px] font-semibold text-white bg-accent hover:bg-accent-hover active:scale-[0.98] shadow-accent transition-all"
               aria-label={isPlaying ? 'Pause simulation' : 'Play simulation'}
             >
               {isPlaying ? (
                 <>
-                  <Pause className="h-3.5 w-3.5 mr-1.5 fill-current" />
+                  <Pause className="h-3.5 w-3.5 fill-current" />
                   <span>Pause</span>
                 </>
               ) : (
                 <>
-                  <Play className="h-3.5 w-3.5 mr-1.5 fill-current" />
+                  <Play className="h-3.5 w-3.5 fill-current" />
                   <span>Simulate</span>
                 </>
               )}
             </button>
 
-            {/* Speed Multipliers */}
-            <div className="flex items-center rounded border border-neutral-300 bg-white p-0.5">
+            {/* Speed Multipliers Segmented Control */}
+            <div className="flex items-center p-0.5 rounded-xl bg-black/[0.04] border border-black/[0.04]">
               {([0.5, 1, 2] as const).map(s => (
                 <button
                   key={s}
@@ -262,10 +264,10 @@ export default function TimelineSlider({
                     setSpeed(s);
                   }}
                   onMouseEnter={() => sound.playHover()}
-                  className={`px-1.5 py-0.5 font-serif text-xs rounded transition-colors ${
+                  className={`px-2 py-1 font-sans text-[12px] rounded-lg transition-all ${
                     speed === s
-                      ? 'bg-neutral-900 text-white font-semibold'
-                      : 'text-neutral-600 hover:text-neutral-900'
+                      ? 'bg-white text-neutral-900 font-semibold shadow-subtle'
+                      : 'text-neutral-500 hover:text-neutral-900'
                   }`}
                   title={`${s}× playback speed`}
                 >
@@ -281,29 +283,29 @@ export default function TimelineSlider({
                 onYearChange(2026);
               }}
               onMouseEnter={() => sound.playHover()}
-              className="btn-mechanical btn-mechanical-icon"
+              className="p-1.5 rounded-xl text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
               title="Reset to Present (2026)"
               aria-label="Reset to 2026"
             >
-              <RotateCcw className="h-3.5 w-3.5 text-neutral-900" />
+              <RotateCcw className="h-4 w-4" />
             </button>
           </div>
         </div>
 
-        {/* Lower Row: Physical Instrument Ruler & Custom Rectangular Handle */}
-        <div className="relative pt-2 pb-1">
-          {/* Thin Horizontal Rule (Measuring Bar) */}
+        {/* Lower Row: Floating Horizontal Navigation Track */}
+        <div className="relative pt-1 pb-1">
+          {/* Track Bar with Subtle Accent Fill and Slender Pill Indicator */}
           <div className="relative h-6 w-full flex items-center">
-            {/* Base hairline rule */}
-            <div className="absolute h-[1px] w-full bg-neutral-400" />
+            {/* Background hairline track */}
+            <div className="absolute h-[3px] w-full bg-black/[0.08] rounded-full overflow-hidden">
+              {/* Elapsed progress fill in electric blue */}
+              <div
+                className="h-full bg-accent rounded-full transition-all duration-75"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
 
-            {/* Elapsed progress rule */}
-            <div
-              className="absolute h-[2px] bg-neutral-900"
-              style={{ width: `${progressPercent}%` }}
-            />
-
-            {/* Hidden native slider for accessible dragging and touch */}
+            {/* Hidden native slider for touch and keyboard accessibility */}
             <input
               ref={sliderRef}
               type="range"
@@ -313,7 +315,7 @@ export default function TimelineSlider({
               value={progressPercent}
               onChange={handleSliderChange}
               onKeyDown={handleKeyDown}
-              className="mechanical-slider-input absolute w-full h-8 opacity-0 cursor-ew-resize z-20"
+              className="absolute w-full h-8 opacity-0 cursor-pointer z-20"
               aria-label={`Historical timeline controller. Current year ${formatYear(currentYear)}`}
               aria-valuemin={MIN_YEAR}
               aria-valuemax={MAX_YEAR}
@@ -321,27 +323,23 @@ export default function TimelineSlider({
               aria-valuetext={formatYear(currentYear)}
             />
 
-            {/* Section 16: Custom Rectangular Mechanical Handle */}
+            {/* Active Position Indicator: Sleek Non-Circular Pill Marker with Year Tooltip */}
             <div
-              className="pointer-events-none absolute -ml-4 z-10 flex flex-col items-center transition-transform"
+              className="pointer-events-none absolute -ml-2.5 z-10 flex flex-col items-center transition-all duration-75"
               style={{ left: `${progressPercent}%` }}
             >
-              {/* Mechanical rectangular slider handle tab with year display */}
-              <div className="h-7 px-1.5 bg-white border border-neutral-900 rounded-[3px] shadow-[0_2px_0_#111111] flex items-center justify-center">
-                <span className="font-serif text-[11px] font-semibold text-neutral-900 whitespace-nowrap leading-none">
-                  {formatYear(currentYear)}
-                </span>
+              {/* Slender rectangular pill indicator (Not a circular thumb!) */}
+              <div className="w-5 h-5 rounded-[6px] bg-accent border-2 border-white shadow-[0_2px_10px_rgba(0,102,255,0.4)] flex items-center justify-center">
+                <div className="w-1.5 h-1.5 rounded-[1px] bg-white" />
               </div>
-              {/* Center vertical pointer notch */}
-              <div className="h-1.5 w-[1px] bg-neutral-900" />
             </div>
           </div>
 
-          {/* Engraved Tick Marks and Milestone Labels */}
-          <div className="relative mt-2 hidden sm:flex justify-between items-center font-serif text-[11px] text-neutral-500">
-            {TIMELINE_MILESTONES.map(item => {
+          {/* Sparse Year Milestones and Subtle Tick Marks */}
+          <div className="relative mt-2 flex justify-between items-center font-sans text-[11px] text-neutral-400">
+            {SPARSE_MILESTONES.map(item => {
               const pos = yearToSliderProgress(item.year);
-              const isSelected = Math.abs(currentYear - item.year) < 30;
+              const isSelected = Math.abs(currentYear - item.year) < 40;
 
               return (
                 <button
@@ -353,25 +351,19 @@ export default function TimelineSlider({
                   }}
                   onMouseEnter={() => sound.playHover()}
                   className={`absolute transform -translate-x-1/2 flex flex-col items-center hover:text-neutral-900 transition-colors cursor-pointer ${
-                    isSelected ? 'text-neutral-900 font-semibold' : ''
+                    isSelected ? 'text-accent font-semibold' : ''
                   }`}
                   style={{ left: `${pos}%` }}
                 >
-                  {/* Engraved tick mark */}
-                  <span className={`w-[1px] mb-1 ${isSelected ? 'h-2 bg-neutral-900' : 'h-1.5 bg-neutral-400'}`} />
+                  <span
+                    className={`w-[1px] mb-1 transition-all ${
+                      isSelected ? 'h-2 bg-accent' : 'h-1.5 bg-black/[0.15]'
+                    }`}
+                  />
                   <span className="whitespace-nowrap">{item.label}</span>
                 </button>
               );
             })}
-          </div>
-
-          {/* Mobile Milestones (Natural sentence case, Timeless font) */}
-          <div className="mt-1.5 flex sm:hidden justify-between font-serif text-[10px] text-neutral-600 px-1">
-            <span onClick={() => onYearChange(-3000)}>3000 BCE</span>
-            <span onClick={() => onYearChange(0)}>0</span>
-            <span onClick={() => onYearChange(1500)}>1500</span>
-            <span onClick={() => onYearChange(1800)}>1800</span>
-            <span onClick={() => onYearChange(2026)}>2026</span>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@ export default function RootLayout({
         <link rel="icon" href="/leaf.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/leaf.svg" />
       </head>
-      <body className="min-h-screen bg-neutral-100 text-neutral-900 antialiased selection:bg-neutral-900 selection:text-neutral-50 overflow-hidden">
+      <body className="min-h-screen bg-[#f6f7f9] text-neutral-900 antialiased selection:bg-accent selection:text-white overflow-hidden">
         {children}
       </body>
     </html>

@@ -17,38 +17,28 @@ export default function IngredientIllustration({
 }: IngredientIllustrationProps) {
   return (
     <div
-      className={`relative flex flex-col items-center justify-center overflow-hidden border border-neutral-300 bg-neutral-50 ${className}`}
-      aria-label={`Botanical illustration slot for ${name}`}
+      className={`relative flex items-center justify-center overflow-visible ${className}`}
+      aria-label={`Botanical illustration for ${name}`}
     >
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={src}
           alt={`Botanical illustration of ${name}`}
-          className="h-full w-full object-contain drop-shadow-sm transition-transform duration-200"
+          className="h-full w-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.06)] transition-transform duration-300 hover:scale-[1.03]"
         />
       ) : (
-        /* Empty archival botanical plate placeholder with precision registration ticks */
-        <div className="relative flex h-full w-full flex-col items-center justify-center p-3 text-center select-none">
-          {/* Hairline corner registration marks */}
-          <div className="pointer-events-none absolute top-1.5 left-1.5 h-1.5 w-1.5 border-t border-l border-neutral-400" />
-          <div className="pointer-events-none absolute top-1.5 right-1.5 h-1.5 w-1.5 border-t border-r border-neutral-400" />
-          <div className="pointer-events-none absolute bottom-1.5 left-1.5 h-1.5 w-1.5 border-b border-l border-neutral-400" />
-          <div className="pointer-events-none absolute bottom-1.5 right-1.5 h-1.5 w-1.5 border-b border-r border-neutral-400" />
-
-          {/* Minimal plate label */}
-          <div className="flex flex-col items-center space-y-1">
-            <span className="font-serif text-[11px] text-neutral-500">
-              Tabula Botanica
-            </span>
-            <div className="h-[1px] w-6 bg-neutral-300" />
-            <span className="font-serif text-xs text-neutral-600 font-medium">
-              Plate reserved for botanical specimen
-            </span>
-            <span className="font-serif text-[10px] text-neutral-400">
-              {name} · {category}
-            </span>
-          </div>
+        /* Understated editorial botanical placeholder (no heavy boxes) */
+        <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center select-none text-neutral-400">
+          <span className="font-sans text-[11px] font-medium tracking-wide text-neutral-400">
+            Botanical Specimen
+          </span>
+          <span className="font-sans text-[13px] font-semibold text-neutral-700 mt-1">
+            {name}
+          </span>
+          <span className="font-sans text-[11px] text-neutral-400 mt-0.5">
+            {category}
+          </span>
         </div>
       )}
     </div>

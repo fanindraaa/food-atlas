@@ -50,9 +50,13 @@ export default function Home() {
   }, [currentYear]);
 
   // Handler for selecting an ingredient
-  const handleSelectIngredient = useCallback((ingredient: FoodIngredient) => {
+  const handleSelectIngredient = useCallback((ingredient: FoodIngredient, targetYear?: number) => {
     setSelectedIngredient(ingredient);
-    const state = getIngredientState(ingredient, currentYear);
+    const effectiveYear = typeof targetYear === 'number' ? targetYear : currentYear;
+    if (typeof targetYear === 'number') {
+      setCurrentYear(targetYear);
+    }
+    const state = getIngredientState(ingredient, effectiveYear);
     setFlyToCoords(state.entryCoords);
   }, [currentYear]);
 
@@ -66,7 +70,7 @@ export default function Home() {
   }, [currentYear]);
 
   return (
-    <main className="fixed inset-0 w-full h-full overflow-hidden bg-neutral-100 select-none">
+    <main className="fixed inset-0 w-full h-full overflow-hidden bg-[#f6f7f9] select-none">
       <FoodMap
         ingredients={ALL_INGREDIENTS}
         currentYear={currentYear}
@@ -75,7 +79,7 @@ export default function Home() {
         flyToCoords={flyToCoords}
       />
 
-      {/* 2. Floating Header: Sits seamlessly over the map with smooth blur & gradient */}
+      {/* 2. Floating Header: Editorial masthead floating over the map */}
       <Header
         onOpenCatalogue={() => setIsCatalogueOpen(true)}
         onOpenNativeModal={() => setIsNativeModalOpen(true)}
@@ -93,7 +97,7 @@ export default function Home() {
         totalCount={ALL_INGREDIENTS.length}
       />
 
-      {/* 4. Timeline Dock: Fixed measuring instrument layer at the bottom */}
+      {/* 4. Timeline Dock: Floating navigation instrument at the bottom */}
       <TimelineSlider
         currentYear={currentYear}
         onYearChange={setCurrentYear}
@@ -102,7 +106,7 @@ export default function Home() {
         totalCount={ALL_INGREDIENTS.length}
       />
 
-      {/* 5. Selected Ingredient Field-Note Overlay (Clean editorial panel) */}
+      {/* 5. Selected Ingredient Field-Note Overlay (Clean editorial floating panel) */}
       <IngredientCard
         ingredient={selectedIngredient}
         currentYear={currentYear}
@@ -116,8 +120,8 @@ export default function Home() {
         onClose={() => setIsCatalogueOpen(false)}
         ingredients={ALL_INGREDIENTS}
         currentYear={currentYear}
-        onSelectIngredient={ing => {
-          handleSelectIngredient(ing);
+        onSelectIngredient={(ing, targetYear) => {
+          handleSelectIngredient(ing, targetYear);
           setIsCatalogueOpen(false);
         }}
         selectedIngredientId={selectedIngredient?.id}
@@ -128,8 +132,8 @@ export default function Home() {
         isOpen={isNativeModalOpen}
         onClose={() => setIsNativeModalOpen(false)}
         ingredients={ALL_INGREDIENTS}
-        onSelectIngredient={ing => {
-          handleSelectIngredient(ing);
+        onSelectIngredient={(ing, targetYear) => {
+          handleSelectIngredient(ing, targetYear);
           setIsNativeModalOpen(false);
         }}
       />

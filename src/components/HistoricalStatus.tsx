@@ -20,7 +20,7 @@ export default function HistoricalStatus({
   activeCount,
   totalCount,
 }: HistoricalStatusProps) {
-  // Track displayed text to smoothly animate transitions
+  // Smooth transition when text updates
   const [displayText, setDisplayText] = useState({
     title: milestoneCallout?.headline || headline,
     detail: milestoneCallout?.detail || subheadline,
@@ -49,27 +49,27 @@ export default function HistoricalStatus({
 
   return (
     <div
-      className="fixed bottom-40 left-0 right-0 z-20 flex justify-center px-4 pointer-events-none select-none"
+      className="fixed bottom-28 sm:bottom-32 left-0 right-0 z-20 flex justify-center px-4 pointer-events-none select-none"
       aria-live="polite"
     >
-      <div className="status-pill pointer-events-auto max-w-2xl px-5 py-2.5 flex items-center justify-between gap-4 transition-all duration-300">
+      <div className="pointer-events-auto max-w-2xl px-5 py-2.5 rounded-[18px] bg-white/80 backdrop-blur-xl border border-black/[0.06] shadow-soft flex items-center justify-between gap-4 transition-all duration-300">
         <div
           className={`flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2.5 transition-all duration-200 ${
             isTransitioning ? 'opacity-0 -translate-y-1 blur-[1px]' : 'opacity-100 translate-y-0 blur-0'
           }`}
         >
-          <span className="font-serif text-sm font-semibold text-neutral-900 leading-tight">
+          <span className="font-sans text-[13px] sm:text-[14px] font-semibold text-neutral-900 leading-tight">
             {displayText.title}
           </span>
-          <span className="hidden sm:inline-block text-neutral-400 font-serif text-xs">/</span>
-          <span className="font-serif text-xs text-neutral-600 leading-tight">
+          <span className="hidden sm:inline-block text-neutral-300 text-xs">·</span>
+          <span className="font-sans text-[12px] sm:text-[13px] font-medium text-neutral-500 leading-tight">
             {displayText.detail}
           </span>
         </div>
 
-        {/* Active presence count indicator (hairline rule separator, no circular dots) */}
-        <div className="shrink-0 flex items-center gap-2 pl-3 border-l border-neutral-300">
-          <span className="font-serif text-xs text-neutral-500 whitespace-nowrap">
+        {/* Count presence indicator */}
+        <div className="shrink-0 flex items-center gap-2 pl-3 border-l border-black/[0.06]">
+          <span className="font-sans text-[12px] font-medium text-neutral-400 whitespace-nowrap">
             {activeCount} of {totalCount} present
           </span>
         </div>

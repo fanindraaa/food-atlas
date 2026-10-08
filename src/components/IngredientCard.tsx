@@ -2,9 +2,8 @@
 
 import React from 'react';
 import { FoodIngredient } from '@/types/simulation';
-import { getIngredientState } from '@/utils/simulationEngine';
+import { getIngredientState, isNativeIngredient } from '@/utils/simulationEngine';
 import IngredientIllustration from './IngredientIllustration';
-import { formatCoordinates } from '@/utils/geo';
 import { formatYear } from '@/utils/timeline';
 import { sound } from '@/utils/sound';
 import { X, Navigation } from 'lucide-react';
@@ -25,29 +24,31 @@ export default function IngredientCard({
   if (!ingredient) return null;
 
   const state = getIngredientState(ingredient, currentYear);
-  const originCoordsStr = formatCoordinates(state.originCoords[1], state.originCoords[0]);
+  const isNative = isNativeIngredient(ingredient);
 
   return (
     <aside
-      className="editorial-overlay fixed top-20 right-4 sm:right-6 z-30 w-[92vw] sm:w-[380px] max-h-[calc(100vh-170px)] overflow-y-auto p-6 select-none"
+      className="fixed z-30 select-none
+        bottom-0 left-0 right-0 max-h-[78vh] rounded-t-[28px] sm:rounded-[24px]
+        sm:bottom-auto sm:left-auto sm:top-20 sm:right-6 sm:w-[380px] sm:max-h-[calc(100vh-170px)]
+        overflow-y-auto p-5 sm:p-6
+        bg-white/85 backdrop-blur-2xl border border-black/[0.06] shadow-elevated
+        transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 sm:slide-in-from-right-4"
       role="dialog"
-      aria-labelledby="ingredient-title"
+      aria-labelledby="ingredient-name"
     >
       {/* Editorial Header Block */}
-      <div className="flex items-start justify-between pb-4 border-b border-neutral-300">
+      <div className="flex items-start justify-between gap-4 pb-2">
         <div>
-          <span className="font-serif text-xs text-neutral-500">
-            {ingredient.category} — {state.isNative ? 'Native to subcontinent' : 'Introduced from afar'}
+          <span className="font-sans text-[12px] font-medium text-neutral-500">
+            {ingredient.category} · {isNative ? 'Indigenous foundation' : 'Introduced from afar'}
           </span>
           <h2
-            id="ingredient-title"
-            className="mt-1 font-serif text-2xl sm:text-3xl font-semibold text-neutral-900 leading-tight"
+            id="ingredient-name"
+            className="font-sans text-[24px] sm:text-[28px] font-semibold text-neutral-900 leading-tight tracking-tight mt-0.5"
           >
             {ingredient.name}
           </h2>
-          <span className="mt-1 block font-serif text-xs text-neutral-600">
-            Confidence: {ingredient.confidence} record
-          </span>
         </div>
 
         <button
@@ -56,116 +57,85 @@ export default function IngredientCard({
             onClose();
           }}
           onMouseEnter={() => sound.playHover()}
-          className="btn-mechanical btn-mechanical-icon"
-          aria-label="Close ingredient panel"
+          className="p-1.5 rounded-full text-neutral-400 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
+          aria-label="Close ingredient details"
         >
-          <X className="h-4 w-4 text-neutral-900" />
+          <X className="h-4 w-4" />
         </button>
       </div>
 
-      {/* Reserved Botanical Specimen Plate */}
-      <div className="mt-4 h-28 w-full border border-neutral-300 bg-neutral-50 p-2">
+      {/* Large Square Container for Transparent Food Illustration */}
+      <div className="w-full aspect-square max-w-[220px] sm:max-w-[240px] mx-auto my-3 flex items-center justify-center">
         <IngredientIllustration
           src={ingredient.illustration}
           name={ingredient.name}
           category={ingredient.category}
-          className="h-full w-full"
+          className="w-full h-full"
         />
       </div>
 
-      {/* Historical Chronology & Geographical Provenance (Whitespace and Hairline Rules) */}
-      <div className="mt-5 space-y-4">
-        {/* Origin */}
-        <div className="pb-3 border-b border-neutral-200">
-          <div className="font-serif text-xs text-neutral-500">Origin</div>
-          <div className="mt-0.5 font-serif text-base text-neutral-900 font-semibold">
+      {/* Simplified Editorial Chronology & Facts (No nested cards, pure typography & whitespace) */}
+      <div className="space-y-4 pt-1">
+        {/* Where it came from (Origin) */}
+        <div className="pb-3 border-b border-black/[0.05]">
+          <span className="font-sans text-[12px] font-medium text-neutral-500">
+            Where it came from
+          </span>
+          <p className="font-sans text-[15px] font-semibold text-neutral-900 mt-0.5 leading-snug">
             {ingredient.origin}
-          </div>
-          <div className="font-serif text-[11px] text-neutral-500 mt-0.5">
-            Coordinates: {originCoordsStr}
-          </div>
-        </div>
-
-        {/* Arrival in India */}
-        {!state.isNative && (
-          <div className="pb-3 border-b border-neutral-200">
-            <div className="font-serif text-xs text-neutral-500">Entry into India</div>
-            <div className="mt-0.5 font-serif text-sm text-neutral-900 font-medium">
-              {state.entryPort}
-            </div>
-            <div className="font-serif text-[11px] text-neutral-600 mt-0.5">
-              Approximate arrival: {formatYear(state.arrivalYear)}
-            </div>
-          </div>
-        )}
-
-        {/* Widespread Adoption */}
-        <div className="pb-3 border-b border-neutral-200">
-          <div className="font-serif text-xs text-neutral-500">Widespread adoption</div>
-          <div className="mt-0.5 font-serif text-sm text-neutral-900 font-semibold">
-            {ingredient.widespreadAdoption.period}
-          </div>
-          {ingredient.widespreadAdoption.simulationYearNote && (
-            <div className="font-serif text-[11px] text-neutral-600 mt-0.5">
-              {ingredient.widespreadAdoption.simulationYearNote}
-            </div>
-          )}
-        </div>
-
-        {/* Current Simulation Year Status */}
-        <div className="pb-3 border-b border-neutral-200">
-          <div className="font-serif text-xs text-neutral-500">
-            Status at {formatYear(currentYear)}
-          </div>
-          <div className="mt-0.5 font-serif text-sm text-neutral-900 font-medium">
-            {state.statusTitle}
-          </div>
-          <p className="mt-1 font-serif text-xs text-neutral-700 leading-relaxed">
-            {state.statusDescription}
           </p>
         </div>
 
-        {/* Active Regional Footprints in India */}
-        {state.activeRegions.length > 0 && (
-          <div className="pb-3 border-b border-neutral-200">
-            <div className="font-serif text-xs text-neutral-500 mb-1.5">
-              Active regions ({state.activeRegions.length})
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {state.activeRegions.map(reg => (
-                <span
-                  key={reg.name}
-                  className="px-2 py-0.5 border border-neutral-300 bg-white font-serif text-xs text-neutral-800"
-                >
-                  {reg.name.split('(')[0].trim()}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* When it came (Entry into India) */}
+        <div className="pb-3 border-b border-black/[0.05]">
+          <span className="font-sans text-[12px] font-medium text-neutral-500">
+            When it came
+          </span>
+          <p className="font-sans text-[15px] font-semibold text-neutral-900 mt-0.5 leading-snug">
+            {isNative
+              ? 'Indigenous to subcontinent (ancient antiquity)'
+              : `${formatYear(state.arrivalYear)}${state.entryPort ? ` · ${state.entryPort}` : ''}`}
+          </p>
+        </div>
 
-        {/* Historical Narrative */}
-        <div className="pt-1">
-          <div className="font-serif text-xs text-neutral-500 mb-1">Historical context</div>
-          <p className="font-serif text-xs text-neutral-800 leading-relaxed">
+        {/* When widespread adoption happened */}
+        <div className="pb-3 border-b border-black/[0.05]">
+          <span className="font-sans text-[12px] font-medium text-neutral-500">
+            When widespread adoption happened
+          </span>
+          <p className="font-sans text-[15px] font-semibold text-neutral-900 mt-0.5 leading-snug">
+            {ingredient.widespreadAdoption.period}
+          </p>
+          {ingredient.widespreadAdoption.simulationYearNote && (
+            <p className="font-sans text-[12px] text-neutral-500 mt-0.5 leading-normal">
+              {ingredient.widespreadAdoption.simulationYearNote}
+            </p>
+          )}
+        </div>
+
+        {/* Historical Facts */}
+        <div>
+          <span className="font-sans text-[12px] font-medium text-neutral-500">
+            Historical facts
+          </span>
+          <p className="font-sans text-[13px] text-neutral-700 mt-1 leading-relaxed">
             {ingredient.widespreadAdoption.details}
           </p>
         </div>
       </div>
 
-      {/* Focus on Foothold / Region Trigger */}
-      {onFocusLocation && (
-        <div className="mt-6 pt-3 border-t border-neutral-300 flex justify-between items-center">
-          <span className="font-serif text-xs text-neutral-500">Map focus</span>
+      {/* Center on Entry Point or Focus Location */}
+      {onFocusLocation && !isNative && (
+        <div className="mt-5 pt-3 border-t border-black/[0.05] flex justify-end">
           <button
             onClick={() => {
               sound.playClick();
               onFocusLocation(state.entryCoords);
             }}
             onMouseEnter={() => sound.playHover()}
-            className="btn-mechanical btn-mechanical-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-sans text-[12px] font-medium text-neutral-700 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
           >
-            <Navigation className="h-3 w-3 mr-1 text-neutral-900" />
+            <Navigation className="h-3.5 w-3.5 text-accent" />
             <span>Center on entry point</span>
           </button>
         </div>

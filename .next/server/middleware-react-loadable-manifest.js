@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST='{"app/page.tsx -> @/map/FoodMap":{"id":8358,"files":["static/chunks/977.f252b63a34bfa423.js"]}}';
+self.__REACT_LOADABLE_MANIFEST='{"app/page.tsx -> @/map/FoodMap":{"id":2624,"files":["static/chunks/624.17e9e3bb325d55db.js"]}}';

@@ -6,7 +6,7 @@ import { getIngredientState } from '@/utils/simulationEngine';
 import { INDIA_OUTLINE_SVG_PATH, projectCoordinates } from '@/data/indiaOutlineSvg';
 import { sound } from '@/utils/sound';
 import CompassRose from '@/components/CompassRose';
-import { ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
+import { Plus, Minus, RotateCcw } from 'lucide-react';
 
 interface FoodMapProps {
   ingredients: FoodIngredient[];
@@ -16,7 +16,7 @@ interface FoodMapProps {
   flyToCoords?: [number, number] | null;
 }
 
-// Subdued neighbouring countries with sentence-case labels
+// Subdued neighbouring countries with clean sentence-case labels
 const NEIGHBOURS = [
   { name: 'Pakistan', lon: 69.34, lat: 30.37 },
   { name: 'China / Tibet', lon: 88.5, lat: 33.5 },
@@ -54,7 +54,6 @@ export default function FoodMap({
 
   // Mouse pan handlers
   const handleMouseDown = (e: React.MouseEvent) => {
-    // Only drag with left mouse button and not on interactive SVG children
     if (e.button !== 0) return;
     setIsDragging(true);
     dragStartRef.current = { x: e.clientX - pan.x, y: e.clientY - pan.y };
@@ -111,7 +110,6 @@ export default function FoodMap({
   // Calculate direction angle (in degrees) for a moving particle along its waypoints
   const getParticleHeading = useCallback((waypoints: [number, number][], particlePos: [number, number]): number => {
     if (waypoints.length < 2) return 0;
-    // Find the closest active segment
     for (let i = 0; i < waypoints.length - 1; i++) {
       const p1 = waypoints[i];
       const p2 = waypoints[i + 1];
@@ -119,7 +117,6 @@ export default function FoodMap({
       const [x2, y2] = projectCoordinates(p2[0], p2[1]);
       const [px, py] = projectCoordinates(particlePos[0], particlePos[1]);
 
-      // Check if particle is approximately on or near this segment
       const dx = x2 - x1;
       const dy = y2 - y1;
       const segLenSq = dx * dx + dy * dy;
@@ -148,7 +145,7 @@ export default function FoodMap({
 
   return (
     <div
-      className="fixed inset-0 w-full h-full overflow-hidden select-none bg-[#f5f5f5]"
+      className="fixed inset-0 w-full h-full overflow-hidden select-none bg-[#f6f7f9]"
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
@@ -158,43 +155,45 @@ export default function FoodMap({
       role="application"
       aria-label="Historical cartographic canvas"
     >
-      {/* Precision Mechanical Map Viewport Controls (Top Right) */}
-      <div className="fixed top-20 left-4 z-20 flex flex-col space-y-1.5">
+      {/* Consolidated Floating Map Controls Group (Top Left) */}
+      <div className="fixed top-24 left-4 sm:left-6 z-20 flex flex-col items-center rounded-2xl bg-white/85 backdrop-blur-xl border border-black/[0.06] shadow-soft p-1">
         <button
           onClick={() => handleZoom(0.25)}
           onMouseEnter={() => sound.playHover()}
-          className="btn-mechanical btn-mechanical-icon"
+          className="p-2 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
           title="Zoom in"
           aria-label="Zoom in"
         >
-          <ZoomIn className="h-4 w-4 text-neutral-900" />
+          <Plus className="h-4 w-4" />
         </button>
+        <div className="h-[1px] w-4 bg-black/[0.06] my-0.5" />
         <button
           onClick={() => handleZoom(-0.25)}
           onMouseEnter={() => sound.playHover()}
-          className="btn-mechanical btn-mechanical-icon"
+          className="p-2 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
           title="Zoom out"
           aria-label="Zoom out"
         >
-          <ZoomOut className="h-4 w-4 text-neutral-900" />
+          <Minus className="h-4 w-4" />
         </button>
+        <div className="h-[1px] w-4 bg-black/[0.06] my-0.5" />
         <button
           onClick={handleResetView}
           onMouseEnter={() => sound.playHover()}
-          className="btn-mechanical btn-mechanical-icon"
+          className="p-2 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
           title="Reset View"
           aria-label="Reset View"
         >
-          <RotateCcw className="h-4 w-4 text-neutral-900" />
+          <RotateCcw className="h-3.5 w-3.5" />
         </button>
       </div>
 
-      {/* Cartographic Compass Rose Instrument (Top Right, Understated) */}
-      <div className="pointer-events-none fixed top-20 right-6 z-10 hidden sm:block">
+      {/* Cartographic Compass Rose (Top Right, Understated) */}
+      <div className="pointer-events-none fixed top-24 right-6 z-10 hidden sm:block opacity-60">
         <CompassRose />
       </div>
 
-      {/* Primary Editorial Cartographic Canvas (SVG) */}
+      {/* Primary Cartographic Canvas (SVG) */}
       <svg
         viewBox="0 0 1000 700"
         preserveAspectRatio="xMidYMid meet"
@@ -202,19 +201,21 @@ export default function FoodMap({
         style={{
           transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
           transformOrigin: '50% 50%',
-          transition: isDragging ? 'none' : 'transform 0.12s ease-out',
+          transition: isDragging ? 'none' : 'transform 0.14s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
         <defs>
-          {/* Subtle neutral background surface */}
-          <rect id="viewportBackground" x="-300" y="-200" width="1600" height="1100" fill="#f5f5f5" />
+          <rect id="viewportBackground" x="-300" y="-200" width="1600" height="1100" fill="#f6f7f9" />
+          <filter id="indiaShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="3" stdDeviation="6" floodOpacity="0.04" />
+          </filter>
         </defs>
 
-        {/* 1. Base Sea / Land Surface (0% Saturation Neutral #f5f5f5) */}
+        {/* 1. Base Sea / Land Surface */}
         <use href="#viewportBackground" />
 
-        {/* 2. Precision Graticule Lines (Clean neutral hairline grid) */}
-        <g stroke="#dddddd" strokeWidth="0.6" strokeDasharray="3,3" opacity="0.8">
+        {/* 2. Precision Graticule Lines (Delicate neutral hairline grid) */}
+        <g stroke="#e5e7eb" strokeWidth="0.5" strokeDasharray="3,4" opacity="0.6">
           <line x1="100" y1="-200" x2="100" y2="900" />
           <line x1="300" y1="-200" x2="300" y2="900" />
           <line x1="500" y1="-200" x2="500" y2="900" />
@@ -225,35 +226,34 @@ export default function FoodMap({
           <line x1="-300" y1="550" x2="1300" y2="550" />
         </g>
 
-        {/* 3. Maritime Corridors (Understated natural sentence case) */}
-        <g fill="#777777" fontFamily="'Timeless Sans', sans-serif" fontSize="10" opacity="0.85">
+        {/* 3. Maritime Corridors */}
+        <g fill="#9ca3af" fontFamily="var(--font-sans)" fontSize="10" opacity="0.8">
           <text x="35" y="660">Atlantic and Cape route corridor</text>
           <text x="35" y="320">Red Sea and Arabian maritime conduit</text>
           <text x="770" y="670">Straits of Malacca corridor</text>
         </g>
 
-        {/* 4. Historical Sea Labels (Natural sentence case, Timeless font, neutral) */}
-        <g fill="#555555" fontFamily="'Timeless Sans', sans-serif" textAnchor="middle">
+        {/* 4. Historical Sea Labels */}
+        <g fill="#6b7280" fontFamily="var(--font-sans)" textAnchor="middle">
           <text x="320" y="475" fontSize="13" fontWeight="600">Arabian Sea</text>
           <text x="780" y="495" fontSize="13" fontWeight="600">Bay of Bengal</text>
           <text x="540" y="670" fontSize="14" fontWeight="600">Indian Ocean</text>
         </g>
 
-        {/* 5. Authoritative Survey of India Outline Vector Layer (Preserved Exact Geometry) */}
-        <g id="survey-of-india-authoritative-layer">
-          {/* Subtle clean boundary casing */}
+        {/* 5. Authoritative Subcontinental Outline Layer */}
+        <g id="survey-of-india-authoritative-layer" filter="url(#indiaShadow)">
           <path
             d={INDIA_OUTLINE_SVG_PATH}
             fill="#ffffff"
-            stroke="#111111"
-            strokeWidth="1.8"
+            stroke="#1f2937"
+            strokeWidth="1.3"
             strokeLinejoin="round"
             strokeLinecap="round"
           />
         </g>
 
-        {/* 6. Neighbouring Countries Subdued Engraved Typography (Sentence case, restrained) */}
-        <g fill="#777777" fontFamily="'Timeless Sans', sans-serif" fontSize="11" fontWeight="500" opacity="0.8">
+        {/* 6. Neighbouring Countries Subdued Typography */}
+        <g fill="#9ca3af" fontFamily="var(--font-sans)" fontSize="11" fontWeight="500" opacity="0.8">
           {NEIGHBOURS.map(nbr => {
             const [nx, ny] = projectCoordinates(nbr.lon, nbr.lat);
             return (
@@ -264,19 +264,19 @@ export default function FoodMap({
           })}
         </g>
 
-        {/* Sri Lanka Vector Island (Neutral outline) */}
+        {/* Sri Lanka Vector Island */}
         <ellipse
           cx="645"
           cy="615"
           rx="18"
           ry="26"
           fill="#ffffff"
-          stroke="#333333"
-          strokeWidth="1.2"
+          stroke="#4b5563"
+          strokeWidth="1"
         />
 
         {/* ================================================================= */}
-        {/* SIMULATION LAYER A: Trade Routes (Thin Neutral Grayscale)         */}
+        {/* SIMULATION LAYER A: Trade Routes                                  */}
         {/* ================================================================= */}
         <g id="simulation-trade-routes">
           {ingredientStates.map(({ ing, state }) => {
@@ -295,10 +295,10 @@ export default function FoodMap({
                 ? '5,4'
                 : '2,3';
 
-            // Neutral grayscale stroke values
-            const strokeColor = isSelected ? '#111111' : isTraveling ? '#333333' : '#777777';
-            const strokeWidth = isSelected ? 1.8 : isTraveling ? 1.2 : 0.8;
-            const strokeOpacity = isSelected ? 0.95 : isTraveling ? 0.65 : isWidespread ? 0.25 : 0.4;
+            // Electric blue accent on selection, otherwise restrained neutral tones
+            const strokeColor = isSelected ? '#0066ff' : isTraveling ? '#374151' : '#9ca3af';
+            const strokeWidth = isSelected ? 2.2 : isTraveling ? 1.2 : 0.75;
+            const strokeOpacity = isSelected ? 1 : isTraveling ? 0.6 : isWidespread ? 0.22 : 0.35;
 
             return (
               <g
@@ -310,14 +310,27 @@ export default function FoodMap({
                 }}
                 className="cursor-pointer"
               >
-                {/* Clean path stroke */}
+                {/* Glowing halo for selected active route */}
+                {isSelected && (
+                  <path
+                    d={pathData}
+                    fill="none"
+                    stroke="#0066ff"
+                    strokeWidth="5"
+                    strokeOpacity="0.25"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                )}
+
+                {/* Primary path stroke */}
                 <path
                   d={pathData}
                   fill="none"
                   stroke={strokeColor}
                   strokeWidth={strokeWidth}
                   strokeOpacity={strokeOpacity}
-                  strokeDasharray={strokeDash}
+                  strokeDasharray={isSelected ? 'none' : strokeDash}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
@@ -327,7 +340,7 @@ export default function FoodMap({
         </g>
 
         {/* ================================================================= */}
-        {/* SIMULATION LAYER B: Regional Spread (Subtle Mechanical Hatching)  */}
+        {/* SIMULATION LAYER B: Regional Spread (Soft Rounded Washes)         */}
         {/* ================================================================= */}
         <g id="simulation-regional-spread">
           {ingredientStates.map(({ ing, state }) => {
@@ -335,18 +348,11 @@ export default function FoodMap({
 
             const isSelected = selectedIngredient?.id === ing.id;
 
-            const borderDash =
-              ing.confidence === 'high'
-                ? 'none'
-                : ing.confidence === 'medium'
-                ? '3,3'
-                : '1.5,2.5';
-
             return (
               <g key={`regions-${ing.id}`}>
                 {state.activeRegions.map(reg => {
                   const [cx, cy] = projectCoordinates(reg.coordinates[0], reg.coordinates[1]);
-                  const span = 10 + reg.adoptionLevel * 14;
+                  const span = 12 + reg.adoptionLevel * 14;
 
                   return (
                     <g
@@ -358,27 +364,26 @@ export default function FoodMap({
                       }}
                       className="cursor-pointer"
                     >
-                      {/* Subtle neutral zone wash */}
+                      {/* Soft rounded zone wash (no harsh square edges) */}
                       <rect
                         x={cx - span / 2}
                         y={cy - span / 2}
                         width={span}
                         height={span}
-                        rx="2"
-                        fill="#111111"
-                        fillOpacity={isSelected ? 0.12 : 0.03 * reg.adoptionLevel}
-                        stroke="#222222"
+                        rx="8"
+                        fill={isSelected ? '#0066ff' : '#111827'}
+                        fillOpacity={isSelected ? 0.1 : 0.02 * reg.adoptionLevel}
+                        stroke={isSelected ? '#0066ff' : '#4b5563'}
                         strokeWidth={isSelected ? 1.2 : 0.6}
-                        strokeDasharray={borderDash}
-                        strokeOpacity={isSelected ? 0.8 : 0.25 * reg.adoptionLevel}
+                        strokeOpacity={isSelected ? 0.7 : 0.2 * reg.adoptionLevel}
                       />
 
-                      {/* Tiny regional cross mark (NO circular dot!) */}
+                      {/* Delicate cross endpoint */}
                       <path
                         d={`M ${cx - 2.5} ${cy} L ${cx + 2.5} ${cy} M ${cx} ${cy - 2.5} L ${cx} ${cy + 2.5}`}
-                        stroke="#111111"
+                        stroke={isSelected ? '#0066ff' : '#111827'}
                         strokeWidth="1"
-                        strokeOpacity={isSelected ? 0.9 : 0.45 * reg.adoptionLevel}
+                        strokeOpacity={isSelected ? 0.9 : 0.4 * reg.adoptionLevel}
                       />
 
                       {/* Region label on selection */}
@@ -386,9 +391,9 @@ export default function FoodMap({
                         <text
                           x={cx + 8}
                           y={cy + 3}
-                          fontFamily="'Timeless Sans', sans-serif"
+                          fontFamily="var(--font-sans)"
                           fontSize="10"
-                          fill="#111111"
+                          fill="#0066ff"
                           fontWeight="600"
                           className="pointer-events-none"
                         >
@@ -404,7 +409,7 @@ export default function FoodMap({
         </g>
 
         {/* ================================================================= */}
-        {/* SIMULATION LAYER C: Arrival Footholds (Tiny Square Herald)        */}
+        {/* SIMULATION LAYER C: Arrival Endpoints (Directional Movement Marks) */}
         {/* ================================================================= */}
         <g id="simulation-arrivals">
           {ingredientStates.map(({ ing, state }) => {
@@ -423,45 +428,33 @@ export default function FoodMap({
                 }}
                 className="cursor-pointer"
               >
-                {/* Outer square herald framing */}
-                <rect
-                  x={cx - 6}
-                  y={cy - 6}
-                  width="12"
-                  height="12"
-                  fill="none"
-                  stroke="#111111"
-                  strokeWidth="1.2"
-                  strokeOpacity={isSelected ? 1 : 0.75}
-                />
-                {/* Center square core mark */}
-                <rect
-                  x={cx - 2.5}
-                  y={cy - 2.5}
-                  width="5"
-                  height="5"
-                  fill="#111111"
+                {/* Directional arrival cross indicator */}
+                <path
+                  d={`M ${cx - 5} ${cy} L ${cx + 5} ${cy} M ${cx} ${cy - 5} L ${cx} ${cy + 5}`}
+                  stroke={isSelected ? '#0066ff' : '#111827'}
+                  strokeWidth={isSelected ? 2 : 1.5}
+                  strokeLinecap="round"
                 />
 
-                {/* Arrival label in clean sentence case */}
+                {/* Refined floating label in sentence case */}
                 <g className="pointer-events-none">
                   <rect
-                    x={cx + 9}
-                    y={cy - 9}
-                    width={ing.name.length * 6 + 50}
-                    height="17"
-                    rx="2"
-                    fill="#ffffff"
-                    stroke="#111111"
-                    strokeWidth="0.8"
+                    x={cx + 8}
+                    y={cy - 10}
+                    width={ing.name.length * 6.5 + 46}
+                    height="19"
+                    rx="6"
+                    fill="rgba(255, 255, 255, 0.92)"
+                    stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.08)'}
+                    strokeWidth={isSelected ? 1.2 : 0.8}
                   />
                   <text
-                    x={cx + 14}
-                    y={cy + 3}
-                    fontFamily="'Timeless Sans', sans-serif"
-                    fontSize="10"
+                    x={cx + 13}
+                    y={cy + 3.5}
+                    fontFamily="var(--font-sans)"
+                    fontSize="10.5"
                     fontWeight="600"
-                    fill="#111111"
+                    fill={isSelected ? '#0066ff' : '#111827'}
                   >
                     {ing.name} arrives
                   </text>
@@ -485,7 +478,6 @@ export default function FoodMap({
             );
             const isSelected = selectedIngredient?.id === ing.id;
 
-            // Only render if within canvas boundaries
             if (cx >= 40 && cx <= 1000 && cy >= 0 && cy <= 700) {
               const heading = getParticleHeading(state.activeWaypoints, state.particlePosition);
 
@@ -499,42 +491,42 @@ export default function FoodMap({
                   }}
                   className="cursor-pointer"
                 >
-                  {/* Directional Dart Particle (No circular beads!) */}
+                  {/* Directional Dart Particle */}
                   <g transform={`translate(${cx}, ${cy}) rotate(${heading})`}>
                     {/* Trailing wake dash mark */}
-                    <line x1="-14" y1="0" x2="-8" y2="0" stroke="#777777" strokeWidth="1" strokeDasharray="2,2" />
+                    <line x1="-14" y1="0" x2="-8" y2="0" stroke="#9ca3af" strokeWidth="1" strokeDasharray="2,2" strokeLinecap="round" />
                     {/* Center directional stroke */}
-                    <line x1="-7" y1="0" x2="4" y2="0" stroke="#111111" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="-7" y1="0" x2="4" y2="0" stroke={isSelected ? '#0066ff' : '#111827'} strokeWidth={isSelected ? 2 : 1.5} strokeLinecap="round" />
                     {/* Directional arrowhead */}
                     <path
-                      d="M 1,-3 L 4.5,0 L 1,3"
+                      d="M 0,-3.5 L 4.5,0 L 0,3.5"
                       fill="none"
-                      stroke="#111111"
-                      strokeWidth="1.5"
+                      stroke={isSelected ? '#0066ff' : '#111827'}
+                      strokeWidth={isSelected ? 2 : 1.5}
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                   </g>
 
-                  {/* Clean editorial label in sentence case */}
+                  {/* Refined floating pill label */}
                   <g className="pointer-events-none">
                     <rect
                       x={cx + 8}
                       y={cy - 10}
-                      width={ing.name.length * 6 + 48}
-                      height="17"
-                      rx="2"
-                      fill="#ffffff"
-                      stroke="#111111"
-                      strokeWidth="0.8"
+                      width={ing.name.length * 6.5 + 44}
+                      height="19"
+                      rx="6"
+                      fill="rgba(255, 255, 255, 0.92)"
+                      stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.08)'}
+                      strokeWidth={isSelected ? 1.2 : 0.8}
                     />
                     <text
-                      x={cx + 12}
-                      y={cy + 2}
-                      fontFamily="'Timeless Sans', sans-serif"
-                      fontSize="10"
+                      x={cx + 13}
+                      y={cy + 3.5}
+                      fontFamily="var(--font-sans)"
+                      fontSize="10.5"
                       fontWeight="600"
-                      fill="#111111"
+                      fill={isSelected ? '#0066ff' : '#111827'}
                     >
                       {ing.name} ({Math.round(state.routeProgress * 100)}%)
                     </text>
@@ -552,58 +544,61 @@ export default function FoodMap({
         {/* ================================================================= */}
         {offscreenTraveling.length > 0 && (
           <g id="offscreen-maritime-manifest" className="pointer-events-auto">
-            {offscreenTraveling.slice(0, 4).map(({ ing, state }, idx) => (
-              <g
-                key={`offscreen-${ing.id}`}
-                onClick={e => {
-                  e.stopPropagation();
-                  sound.playClick();
-                  onSelectIngredient(ing);
-                }}
-                className="cursor-pointer"
-              >
-                <rect
-                  x="15"
-                  y={180 + idx * 24}
-                  width="170"
-                  height="19"
-                  rx="2"
-                  fill="#ffffff"
-                  stroke="#222222"
-                  strokeWidth="0.8"
-                />
-                <text
-                  x="22"
-                  y={193 + idx * 24}
-                  fontFamily="'Timeless Sans', sans-serif"
-                  fontSize="10"
-                  fontWeight="600"
-                  fill="#111111"
+            {offscreenTraveling.slice(0, 4).map(({ ing, state }, idx) => {
+              const isSelected = selectedIngredient?.id === ing.id;
+              return (
+                <g
+                  key={`offscreen-${ing.id}`}
+                  onClick={e => {
+                    e.stopPropagation();
+                    sound.playClick();
+                    onSelectIngredient(ing);
+                  }}
+                  className="cursor-pointer"
                 >
-                  ← {ing.name} en route ({Math.round(state.routeProgress * 100)}%)
-                </text>
-              </g>
-            ))}
+                  <rect
+                    x="15"
+                    y={180 + idx * 26}
+                    width="175"
+                    height="21"
+                    rx="8"
+                    fill="rgba(255, 255, 255, 0.9)"
+                    stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.06)'}
+                    strokeWidth={isSelected ? 1.2 : 0.8}
+                  />
+                  <text
+                    x="24"
+                    y={194 + idx * 26}
+                    fontFamily="var(--font-sans)"
+                    fontSize="10.5"
+                    fontWeight="600"
+                    fill={isSelected ? '#0066ff' : '#111827'}
+                  >
+                    ← {ing.name} ({Math.round(state.routeProgress * 100)}%)
+                  </text>
+                </g>
+              );
+            })}
 
             {offscreenTraveling.length > 4 && (
               <g>
                 <rect
                   x="15"
-                  y={180 + 4 * 24}
-                  width="170"
-                  height="19"
-                  rx="2"
-                  fill="#eeeeee"
-                  stroke="#555555"
+                  y={180 + 4 * 26}
+                  width="175"
+                  height="21"
+                  rx="8"
+                  fill="rgba(245, 246, 248, 0.9)"
+                  stroke="rgba(0, 0, 0, 0.06)"
                   strokeWidth="0.8"
                 />
                 <text
-                  x="22"
-                  y={193 + 4 * 24}
-                  fontFamily="'Timeless Sans', sans-serif"
-                  fontSize="9.5"
+                  x="24"
+                  y={194 + 4 * 26}
+                  fontFamily="var(--font-sans)"
+                  fontSize="10"
                   fontWeight="500"
-                  fill="#333333"
+                  fill="#6b7280"
                 >
                   + {offscreenTraveling.length - 4} more crossing Atlantic
                 </text>
@@ -613,9 +608,9 @@ export default function FoodMap({
         )}
       </svg>
 
-      {/* Understated Survey of India Reference Notice (Bottom Left) */}
-      <div className="fixed bottom-24 left-4 z-10 hidden sm:block text-[11px] font-medium text-neutral-600 bg-white/80 px-2 py-0.5 rounded border border-neutral-300">
-        Survey of India official boundary reference · 150 historical records
+      {/* Understated Reference Notice (Bottom Left) */}
+      <div className="fixed bottom-24 left-4 sm:left-6 z-10 hidden sm:block text-[11px] font-sans font-medium text-neutral-400 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full border border-black/[0.04]">
+        Survey of India cartographic outline · 150 historical records
       </div>
     </div>
   );
