@@ -226,7 +226,7 @@ export default function FoodMap({
         style={{
           transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
           transformOrigin: '50% 50%',
-          transition: isDragging ? 'none' : 'transform 0.14s cubic-bezier(0.16, 1, 0.3, 1)',
+          transition: isDragging ? 'none' : 'transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
         <defs>
@@ -460,7 +460,7 @@ export default function FoodMap({
                   strokeDasharray={item.isSelected ? 'none' : '2,2'}
                   strokeOpacity={item.isSelected ? 0.75 : isHovered ? 0.55 : 0.25}
                   style={{
-                    transition: 'all 300ms cubic-bezier(0.16, 1, 0.3, 1)',
+                    transition: 'all 650ms cubic-bezier(0.22, 1, 0.36, 1)',
                   }}
                 />
 
@@ -516,9 +516,8 @@ export default function FoodMap({
    * Helper to render an individual circular ingredient marker
    */
   function renderMarker(item: LayoutMarkerItem, isSelected: boolean, isHovered: boolean) {
-    const selectedSvgRadius = 60 / (2 * 1.3 * zoom);
     const r = isSelected
-      ? Math.max(item.radius * 1.22, selectedSvgRadius)
+      ? item.radius * 1.18
       : isHovered
       ? item.radius * 1.08
       : item.radius;
@@ -547,7 +546,7 @@ export default function FoodMap({
           opacity: isHovered || isSelected ? 1.0 : item.opacity,
           transition: isDragging
             ? 'none'
-            : 'transform 280ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease-out',
+            : 'transform 650ms cubic-bezier(0.22, 1, 0.36, 1), opacity 350ms ease-out',
         }}
         aria-label={`${item.name} (${item.category})`}
         role="button"
@@ -555,7 +554,6 @@ export default function FoodMap({
         {/* Generous invisible hit target circle for effortless interaction on small markers */}
         <circle r={hitR} fill="transparent" pointerEvents="all" />
 
-        {/* Base circular surface: clean neutral white, single border, diffuse shadow */}
         <circle
           r={r}
           fill="#ffffff"
@@ -574,11 +572,21 @@ export default function FoodMap({
               ? 'url(#markerHoverShadow)'
               : 'url(#markerShadow)'
           }
+          style={{
+            transition: 'r 650ms cubic-bezier(0.22, 1, 0.36, 1), stroke 300ms ease, stroke-width 300ms ease',
+          }}
         />
 
         {/* Circular crop boundary for the transparent illustration */}
         <clipPath id={`clip-${item.id}`}>
-          <circle r={r - imagePadding} cx="0" cy="0" />
+          <circle
+            r={r - imagePadding}
+            cx="0"
+            cy="0"
+            style={{
+              transition: 'r 650ms cubic-bezier(0.22, 1, 0.36, 1)',
+            }}
+          />
         </clipPath>
 
         {/* Actual transparent botanical ingredient illustration */}
@@ -592,6 +600,9 @@ export default function FoodMap({
             clipPath={`url(#clip-${item.id})`}
             preserveAspectRatio="xMidYMid meet"
             className="pointer-events-none"
+            style={{
+              transition: 'all 650ms cubic-bezier(0.22, 1, 0.36, 1)',
+            }}
           />
         ) : (
           /* Editorial fallback if illustration missing */
@@ -618,9 +629,8 @@ export default function FoodMap({
   function renderFloatingLabel(item: LayoutMarkerItem) {
     const isSelected = item.isSelected;
     const isHovered = item.id === hoveredId;
-    const selectedSvgRadius = 60 / (2 * 1.3 * zoom);
     const r = isSelected
-      ? Math.max(item.radius * 1.22, selectedSvgRadius)
+      ? item.radius * 1.18
       : isHovered
       ? item.radius * 1.08
       : item.radius;
@@ -694,7 +704,7 @@ export default function FoodMap({
       <g
         transform={`translate(${item.x}, ${labelY})`}
         style={{
-          transition: 'transform 260ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease',
+          transition: 'transform 650ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease-out',
         }}
       >
         {/* Soft rounded card surface that fully contains all wrapped text */}

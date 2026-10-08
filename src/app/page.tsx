@@ -52,7 +52,7 @@ export default function Home() {
     const startYear = currentYearRef.current;
     if (startYear === targetYear) return;
 
-    const duration = 420; // 420ms smooth transition
+    const duration = 800; // 800ms smooth, subtle transition
     const startTime = performance.now();
     const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 

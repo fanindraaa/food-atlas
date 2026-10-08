@@ -255,7 +255,7 @@ export function computeIngredientMarkerLayout({
     anchorY: number;
     isTraveling: boolean;
     isSelected: boolean;
-    rank: number;
+    baseRank: number;
   }
 
   const rawCandidates: RawCandidate[] = [];
@@ -274,8 +274,7 @@ export function computeIngredientMarkerLayout({
           anchorY: py,
           isTraveling: true,
           isSelected,
-          // Selected items get rank 0, traveling items get rank 0.5 (always visible)
-          rank: isSelected ? 0 : 0.5,
+          baseRank: 0.5,
         });
       }
     } else if (state.arrivalReached) {
@@ -287,7 +286,7 @@ export function computeIngredientMarkerLayout({
         anchorY: ay,
         isTraveling: false,
         isSelected,
-        rank: isSelected ? 0 : baseRank,
+        baseRank,
       });
     }
   });
@@ -297,25 +296,21 @@ export function computeIngredientMarkerLayout({
   // Step 1: Filter raw candidates by progressive density threshold
   // Selected ingredients and traveling ingredients are ALWAYS included
   // Other arrived items are filtered by fixed importance rank
-  const sortedByImportance = [...rawCandidates].sort((a, b) => a.rank - b.rank);
+  const sortedByImportance = [...rawCandidates].sort((a, b) => a.baseRank - b.baseRank);
   const visibleCandidates = sortedByImportance.filter((item, idx) => {
     if (item.isSelected || item.isTraveling) return true;
     return idx < maxVisibleCount;
   });
 
   // Step 2: Placement priority ordering
-  // 1. Selected ingredient first (guarantees zero displacement for selected item)
-  // 2. Traveling ingredients
-  // 3. Most historically important items placed closest to their anchor
-  // 4. Stable alphabetical ID tiebreaker
+  // Stable ordering keeps markers grounded in their natural positions so selecting
+  // an item does not cause other markers to violently shuffle or swap positions.
   visibleCandidates.sort((a, b) => {
-    if (a.isSelected) return -1;
-    if (b.isSelected) return 1;
     if (a.isTraveling !== b.isTraveling) {
       return a.isTraveling ? -1 : 1;
     }
-    if (a.rank !== b.rank) {
-      return a.rank - b.rank;
+    if (a.baseRank !== b.baseRank) {
+      return a.baseRank - b.baseRank;
     }
     return a.ing.id.localeCompare(b.ing.id);
   });
@@ -339,16 +334,12 @@ export function computeIngredientMarkerLayout({
     const x0 = item.anchorX;
     const y0 = item.anchorY;
 
-    // Breathing space factor for selected item so it dominates visually
-    const selectedBuffer = 1.18;
-
     // Check if the true anchor position (x0, y0) is collision-free
     let canPlaceAtAnchor = true;
     for (const p of placed) {
       const dx = p.x - x0;
       const dy = p.y - y0;
-      const target = (item.isSelected || p.isSelected) ? minDist * selectedBuffer : minDist;
-      if (dx * dx + dy * dy < target * target) {
+      if (dx * dx + dy * dy < minDist * minDist) {
         canPlaceAtAnchor = false;
         break;
       }
@@ -359,6 +350,10 @@ export function computeIngredientMarkerLayout({
       const opacity = computeItemOpacity(item.isSelected, item.ing.category, x0, y0, selectedAnchor);
       const isRelevant = computeIsRelevant(item.isSelected, item.ing.category, x0, y0, selectedAnchor);
 
+      // Subtle, gentle elevation lift for selected item at anchor
+      const finalX = x0;
+      const finalY = item.isSelected ? y0 - 3.5 : y0;
+
       placed.push({
         id: item.ing.id,
         name: item.ing.name,
@@ -366,8 +361,8 @@ export function computeIngredientMarkerLayout({
         illustration: item.ing.illustration,
         ingredient: item.ing,
         state: item.state,
-        x: x0,
-        y: y0,
+        x: finalX,
+        y: finalY,
         anchorX: x0,
         anchorY: y0,
         radius,
@@ -399,8 +394,7 @@ export function computeIngredientMarkerLayout({
       for (const p of placed) {
         const dx = p.x - cx;
         const dy = p.y - cy;
-        const target = (item.isSelected || p.isSelected) ? minDist * selectedBuffer : minDist;
-        if (dx * dx + dy * dy < target * target) {
+        if (dx * dx + dy * dy < minDist * minDist) {
           collides = true;
           break;
         }
@@ -429,6 +423,15 @@ export function computeIngredientMarkerLayout({
     const opacity = computeItemOpacity(item.isSelected, item.ing.category, bestX, bestY, selectedAnchor);
     const isRelevant = computeIsRelevant(item.isSelected, item.ing.category, bestX, bestY, selectedAnchor);
 
+    // When displaced item is selected, apply a smooth, subtle shift towards anchor
+    let finalX = bestX;
+    let finalY = bestY;
+    if (item.isSelected && dist > 0) {
+      const subtleShift = Math.min(6, dist * 0.22);
+      finalX = bestX - ((bestX - x0) / dist) * subtleShift;
+      finalY = bestY - ((bestY - y0) / dist) * subtleShift;
+    }
+
     placed.push({
       id: item.ing.id,
       name: item.ing.name,
@@ -436,8 +439,8 @@ export function computeIngredientMarkerLayout({
       illustration: item.ing.illustration,
       ingredient: item.ing,
       state: item.state,
-      x: bestX,
-      y: bestY,
+      x: finalX,
+      y: finalY,
       anchorX: x0,
       anchorY: y0,
       radius,
