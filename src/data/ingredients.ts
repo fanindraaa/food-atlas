@@ -110,7 +110,7 @@ export const INGREDIENTS: Ingredient[] = [
     confidence: 'medium',
     illustration: null,
     description:
-      'Tomatoes entered global maritime networks after the Columbian Exchange but were long viewed with suspicion in India. Native souring agents—tamarind, amchur, kokum, and curd—dominated for centuries before tomatoes became the ubiquitous gravy base.',
+      'Tomatoes entered global maritime networks after the Columbian Exchange but were long viewed with suspicion in India. Native souring agents tamarind, amchur, kokum, and curd dominated for centuries before tomatoes became the ubiquitous gravy base.',
     historicalNote:
       'Cultivated initially as ornamental plants and for British colonial tables in Calcutta and Simla, commercial Indian adoption surged only toward the late 1800s.',
     culinaryUsage: 'Foundation of modern North Indian gravies, rasam, chutneys, and everyday sabzis.',
@@ -205,7 +205,7 @@ export const INGREDIENTS: Ingredient[] = [
     description:
       'Portuguese navigators brought the cashew tree from Brazil to Goa around 1570 primarily to stabilize coastal hillsides and prevent topsoil erosion. Locals soon discovered the dual value of its delicate nut and the juicy cashew apple.',
     historicalNote:
-      'Goan distillers uniquely pioneered "feni"—the potent distilled liquor made from fermented cashew apple juice, celebrated with a GI tag today.',
+      'Goan distillers uniquely pioneered "feni" the potent distilled liquor made from fermented cashew apple juice, celebrated with a GI tag today.',
     culinaryUsage: 'Kaju katli, rich kormas, roasted street snacks, and Goan cashew feni.',
   }),
 
@@ -1015,7 +1015,7 @@ export const INGREDIENTS: Ingredient[] = [
     confidence: 'high',
     illustration: null,
     description:
-      'Bananas arrived in southern India through early maritime contacts across the Bay of Bengal during the Bronze Age. In South India, every single part of the plant—fruit, flower, stem, and leaf—is consumed or used as sacred tableware.',
+      'Bananas arrived in southern India through early maritime contacts across the Bay of Bengal during the Bronze Age. In South India, every single part of the plant fruit, flower, stem, and leaf is consumed or used as sacred tableware.',
     historicalNote:
       'Known as kadali in Sanskrit; served traditionally on fresh green banana leaves (ilayil oonu) across Kerala and Tamil Nadu.',
     culinaryUsage: 'Banana chips, vazhaipoo (banana blossom) vadai, raw plantain thoran, and ripe fruit offerings.',

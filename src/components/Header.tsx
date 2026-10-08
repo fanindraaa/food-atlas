@@ -76,24 +76,6 @@ export default function Header({
             <span>What feels native?</span>
           </button>
 
-          {/* Witness ~1500 CE Jump */}
-          <button
-            onClick={() => {
-              sound.playClick();
-              onJumpColumbian();
-            }}
-            onMouseEnter={() => sound.playHover()}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-sans text-[13px] font-medium transition-all active:scale-[0.98] ${
-              isColumbianEra
-                ? 'bg-accent/10 text-accent font-semibold'
-                : 'text-neutral-700 hover:text-neutral-900 hover:bg-black/[0.04]'
-            }`}
-            title="Jump between ~1500 CE Columbian Exchange and present day"
-          >
-            <History className={`h-3.5 w-3.5 ${isColumbianEra ? 'text-accent' : 'text-neutral-500'}`} />
-            <span>{isColumbianEra ? 'Witnessing ~1500 CE' : 'Witness ~1500 CE'}</span>
-          </button>
-
           <div className="h-4 w-[1px] bg-black/[0.06] mx-0.5" />
 
           {/* Sound Toggle */}

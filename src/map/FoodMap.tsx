@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import { FoodIngredient } from '@/types/simulation';
 import { getIngredientState } from '@/utils/simulationEngine';
 import { INDIA_OUTLINE_SVG_PATH, projectCoordinates } from '@/data/indiaOutlineSvg';
 import { sound } from '@/utils/sound';
 import CompassRose from '@/components/CompassRose';
 import { Plus, Minus, RotateCcw } from 'lucide-react';
+import { computeIngredientMarkerLayout, LayoutMarkerItem } from './layoutEngine';
 
 interface FoodMapProps {
   ingredients: FoodIngredient[];
@@ -16,7 +17,7 @@ interface FoodMapProps {
   flyToCoords?: [number, number] | null;
 }
 
-// Subdued neighbouring countries with clean sentence-case labels
+// Subdued neighbouring countries with clean typography
 const NEIGHBOURS = [
   { name: 'Pakistan', lon: 69.34, lat: 30.37 },
   { name: 'China / Tibet', lon: 88.5, lat: 33.5 },
@@ -39,6 +40,10 @@ export default function FoodMap({
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const dragStartRef = useRef({ x: 0, y: 0 });
+  const hasDraggedRef = useRef(false);
+
+  // Hover state for interactive ingredient markers
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   // Pan to requested coordinates when flyToCoords changes
   useEffect(() => {
@@ -56,11 +61,13 @@ export default function FoodMap({
   const handleMouseDown = (e: React.MouseEvent) => {
     if (e.button !== 0) return;
     setIsDragging(true);
+    hasDraggedRef.current = false;
     dragStartRef.current = { x: e.clientX - pan.x, y: e.clientY - pan.y };
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
+    hasDraggedRef.current = true;
     setPan({
       x: e.clientX - dragStartRef.current.x,
       y: e.clientY - dragStartRef.current.y,
@@ -100,48 +107,66 @@ export default function FoodMap({
   }, []);
 
   // Pre-calculate simulation state for all ingredients at current year
-  const ingredientStates = React.useMemo(() => {
+  const ingredientStates = useMemo(() => {
     return ingredients.map(ing => ({
       ing,
       state: getIngredientState(ing, currentYear),
     }));
   }, [ingredients, currentYear]);
 
-  // Calculate direction angle (in degrees) for a moving particle along its waypoints
-  const getParticleHeading = useCallback((waypoints: [number, number][], particlePos: [number, number]): number => {
-    if (waypoints.length < 2) return 0;
-    for (let i = 0; i < waypoints.length - 1; i++) {
-      const p1 = waypoints[i];
-      const p2 = waypoints[i + 1];
-      const [x1, y1] = projectCoordinates(p1[0], p1[1]);
-      const [x2, y2] = projectCoordinates(p2[0], p2[1]);
-      const [px, py] = projectCoordinates(particlePos[0], particlePos[1]);
+  // Compute collision-free, screen-space non-overlapping layout for all visible ingredient markers
+  const markerLayout = useMemo(() => {
+    return computeIngredientMarkerLayout({
+      ingredientStates,
+      zoom,
+      selectedIngredientId: selectedIngredient?.id ?? null,
+    });
+  }, [ingredientStates, zoom, selectedIngredient?.id]);
 
-      const dx = x2 - x1;
-      const dy = y2 - y1;
-      const segLenSq = dx * dx + dy * dy;
-      if (segLenSq > 0) {
-        const t = Math.max(0, Math.min(1, ((px - x1) * dx + (py - y1) * dy) / segLenSq));
-        if (t < 0.99 || i === waypoints.length - 2) {
-          return (Math.atan2(dy, dx) * 180) / Math.PI;
-        }
-      }
+  // Map of placed marker items by id for quick lookup
+  const markerMap = useMemo(() => {
+    const map = new Map<string, LayoutMarkerItem>();
+    for (const item of markerLayout) {
+      map.set(item.id, item);
     }
-    const last1 = waypoints[waypoints.length - 2];
-    const last2 = waypoints[waypoints.length - 1];
-    const [x1, y1] = projectCoordinates(last1[0], last1[1]);
-    const [x2, y2] = projectCoordinates(last2[0], last2[1]);
-    return (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI;
-  }, []);
+    return map;
+  }, [markerLayout]);
 
-  // Traveling offscreen ingredients
-  const offscreenTraveling = React.useMemo(() => {
+  // Traveling offscreen ingredients crossing Atlantic / Cape corridor
+  const offscreenTraveling = useMemo(() => {
     return ingredientStates.filter(({ state }) => {
       if (state.phase !== 'traveling' || !state.particlePosition) return false;
       const [cx] = projectCoordinates(state.particlePosition[0], state.particlePosition[1]);
-      return cx < 40;
+      return cx < 35;
     });
   }, [ingredientStates]);
+
+  // Separate markers for layered rendering so selected & hovered always sit on top
+  const { normalMarkers, elevatedMarkers } = useMemo(() => {
+    const normal: LayoutMarkerItem[] = [];
+    const elevated: LayoutMarkerItem[] = [];
+
+    for (const item of markerLayout) {
+      if (item.isSelected || item.id === hoveredId) {
+        elevated.push(item);
+      } else {
+        normal.push(item);
+      }
+    }
+
+    return { normalMarkers: normal, elevatedMarkers: elevated };
+  }, [markerLayout, hoveredId]);
+
+  // Active item for floating label (hovered takes precedence, or selected)
+  const activeLabelItem = useMemo(() => {
+    if (hoveredId && markerMap.has(hoveredId)) {
+      return markerMap.get(hoveredId)!;
+    }
+    if (selectedIngredient && markerMap.has(selectedIngredient.id)) {
+      return markerMap.get(selectedIngredient.id)!;
+    }
+    return null;
+  }, [hoveredId, selectedIngredient, markerMap]);
 
   return (
     <div
@@ -206,15 +231,41 @@ export default function FoodMap({
       >
         <defs>
           <rect id="viewportBackground" x="-300" y="-200" width="1600" height="1100" fill="#f6f7f9" />
+          
           <filter id="indiaShadow" x="-10%" y="-10%" width="120%" height="120%">
             <feDropShadow dx="0" dy="3" stdDeviation="6" floodOpacity="0.04" />
           </filter>
+
+          {/* Diffuse soft shadow for circular ingredient specimen markers */}
+          <filter id="markerShadow" x="-35%" y="-35%" width="170%" height="170%">
+            <feDropShadow dx="0" dy="1.5" stdDeviation="2.5" floodColor="#000000" floodOpacity="0.08" />
+            <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000000" floodOpacity="0.05" />
+          </filter>
+
+          {/* Elevated shadow on hover */}
+          <filter id="markerHoverShadow" x="-45%" y="-45%" width="190%" height="190%">
+            <feDropShadow dx="0" dy="2.5" stdDeviation="4" floodColor="#000000" floodOpacity="0.12" />
+            <feDropShadow dx="0" dy="7" stdDeviation="10" floodColor="#000000" floodOpacity="0.08" />
+          </filter>
+
+          {/* Selected marker elevated shadow with crisp bright blue accent glow */}
+          <filter id="markerSelectedShadow" x="-45%" y="-45%" width="190%" height="190%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.10" />
+            <feDropShadow dx="0" dy="6" stdDeviation="9" floodColor="#0066ff" floodOpacity="0.25" />
+          </filter>
+
+          {/* Pill floating label soft shadow */}
+          <filter id="labelShadow" x="-25%" y="-35%" width="150%" height="170%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.08" />
+          </filter>
         </defs>
 
-        {/* 1. Base Sea / Land Surface */}
+        {/* ----------------------------------------------------------------- */}
+        {/* LEVEL 1: GEOGRAPHY (Base Sea / Land Surface & Graticule)          */}
+        {/* ----------------------------------------------------------------- */}
         <use href="#viewportBackground" />
 
-        {/* 2. Precision Graticule Lines (Delicate neutral hairline grid) */}
+        {/* Precision Graticule Lines (Delicate neutral hairline grid) */}
         <g stroke="#e5e7eb" strokeWidth="0.5" strokeDasharray="3,4" opacity="0.6">
           <line x1="100" y1="-200" x2="100" y2="900" />
           <line x1="300" y1="-200" x2="300" y2="900" />
@@ -226,21 +277,21 @@ export default function FoodMap({
           <line x1="-300" y1="550" x2="1300" y2="550" />
         </g>
 
-        {/* 3. Maritime Corridors */}
+        {/* Maritime Corridors */}
         <g fill="#9ca3af" fontFamily="var(--font-sans)" fontSize="10" opacity="0.8">
           <text x="35" y="660">Atlantic and Cape route corridor</text>
           <text x="35" y="320">Red Sea and Arabian maritime conduit</text>
           <text x="770" y="670">Straits of Malacca corridor</text>
         </g>
 
-        {/* 4. Historical Sea Labels */}
+        {/* Historical Sea Labels */}
         <g fill="#6b7280" fontFamily="var(--font-sans)" textAnchor="middle">
           <text x="320" y="475" fontSize="13" fontWeight="600">Arabian Sea</text>
           <text x="780" y="495" fontSize="13" fontWeight="600">Bay of Bengal</text>
           <text x="540" y="670" fontSize="14" fontWeight="600">Indian Ocean</text>
         </g>
 
-        {/* 5. Authoritative Subcontinental Outline Layer */}
+        {/* Authoritative Subcontinental Outline Layer */}
         <g id="survey-of-india-authoritative-layer" filter="url(#indiaShadow)">
           <path
             d={INDIA_OUTLINE_SVG_PATH}
@@ -252,7 +303,7 @@ export default function FoodMap({
           />
         </g>
 
-        {/* 6. Neighbouring Countries Subdued Typography */}
+        {/* Neighbouring Countries Subdued Typography */}
         <g fill="#9ca3af" fontFamily="var(--font-sans)" fontSize="11" fontWeight="500" opacity="0.8">
           {NEIGHBOURS.map(nbr => {
             const [nx, ny] = projectCoordinates(nbr.lon, nbr.lat);
@@ -275,9 +326,9 @@ export default function FoodMap({
           strokeWidth="1"
         />
 
-        {/* ================================================================= */}
-        {/* SIMULATION LAYER A: Trade Routes                                  */}
-        {/* ================================================================= */}
+        {/* ----------------------------------------------------------------- */}
+        {/* LEVEL 2: HISTORICAL TRADE ROUTES (Leading to Ingredient Images)   */}
+        {/* ----------------------------------------------------------------- */}
         <g id="simulation-trade-routes">
           {ingredientStates.map(({ ing, state }) => {
             if (state.activeWaypoints.length < 2 || state.routeProgress <= 0) return null;
@@ -295,10 +346,10 @@ export default function FoodMap({
                 ? '5,4'
                 : '2,3';
 
-            // Electric blue accent on selection, otherwise restrained neutral tones
+            // Restrained neutral tones for general routes, bright blue accent ONLY for selected
             const strokeColor = isSelected ? '#0066ff' : isTraveling ? '#374151' : '#9ca3af';
             const strokeWidth = isSelected ? 2.2 : isTraveling ? 1.2 : 0.75;
-            const strokeOpacity = isSelected ? 1 : isTraveling ? 0.6 : isWidespread ? 0.22 : 0.35;
+            const strokeOpacity = isSelected ? 1 : isTraveling ? 0.6 : isWidespread ? 0.2 : 0.32;
 
             return (
               <g
@@ -317,7 +368,7 @@ export default function FoodMap({
                     fill="none"
                     stroke="#0066ff"
                     strokeWidth="5"
-                    strokeOpacity="0.25"
+                    strokeOpacity="0.22"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -339,209 +390,122 @@ export default function FoodMap({
           })}
         </g>
 
-        {/* ================================================================= */}
-        {/* SIMULATION LAYER B: Regional Spread (Soft Rounded Washes)         */}
-        {/* ================================================================= */}
-        <g id="simulation-regional-spread">
-          {ingredientStates.map(({ ing, state }) => {
-            if (state.activeRegions.length === 0) return null;
+        {/* ----------------------------------------------------------------- */}
+        {/* LEVEL 2B: REGIONAL DIFFUSION FOR SELECTED INGREDIENT              */}
+        {/* Soft subtle circular halos (no harsh square boxes or "+" marks)   */}
+        {/* ----------------------------------------------------------------- */}
+        {selectedIngredient && (
+          <g id="simulation-selected-regional-diffusion">
+            {(() => {
+              const selectedState = ingredientStates.find(s => s.ing.id === selectedIngredient.id)?.state;
+              if (!selectedState || selectedState.activeRegions.length === 0) return null;
 
-            const isSelected = selectedIngredient?.id === ing.id;
+              return selectedState.activeRegions.map(reg => {
+                const [cx, cy] = projectCoordinates(reg.coordinates[0], reg.coordinates[1]);
+                const radius = 10 + reg.adoptionLevel * 12;
 
-            return (
-              <g key={`regions-${ing.id}`}>
-                {state.activeRegions.map(reg => {
-                  const [cx, cy] = projectCoordinates(reg.coordinates[0], reg.coordinates[1]);
-                  const span = 12 + reg.adoptionLevel * 14;
-
-                  return (
-                    <g
-                      key={`region-${ing.id}-${reg.name}`}
-                      onClick={e => {
-                        e.stopPropagation();
-                        sound.playClick();
-                        onSelectIngredient(ing);
-                      }}
-                      className="cursor-pointer"
-                    >
-                      {/* Soft rounded zone wash (no harsh square edges) */}
-                      <rect
-                        x={cx - span / 2}
-                        y={cy - span / 2}
-                        width={span}
-                        height={span}
-                        rx="8"
-                        fill={isSelected ? '#0066ff' : '#111827'}
-                        fillOpacity={isSelected ? 0.1 : 0.02 * reg.adoptionLevel}
-                        stroke={isSelected ? '#0066ff' : '#4b5563'}
-                        strokeWidth={isSelected ? 1.2 : 0.6}
-                        strokeOpacity={isSelected ? 0.7 : 0.2 * reg.adoptionLevel}
-                      />
-
-                      {/* Delicate cross endpoint */}
-                      <path
-                        d={`M ${cx - 2.5} ${cy} L ${cx + 2.5} ${cy} M ${cx} ${cy - 2.5} L ${cx} ${cy + 2.5}`}
-                        stroke={isSelected ? '#0066ff' : '#111827'}
-                        strokeWidth="1"
-                        strokeOpacity={isSelected ? 0.9 : 0.4 * reg.adoptionLevel}
-                      />
-
-                      {/* Region label on selection */}
-                      {isSelected && (
-                        <text
-                          x={cx + 8}
-                          y={cy + 3}
-                          fontFamily="var(--font-sans)"
-                          fontSize="10"
-                          fill="#0066ff"
-                          fontWeight="600"
-                          className="pointer-events-none"
-                        >
-                          {reg.name.split('(')[0].trim()}
-                        </text>
-                      )}
-                    </g>
-                  );
-                })}
-              </g>
-            );
-          })}
-        </g>
-
-        {/* ================================================================= */}
-        {/* SIMULATION LAYER C: Arrival Endpoints (Directional Movement Marks) */}
-        {/* ================================================================= */}
-        <g id="simulation-arrivals">
-          {ingredientStates.map(({ ing, state }) => {
-            if (state.phase !== 'arrived') return null;
-
-            const [cx, cy] = projectCoordinates(state.entryCoords[0], state.entryCoords[1]);
-            const isSelected = selectedIngredient?.id === ing.id;
-
-            return (
-              <g
-                key={`arrival-${ing.id}`}
-                onClick={e => {
-                  e.stopPropagation();
-                  sound.playClick();
-                  onSelectIngredient(ing);
-                }}
-                className="cursor-pointer"
-              >
-                {/* Directional arrival cross indicator */}
-                <path
-                  d={`M ${cx - 5} ${cy} L ${cx + 5} ${cy} M ${cx} ${cy - 5} L ${cx} ${cy + 5}`}
-                  stroke={isSelected ? '#0066ff' : '#111827'}
-                  strokeWidth={isSelected ? 2 : 1.5}
-                  strokeLinecap="round"
-                />
-
-                {/* Refined floating label in sentence case */}
-                <g className="pointer-events-none">
-                  <rect
-                    x={cx + 8}
-                    y={cy - 10}
-                    width={ing.name.length * 6.5 + 46}
-                    height="19"
-                    rx="6"
-                    fill="rgba(255, 255, 255, 0.92)"
-                    stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.08)'}
-                    strokeWidth={isSelected ? 1.2 : 0.8}
-                  />
-                  <text
-                    x={cx + 13}
-                    y={cy + 3.5}
-                    fontFamily="var(--font-sans)"
-                    fontSize="10.5"
-                    fontWeight="600"
-                    fill={isSelected ? '#0066ff' : '#111827'}
-                  >
-                    {ing.name} arrives
-                  </text>
-                </g>
-              </g>
-            );
-          })}
-        </g>
-
-        {/* ================================================================= */}
-        {/* SIMULATION LAYER D: Directional Food Movement Marks               */}
-        {/* (Directional Dart / Arrowhead Rotated to Transit Vector)          */}
-        {/* ================================================================= */}
-        <g id="simulation-directional-particles">
-          {ingredientStates.map(({ ing, state }) => {
-            if (!state.particlePosition || state.phase !== 'traveling') return null;
-
-            const [cx, cy] = projectCoordinates(
-              state.particlePosition[0],
-              state.particlePosition[1]
-            );
-            const isSelected = selectedIngredient?.id === ing.id;
-
-            if (cx >= 40 && cx <= 1000 && cy >= 0 && cy <= 700) {
-              const heading = getParticleHeading(state.activeWaypoints, state.particlePosition);
-
-              return (
-                <g
-                  key={`particle-${ing.id}`}
-                  onClick={e => {
-                    e.stopPropagation();
-                    sound.playClick();
-                    onSelectIngredient(ing);
-                  }}
-                  className="cursor-pointer"
-                >
-                  {/* Directional Dart Particle */}
-                  <g transform={`translate(${cx}, ${cy}) rotate(${heading})`}>
-                    {/* Trailing wake dash mark */}
-                    <line x1="-14" y1="0" x2="-8" y2="0" stroke="#9ca3af" strokeWidth="1" strokeDasharray="2,2" strokeLinecap="round" />
-                    {/* Center directional stroke */}
-                    <line x1="-7" y1="0" x2="4" y2="0" stroke={isSelected ? '#0066ff' : '#111827'} strokeWidth={isSelected ? 2 : 1.5} strokeLinecap="round" />
-                    {/* Directional arrowhead */}
-                    <path
-                      d="M 0,-3.5 L 4.5,0 L 0,3.5"
-                      fill="none"
-                      stroke={isSelected ? '#0066ff' : '#111827'}
-                      strokeWidth={isSelected ? 2 : 1.5}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                return (
+                  <g key={`diff-${selectedIngredient.id}-${reg.name}`} className="pointer-events-none">
+                    {/* Soft ambient diffusion wash */}
+                    <circle
+                      cx={cx}
+                      cy={cy}
+                      r={radius}
+                      fill="#0066ff"
+                      fillOpacity={0.06 * reg.adoptionLevel}
+                      stroke="#0066ff"
+                      strokeWidth="0.9"
+                      strokeOpacity={0.35 * reg.adoptionLevel}
+                      strokeDasharray="2,3"
                     />
-                  </g>
-
-                  {/* Refined floating pill label */}
-                  <g className="pointer-events-none">
-                    <rect
-                      x={cx + 8}
-                      y={cy - 10}
-                      width={ing.name.length * 6.5 + 44}
-                      height="19"
-                      rx="6"
-                      fill="rgba(255, 255, 255, 0.92)"
-                      stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.08)'}
-                      strokeWidth={isSelected ? 1.2 : 0.8}
-                    />
+                    {/* Regional name label */}
                     <text
-                      x={cx + 13}
-                      y={cy + 3.5}
+                      x={cx}
+                      y={cy + radius + 11}
+                      textAnchor="middle"
                       fontFamily="var(--font-sans)"
-                      fontSize="10.5"
+                      fontSize="9.5"
                       fontWeight="600"
-                      fill={isSelected ? '#0066ff' : '#111827'}
+                      fill="#0066ff"
+                      opacity={0.85}
                     >
-                      {ing.name} ({Math.round(state.routeProgress * 100)}%)
+                      {reg.name.split('(')[0].trim()}
                     </text>
                   </g>
-                </g>
-              );
-            }
+                );
+              });
+            })()}
+          </g>
+        )}
 
-            return null;
+        {/* ----------------------------------------------------------------- */}
+        {/* LEVEL 2C: SUBTLE CONNECTORS & ANCHORS FOR DISPLACED MARKERS       */}
+        {/* Thin neutral line, low opacity, no arrowheads, no heavy weight    */}
+        {/* ----------------------------------------------------------------- */}
+        <g id="simulation-connectors" className="pointer-events-none">
+          {markerLayout.map(item => {
+            if (!item.displaced) return null;
+            const isHovered = item.id === hoveredId;
+
+            return (
+              <g key={`conn-${item.id}`}>
+                {/* Thin neutral connector line linking geographic anchor to visual marker */}
+                <line
+                  x1={item.anchorX}
+                  y1={item.anchorY}
+                  x2={item.x}
+                  y2={item.y}
+                  stroke={item.isSelected ? '#0066ff' : '#9ca3af'}
+                  strokeWidth={item.isSelected ? 1.2 : isHovered ? 0.9 : 0.65}
+                  strokeDasharray={item.isSelected ? 'none' : '2,2'}
+                  strokeOpacity={item.isSelected ? 0.75 : isHovered ? 0.55 : 0.25}
+                  style={{
+                    transition: 'all 300ms cubic-bezier(0.16, 1, 0.3, 1)',
+                  }}
+                />
+
+                {/* Delicate tiny anchor origin mark */}
+                <circle
+                  cx={item.anchorX}
+                  cy={item.anchorY}
+                  r={item.isSelected ? 2.2 : 1.4}
+                  fill={item.isSelected ? '#0066ff' : '#9ca3af'}
+                  fillOpacity={item.isSelected ? 0.85 : 0.45}
+                />
+              </g>
+            );
           })}
         </g>
 
-        {/* ================================================================= */}
-        {/* SIMULATION LAYER E: Atlantic & Cape En-Route Manifest             */}
-        {/* ================================================================= */}
+        {/* ----------------------------------------------------------------- */}
+        {/* LEVEL 3: INGREDIENT SPECIMEN MARKERS (The defining visual heroes) */}
+        {/* ----------------------------------------------------------------- */}
+        <g id="simulation-ingredient-markers">
+          {/* Render normal unselected markers first */}
+          {normalMarkers.map(item => renderMarker(item, false, false))}
+
+          {/* Render hovered or selected markers on top so they remain visually dominant */}
+          {elevatedMarkers.map(item => {
+            const isSelected = item.isSelected;
+            const isHovered = item.id === hoveredId;
+            return renderMarker(item, isSelected, isHovered);
+          })}
+        </g>
+
+        {/* ----------------------------------------------------------------- */}
+        {/* FLOATING CONNECTED LABELS (Hover & Selected States)               */}
+        {/* Rendered on the topmost layer for pristine clarity                */}
+        {/* ----------------------------------------------------------------- */}
+        {activeLabelItem && (
+          <g id="simulation-active-label" className="pointer-events-none select-none">
+            {renderFloatingLabel(activeLabelItem)}
+          </g>
+        )}
+
+        {/* ----------------------------------------------------------------- */}
+        {/* OFFSCREEN MARITIME MANIFEST (Atlantic & Cape Crossings)           */}
+        {/* Enhanced with miniature circular botanical illustration crops     */}
+        {/* ----------------------------------------------------------------- */}
         {offscreenTraveling.length > 0 && (
           <g id="offscreen-maritime-manifest" className="pointer-events-auto">
             {offscreenTraveling.slice(0, 4).map(({ ing, state }, idx) => {
@@ -554,21 +518,39 @@ export default function FoodMap({
                     sound.playClick();
                     onSelectIngredient(ing);
                   }}
+                  onMouseEnter={() => sound.playHover()}
                   className="cursor-pointer"
                 >
                   <rect
                     x="15"
-                    y={180 + idx * 26}
-                    width="175"
-                    height="21"
-                    rx="8"
-                    fill="rgba(255, 255, 255, 0.9)"
+                    y={180 + idx * 28}
+                    width="185"
+                    height="24"
+                    rx="12"
+                    fill="rgba(255, 255, 255, 0.94)"
                     stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.06)'}
-                    strokeWidth={isSelected ? 1.2 : 0.8}
+                    strokeWidth={isSelected ? 1.4 : 0.8}
+                    filter="url(#labelShadow)"
                   />
+                  {/* Miniature circular food illustration thumbnail */}
+                  <circle cx="28" cy={192 + idx * 28} r="8.5" fill="#f3f4f6" stroke="rgba(0,0,0,0.06)" strokeWidth="0.5" />
+                  <clipPath id={`off-clip-${ing.id}`}>
+                    <circle cx="28" cy={192 + idx * 28} r="8" />
+                  </clipPath>
+                  {ing.illustration && (
+                    <image
+                      href={ing.illustration}
+                      x="20"
+                      y={184 + idx * 28}
+                      width="16"
+                      height="16"
+                      clipPath={`url(#off-clip-${ing.id})`}
+                      preserveAspectRatio="xMidYMid meet"
+                    />
+                  )}
                   <text
-                    x="24"
-                    y={194 + idx * 26}
+                    x="42"
+                    y={200 + idx * 28}
                     fontFamily="var(--font-sans)"
                     fontSize="10.5"
                     fontWeight="600"
@@ -584,17 +566,17 @@ export default function FoodMap({
               <g>
                 <rect
                   x="15"
-                  y={180 + 4 * 26}
-                  width="175"
-                  height="21"
-                  rx="8"
-                  fill="rgba(245, 246, 248, 0.9)"
+                  y={180 + 4 * 28}
+                  width="185"
+                  height="22"
+                  rx="11"
+                  fill="rgba(245, 246, 248, 0.92)"
                   stroke="rgba(0, 0, 0, 0.06)"
                   strokeWidth="0.8"
                 />
                 <text
                   x="24"
-                  y={194 + 4 * 26}
+                  y={195 + 4 * 28}
                   fontFamily="var(--font-sans)"
                   fontSize="10"
                   fontWeight="500"
@@ -614,4 +596,181 @@ export default function FoodMap({
       </div>
     </div>
   );
+
+  /**
+   * Helper to render an individual circular ingredient marker
+   */
+  function renderMarker(item: LayoutMarkerItem, isSelected: boolean, isHovered: boolean) {
+    const scaleFactor = isSelected ? 1.14 : isHovered ? 1.08 : 1.0;
+    const r = item.radius * scaleFactor;
+    const imagePadding = Math.max(1.8, r * 0.14);
+    const imageSize = (r - imagePadding) * 2;
+
+    return (
+      <g
+        key={`marker-${item.id}`}
+        transform={`translate(${item.x}, ${item.y})`}
+        onClick={e => {
+          e.stopPropagation();
+          if (hasDraggedRef.current) return;
+          sound.playClick();
+          onSelectIngredient(item.ingredient);
+        }}
+        onMouseEnter={() => {
+          setHoveredId(item.id);
+          sound.playHover();
+        }}
+        onMouseLeave={() => setHoveredId(null)}
+        className="cursor-pointer"
+        style={{
+          transition: isDragging
+            ? 'none'
+            : 'transform 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease-out',
+        }}
+        aria-label={`${item.name} (${item.category})`}
+        role="button"
+      >
+        {/* Base circular surface: clean neutral white, subtle border, diffuse shadow */}
+        <circle
+          r={r}
+          fill="#ffffff"
+          stroke={
+            isSelected
+              ? '#0066ff'
+              : isHovered
+              ? '#4b5563'
+              : 'rgba(0, 0, 0, 0.08)'
+          }
+          strokeWidth={isSelected ? 1.6 : isHovered ? 1.1 : 0.75}
+          filter={
+            isSelected
+              ? 'url(#markerSelectedShadow)'
+              : isHovered
+              ? 'url(#markerHoverShadow)'
+              : 'url(#markerShadow)'
+          }
+        />
+
+        {/* Selected state: thin bright blue accent ring (Requirement 3) */}
+        {isSelected && (
+          <circle
+            r={r + 3.2}
+            fill="none"
+            stroke="#0066ff"
+            strokeWidth={1.5}
+            strokeOpacity={0.92}
+          />
+        )}
+
+        {/* Circular crop boundary for the transparent illustration */}
+        <clipPath id={`clip-${item.id}`}>
+          <circle r={r - imagePadding} cx="0" cy="0" />
+        </clipPath>
+
+        {/* Actual transparent botanical ingredient illustration */}
+        {item.illustration ? (
+          <image
+            href={item.illustration}
+            x={-(r - imagePadding)}
+            y={-(r - imagePadding)}
+            width={imageSize}
+            height={imageSize}
+            clipPath={`url(#clip-${item.id})`}
+            preserveAspectRatio="xMidYMid meet"
+            className="pointer-events-none"
+          />
+        ) : (
+          /* Editorial fallback if illustration missing */
+          <text
+            x="0"
+            y="3"
+            textAnchor="middle"
+            fontFamily="var(--font-sans)"
+            fontSize="9"
+            fontWeight="600"
+            fill="#4b5563"
+            className="pointer-events-none"
+          >
+            {item.name.slice(0, 2).toUpperCase()}
+          </text>
+        )}
+      </g>
+    );
+  }
+
+  /**
+   * Helper to render elegant floating connected label (Requirement 12)
+   */
+  function renderFloatingLabel(item: LayoutMarkerItem) {
+    const isSelected = item.isSelected;
+    const isHovered = item.id === hoveredId;
+    const r = item.radius * (isSelected ? 1.14 : isHovered ? 1.08 : 1.0);
+
+    // Compute contextual subtitle text
+    let subtitle = '';
+    if (item.isTraveling) {
+      subtitle = `${Math.round(item.state.routeProgress * 100)}% transit`;
+    } else if (isSelected) {
+      subtitle = `${item.category} · ${item.state.statusTitle.split('·')[0].trim()}`;
+    }
+
+    const pillWidth = Math.max(76, item.name.length * 6.8 + (subtitle ? 34 : 26));
+    const pillHeight = subtitle ? 30 : 20;
+
+    // Position above circle if space allows, otherwise below
+    const placeAbove = item.y > 65;
+    const labelY = placeAbove
+      ? item.y - (r + (subtitle ? 20 : 15))
+      : item.y + (r + (subtitle ? 18 : 13));
+
+    return (
+      <g
+        transform={`translate(${item.x}, ${labelY})`}
+        style={{
+          transition: 'transform 260ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease',
+        }}
+      >
+        {/* Soft rounded pill surface */}
+        <rect
+          x={-pillWidth / 2}
+          y={-pillHeight / 2}
+          width={pillWidth}
+          height={pillHeight}
+          rx={pillHeight / 2}
+          fill="rgba(255, 255, 255, 0.96)"
+          stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.08)'}
+          strokeWidth={isSelected ? 1.2 : 0.75}
+          filter="url(#labelShadow)"
+        />
+
+        {/* Primary ingredient name in clean sentence/title case */}
+        <text
+          x="0"
+          y={subtitle ? -1.5 : 3.5}
+          textAnchor="middle"
+          fontFamily="var(--font-sans)"
+          fontSize="10.5"
+          fontWeight="600"
+          fill={isSelected ? '#0066ff' : '#111827'}
+        >
+          {item.name}
+        </text>
+
+        {/* Contextual subtitle if active */}
+        {subtitle && (
+          <text
+            x="0"
+            y="9.5"
+            textAnchor="middle"
+            fontFamily="var(--font-sans)"
+            fontSize="8.5"
+            fontWeight="500"
+            fill="#6b7280"
+          >
+            {subtitle}
+          </text>
+        )}
+      </g>
+    );
+  }
 }

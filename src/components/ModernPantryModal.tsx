@@ -42,11 +42,10 @@ export default function ModernPantryModal({
       aria-modal="true"
       aria-labelledby="native-modal-title"
     >
-      <div className="relative max-h-[88vh] w-full max-w-4xl overflow-y-auto rounded-[24px] bg-white/92 backdrop-blur-2xl border border-black/[0.06] p-6 sm:p-8 shadow-elevated animate-in zoom-in-95 duration-200">
-        {/* Header */}
+      <div className="relative max-h-[88vh] w-full max-w-4xl overflow-y-auto rounded-[24px] bg-white/90 backdrop-blur-2xl border border-black/[0.06] p-6 sm:p-8 shadow-elevated animate-in zoom-in-95 duration-200">
         <div className="flex items-start justify-between border-b border-black/[0.06] pb-5">
           <div>
-            <span className="font-sans text-[12px] font-medium text-neutral-400">
+            <span className="font-sans text-[12px] font-medium text-black/50">
               Historical culinary comparison
             </span>
             <h2
@@ -56,7 +55,7 @@ export default function ModernPantryModal({
               What feels native?
             </h2>
             <p className="font-sans text-[13px] text-neutral-600 max-w-2xl mt-1.5 leading-relaxed">
-              Many ingredients considered indispensable in Indian cooking today—such as chillies, potatoes, and tomatoes—crossed oceans only a few centuries ago. Compare these overseas introductions with ancient indigenous foundations.
+              Many ingredients considered indispensable in Indian cooking today  such as chillies, potatoes, and tomatoes crossed oceans only a few centuries ago. Compare these overseas introductions with ancient indigenous foundations.
             </p>
           </div>
           <button

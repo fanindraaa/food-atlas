@@ -328,9 +328,7 @@ export default function TimelineSlider({
               className="pointer-events-none absolute -ml-2.5 z-10 flex flex-col items-center transition-all duration-75"
               style={{ left: `${progressPercent}%` }}
             >
-              {/* Slender rectangular pill indicator (Not a circular thumb!) */}
-              <div className="w-5 h-5 rounded-[6px] bg-accent border-2 border-white shadow-[0_2px_10px_rgba(0,102,255,0.4)] flex items-center justify-center">
-                <div className="w-1.5 h-1.5 rounded-[1px] bg-white" />
+              <div className="w-5 h-5 rounded-[4px] bg-accent border-1 border-white shadow-[0_6px_24px_rgba(0,0,0,0.4)] flex items-center justify-center">
               </div>
             </div>
           </div>
