@@ -2,11 +2,22 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
+const getSiteUrl = () => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    const url = process.env.NEXT_PUBLIC_SITE_URL;
+    return url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`;
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return 'http://localhost:3000';
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ||
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://food-atlas.vercel.app')
-  ),
+  metadataBase: new URL(getSiteUrl()),
   title: 'The Food Atlas: How the Indian Pantry Came Together',
   description:
     'Explore how the Indian pantry came together. Trace 150 ingredients across 5,000+ years to discover what was native, what arrived from elsewhere, and how it shaped Indian cuisine.',
@@ -30,14 +41,9 @@ export const metadata: Metadata = {
     title: 'The Food Atlas: How the Indian Pantry Came Together',
     description:
       'Explore how the Indian pantry came together. Trace 150 ingredients across 5,000+ years to discover what was native, what arrived from elsewhere, and how it shaped Indian cuisine.',
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'The Food Atlas: How the Indian Pantry Came Together',
-      },
-    ],
+    url: '/',
+    siteName: 'The Food Atlas',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
@@ -45,7 +51,6 @@ export const metadata: Metadata = {
     title: 'The Food Atlas: How the Indian Pantry Came Together',
     description:
       'Explore how the Indian pantry came together. Trace 150 ingredients across 5,000+ years to discover what was native, what arrived from elsewhere, and how it shaped Indian cuisine.',
-    images: ['/og.png'],
   },
 };
 
