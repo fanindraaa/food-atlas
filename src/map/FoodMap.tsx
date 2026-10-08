@@ -185,7 +185,7 @@ export default function FoodMap({
         <button
           onClick={() => handleZoom(0.25)}
           onMouseEnter={() => sound.playHover()}
-          className="p-2 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
+          className="p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
           title="Zoom in"
           aria-label="Zoom in"
         >
@@ -195,7 +195,7 @@ export default function FoodMap({
         <button
           onClick={() => handleZoom(-0.25)}
           onMouseEnter={() => sound.playHover()}
-          className="p-2 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
+          className="p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
           title="Zoom out"
           aria-label="Zoom out"
         >
@@ -205,7 +205,7 @@ export default function FoodMap({
         <button
           onClick={handleResetView}
           onMouseEnter={() => sound.playHover()}
-          className="p-2 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
+          className="p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.95] transition-all"
           title="Reset View"
           aria-label="Reset View"
         >
@@ -506,7 +506,7 @@ export default function FoodMap({
       </svg>
 
       {/* Understated Reference Notice (Bottom Left) */}
-      <div className="fixed bottom-24 left-4 sm:left-6 z-10 hidden sm:block text-[11px] font-sans font-medium text-neutral-400 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full border border-black/[0.04]">
+      <div className="fixed bottom-24 left-4 sm:left-6 z-10 hidden sm:block text-[11px] font-sans font-medium text-neutral-600 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full border border-black/[0.04]">
         Survey of India cartographic outline · 150 historical records
       </div>
     </div>

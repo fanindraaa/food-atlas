@@ -112,7 +112,7 @@ export default function IngredientCatalogue({
             <span className="font-sans text-[13px] font-semibold text-neutral-900 tracking-tight">
               Ingredients
             </span>
-            <span className="font-sans text-[11px] font-medium text-neutral-400">
+            <span className="font-sans text-[11px] font-medium text-neutral-600">
               150
             </span>
           </div>
@@ -123,7 +123,7 @@ export default function IngredientCatalogue({
               setIsExpanded(true);
             }}
             onMouseEnter={() => sound.playHover()}
-            className="p-1 rounded-lg text-neutral-400 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
+            className="p-1 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
             title="Expand ingredients index"
             aria-label="Expand ingredients index"
           >
@@ -133,7 +133,7 @@ export default function IngredientCatalogue({
 
         {/* Compact search field */}
         <div className="relative">
-          <Search className="pointer-events-none absolute left-2.5 top-2 h-3.5 w-3.5 text-neutral-400" />
+          <Search className="pointer-events-none absolute left-2.5 top-2 h-3.5 w-3.5 text-neutral-600" />
           <input
             ref={searchInputRef}
             type="text"
@@ -145,7 +145,7 @@ export default function IngredientCatalogue({
                 setIsExpanded(true);
               }
             }}
-            className="w-full rounded-xl border border-black/[0.08] bg-black/[0.02] pl-8 pr-2.5 py-1.5 font-sans text-[12px] text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full rounded-lg border border-black/[0.08] bg-black/[0.02] pl-8 pr-2.5 py-1.5 font-sans text-[12px] text-neutral-900 placeholder:text-neutral-600 focus:border-accent focus:bg-white focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
       </div>
@@ -167,7 +167,7 @@ export default function IngredientCatalogue({
       <div className="p-5 pb-3 border-b border-black/[0.05]">
         <div className="flex items-start justify-between">
           <div>
-            <span className="font-sans text-[11px] font-medium text-neutral-400">
+            <span className="font-sans text-[11px] font-medium text-neutral-600">
               Index of 150 historical records
             </span>
             <h2
@@ -183,7 +183,7 @@ export default function IngredientCatalogue({
               setIsExpanded(false);
             }}
             onMouseEnter={() => sound.playHover()}
-            className="p-1.5 rounded-full text-neutral-400 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
+            className="p-1.5 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
             aria-label="Collapse ingredients index"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -192,18 +192,18 @@ export default function IngredientCatalogue({
 
         {/* Functional Search Box */}
         <div className="relative mt-3">
-          <Search className="pointer-events-none absolute left-3 top-2.5 h-3.5 w-3.5 text-neutral-400" />
+          <Search className="pointer-events-none absolute left-3 top-2.5 h-3.5 w-3.5 text-neutral-600" />
           <input
             type="text"
             placeholder="Search by ingredient, origin, or era..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className="w-full rounded-xl border border-black/[0.08] bg-black/[0.02] pl-8.5 pr-7 py-1.5 font-sans text-[12.5px] text-neutral-900 placeholder:text-neutral-400 focus:border-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/15 transition-all"
+            className="w-full rounded-lg border border-black/[0.08] bg-black/[0.02] pl-8.5 pr-7 py-1.5 font-sans text-[12.5px] text-neutral-900 placeholder:text-neutral-600 focus:border-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/15 transition-all"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-2.5 top-2 text-neutral-400 hover:text-neutral-600"
+              className="absolute right-2.5 top-2 text-neutral-600 hover:text-neutral-600"
               aria-label="Clear search"
             >
               <X className="h-3.5 w-3.5" />
@@ -236,7 +236,7 @@ export default function IngredientCatalogue({
       {/* Scrollable Ingredient List */}
       <div className="flex-1 overflow-y-auto p-3 space-y-1.5">
         {filtered.length === 0 ? (
-          <div className="p-8 text-center font-sans text-[12.5px] text-neutral-400">
+          <div className="p-8 text-center font-sans text-[12.5px] text-neutral-600">
             No historical records matching &ldquo;{searchQuery}&rdquo;.
           </div>
         ) : (
@@ -249,7 +249,7 @@ export default function IngredientCatalogue({
                 key={ing.id}
                 onClick={() => handleItemClick(ing)}
                 onMouseEnter={() => sound.playHover()}
-                className={`group relative flex items-start justify-between p-2.5 rounded-xl cursor-pointer transition-all ${
+                className={`group relative flex items-start justify-between p-2.5 rounded-lg cursor-pointer transition-all ${
                   isSelected
                     ? 'border border-accent/40 bg-accent/[0.07] shadow-subtle'
                     : 'border border-black/[0.04] bg-white/70 hover:bg-white hover:border-black/[0.08] hover:shadow-subtle'
@@ -279,7 +279,7 @@ export default function IngredientCatalogue({
                       {ing.category} · {state.isNative ? 'Indigenous foundation' : ing.origin.split(';')[0].trim()}
                     </div>
 
-                    <div className="font-sans text-[10.5px] text-neutral-400 mt-0.5">
+                    <div className="font-sans text-[10.5px] text-neutral-600 mt-0.5">
                       {ing.widespreadAdoption.period}
                     </div>
                   </div>
@@ -297,7 +297,7 @@ export default function IngredientCatalogue({
                         ? 'bg-accent/15 text-accent font-semibold'
                         : state.phase === 'traveling'
                         ? 'bg-neutral-100 text-neutral-600'
-                        : 'bg-black/[0.03] text-neutral-400'
+                        : 'bg-black/[0.03] text-neutral-600'
                     }`}
                   >
                     {state.phase === 'widespread'

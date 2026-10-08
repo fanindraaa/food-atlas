@@ -57,7 +57,7 @@ export default function IngredientCard({
             onClose();
           }}
           onMouseEnter={() => sound.playHover()}
-          className="p-1.5 rounded-full text-neutral-400 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
+          className="p-1.5 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
           aria-label="Close ingredient details"
         >
           <X className="h-4 w-4" />
@@ -133,7 +133,7 @@ export default function IngredientCard({
               onFocusLocation(state.entryCoords);
             }}
             onMouseEnter={() => sound.playHover()}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-sans text-[12px] font-medium text-neutral-700 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-sans text-[12px] font-medium text-neutral-700 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
           >
             <Navigation className="h-3.5 w-3.5 text-accent" />
             <span>Center on entry point</span>

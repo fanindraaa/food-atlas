@@ -29,14 +29,14 @@ export default function IngredientIllustration({
         />
       ) : (
         /* Understated editorial botanical placeholder (no heavy boxes) */
-        <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center select-none text-neutral-400">
-          <span className="font-sans text-[11px] font-medium tracking-wide text-neutral-400">
+        <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center select-none text-neutral-600">
+          <span className="font-sans text-[11px] font-medium tracking-wide text-neutral-600">
             Botanical Specimen
           </span>
           <span className="font-sans text-[13px] font-semibold text-neutral-700 mt-1">
             {name}
           </span>
-          <span className="font-sans text-[11px] text-neutral-400 mt-0.5">
+          <span className="font-sans text-[11px] text-neutral-600 mt-0.5">
             {category}
           </span>
         </div>

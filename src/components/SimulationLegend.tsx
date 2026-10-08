@@ -5,7 +5,7 @@ import React from 'react';
 export default function SimulationLegend({ className = '' }: { className?: string }) {
   return (
     <div
-      className={`pointer-events-none select-none rounded-xl border border-black/[0.06] bg-white/80 px-3.5 py-2.5 text-xs font-sans text-neutral-800 backdrop-blur-md shadow-subtle ${className}`}
+      className={`pointer-events-none select-none rounded-lg border border-black/[0.06] bg-white/80 px-3.5 py-2.5 text-xs font-sans text-neutral-800 backdrop-blur-md shadow-subtle ${className}`}
       aria-label="Cartographic legend"
     >
       <div className="font-sans text-[12px] font-semibold text-neutral-900 border-b border-black/[0.05] pb-1.5 mb-2">

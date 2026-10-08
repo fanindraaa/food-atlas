@@ -53,7 +53,7 @@ export default function Header({
               onOpenNativeModal();
             }}
             onMouseEnter={() => sound.playHover()}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-sans text-[13px] font-medium text-neutral-700 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-sans text-[13px] font-medium text-neutral-700 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
             title="Compare introduced staples with indigenous subcontinental foods"
           >
             <Compass className="h-3.5 w-3.5 text-neutral-500" />
@@ -66,10 +66,10 @@ export default function Header({
           <button
             onClick={handleToggleSound}
             onMouseEnter={() => sound.playHover()}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl font-sans text-[13px] font-medium transition-all active:scale-[0.98] ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-sans text-[13px] font-medium transition-all active:scale-[0.98] ${
               soundEnabled
                 ? 'text-neutral-700 hover:text-neutral-900 hover:bg-black/[0.04]'
-                : 'text-neutral-400 hover:text-neutral-600 hover:bg-black/[0.04]'
+                : 'text-neutral-600 hover:text-neutral-600 hover:bg-black/[0.04]'
             }`}
             title={soundEnabled ? 'Mute sound effects' : 'Enable sound effects'}
             aria-label={soundEnabled ? 'Sound is on' : 'Sound is off'}
@@ -81,7 +81,7 @@ export default function Header({
               </>
             ) : (
               <>
-                <VolumeX className="h-3.5 w-3.5 text-neutral-400" />
+                <VolumeX className="h-3.5 w-3.5 text-neutral-600" />
                 <span className="hidden sm:inline">Muted</span>
               </>
             )}

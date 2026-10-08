@@ -64,7 +64,7 @@ export default function ModernPantryModal({
               onClose();
             }}
             onMouseEnter={() => sound.playHover()}
-            className="p-1.5 rounded-full text-neutral-400 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
+            className="p-1.5 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.05] active:scale-[0.95] transition-all"
             aria-label="Close dialog"
           >
             <X className="h-4 w-4" />
@@ -88,7 +88,7 @@ export default function ModernPantryModal({
                 key={item.id}
                 onClick={() => handleItemSelect(item)}
                 onMouseEnter={() => sound.playHover()}
-                className="group flex flex-col justify-between p-3.5 rounded-xl border border-black/[0.04] bg-white/70 hover:bg-white hover:border-accent/30 hover:shadow-subtle cursor-pointer transition-all"
+                className="group flex flex-col justify-between p-3.5 rounded-lg border border-black/[0.04] bg-white/70 hover:bg-white hover:border-accent/30 hover:shadow-subtle cursor-pointer transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between">
@@ -104,7 +104,7 @@ export default function ModernPantryModal({
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center justify-end font-sans text-[11px] text-neutral-400 group-hover:text-accent transition-colors">
+                <div className="mt-3 flex items-center justify-end font-sans text-[11px] text-neutral-600 group-hover:text-accent transition-colors">
                   <span>Track arrival</span>
                   <ArrowRight className="ml-1 h-3 w-3" />
                 </div>
@@ -130,7 +130,7 @@ export default function ModernPantryModal({
                 key={item.id}
                 onClick={() => handleItemSelect(item)}
                 onMouseEnter={() => sound.playHover()}
-                className="group flex flex-col justify-between p-3.5 rounded-xl border border-black/[0.04] bg-white/70 hover:bg-white hover:border-accent/30 hover:shadow-subtle cursor-pointer transition-all"
+                className="group flex flex-col justify-between p-3.5 rounded-lg border border-black/[0.04] bg-white/70 hover:bg-white hover:border-accent/30 hover:shadow-subtle cursor-pointer transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between">
@@ -146,7 +146,7 @@ export default function ModernPantryModal({
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center justify-end font-sans text-[11px] text-neutral-400 group-hover:text-accent transition-colors">
+                <div className="mt-3 flex items-center justify-end font-sans text-[11px] text-neutral-600 group-hover:text-accent transition-colors">
                   <span>View record</span>
                   <ArrowRight className="ml-1 h-3 w-3" />
                 </div>

@@ -245,7 +245,7 @@ export default function TimelineSlider({
           {/* Consolidated Floating Control Group */}
           <div className="flex items-center gap-2 self-stretch sm:self-auto justify-between sm:justify-end">
             {/* Direction Segmented Control */}
-            <div className="flex items-center p-0.5 rounded-xl bg-black/[0.04] border border-black/[0.04]">
+            <div className="flex items-center p-0.5 rounded-lg bg-black/[0.04] border border-black/[0.04]">
               <button
                 onClick={() => {
                   sound.playClick();
@@ -284,7 +284,7 @@ export default function TimelineSlider({
             <button
               onClick={togglePlay}
               onMouseEnter={() => sound.playHover()}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-sans text-[13px] font-semibold text-white bg-accent hover:bg-accent-hover active:scale-[0.98] transition-all"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-sans text-[13px] font-semibold text-white bg-accent hover:bg-accent-hover active:scale-[0.98] transition-all"
               aria-label={isPlaying ? 'Pause simulation' : 'Play simulation'}
             >
               {isPlaying ? (
@@ -301,7 +301,7 @@ export default function TimelineSlider({
             </button>
 
             {/* Speed Multipliers Segmented Control */}
-            <div className="flex items-center p-0.5 rounded-xl bg-black/[0.04] border border-black/[0.04]">
+            <div className="flex items-center p-0.5 rounded-lg bg-black/[0.04] border border-black/[0.04]">
               {([0.5, 1, 2] as const).map(s => (
                 <button
                   key={s}
@@ -332,7 +332,7 @@ export default function TimelineSlider({
                 onYearChange(2026);
               }}
               onMouseEnter={() => sound.playHover()}
-              className="p-1.5 rounded-xl text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
+              className="p-1.5 rounded-lg text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
               title="Reset to Present (2026)"
               aria-label="Reset to 2026"
             >
@@ -383,7 +383,7 @@ export default function TimelineSlider({
           </div>
 
           {/* Sparse Year Milestones and Subtle Tick Marks */}
-          <div className="relative mt-2 flex justify-between items-center font-sans text-[11px] text-neutral-400">
+          <div className="relative mt-2 flex justify-between items-center font-sans text-[11px] text-neutral-600">
             {SPARSE_MILESTONES.map(item => {
               const pos = yearToSliderProgress(item.year);
               const isSelected = Math.abs(currentYear - item.year) < 40;

@@ -8,6 +8,7 @@ import HistoricalStatus from '@/components/HistoricalStatus';
 import IngredientCard from '@/components/IngredientCard';
 import IngredientCatalogue from '@/components/IngredientCatalogue';
 import ModernPantryModal from '@/components/ModernPantryModal';
+import CreditsSidebar from '@/components/CreditsSidebar';
 import rawIngredients from '@/data/india-food-journey-150.json';
 import { FoodIngredient } from '@/types/simulation';
 import { getIngredientState, getHistoricalNarrative, getSimulationAnchorYears } from '@/utils/simulationEngine';
@@ -38,6 +39,7 @@ export default function Home() {
   const [selectedIngredient, setSelectedIngredient] = useState<FoodIngredient | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isNativeModalOpen, setIsNativeModalOpen] = useState<boolean>(false);
+  const [isCreditsOpen, setIsCreditsOpen] = useState<boolean>(false);
   const [flyToCoords, setFlyToCoords] = useState<[number, number] | null>(null);
 
   const timelineAnimRef = useRef<number | null>(null);
@@ -102,6 +104,9 @@ export default function Home() {
 
       // 2. Requirement 13: Stop / pause simulation when manually selecting an ingredient
       setIsPlaying(false);
+
+      // Close credits sidebar if open
+      setIsCreditsOpen(false);
 
       // 3. Requirement 9: Shift timeline smoothly to ingredient's historical arrival year
       const anchors = getSimulationAnchorYears(ingredient);
@@ -209,6 +214,18 @@ export default function Home() {
         onSelectIngredient={(ing, targetYear) => {
           handleSelectIngredient(ing, targetYear);
           setIsNativeModalOpen(false);
+        }}
+      />
+
+      {/* 8. Credits Sidebar & Bottom-Right Ingress */}
+      <CreditsSidebar
+        isOpen={isCreditsOpen}
+        onClose={() => setIsCreditsOpen(false)}
+        onToggle={() => {
+          if (!isCreditsOpen) {
+            setSelectedIngredient(null);
+          }
+          setIsCreditsOpen(prev => !prev);
         }}
       />
     </main>

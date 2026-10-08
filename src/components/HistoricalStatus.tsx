@@ -69,7 +69,7 @@ export default function HistoricalStatus({
 
         {/* Count presence indicator */}
         <div className="shrink-0 flex items-center gap-2 pl-3 border-l border-black/[0.06]">
-          <span className="font-sans text-[12px] font-medium text-neutral-400 whitespace-nowrap">
+          <span className="font-sans text-[12px] font-medium text-neutral-600 whitespace-nowrap">
             {activeCount} of {totalCount} present
           </span>
         </div>
