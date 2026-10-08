@@ -502,92 +502,7 @@ export default function FoodMap({
           </g>
         )}
 
-        {/* ----------------------------------------------------------------- */}
-        {/* OFFSCREEN MARITIME MANIFEST (Atlantic & Cape Crossings)           */}
-        {/* Enhanced with miniature circular botanical illustration crops     */}
-        {/* ----------------------------------------------------------------- */}
-        {offscreenTraveling.length > 0 && (
-          <g id="offscreen-maritime-manifest" className="pointer-events-auto">
-            {offscreenTraveling.slice(0, 4).map(({ ing, state }, idx) => {
-              const isSelected = selectedIngredient?.id === ing.id;
-              return (
-                <g
-                  key={`offscreen-${ing.id}`}
-                  onClick={e => {
-                    e.stopPropagation();
-                    sound.playClick();
-                    onSelectIngredient(ing);
-                  }}
-                  onMouseEnter={() => sound.playHover()}
-                  className="cursor-pointer"
-                >
-                  <rect
-                    x="15"
-                    y={180 + idx * 28}
-                    width="185"
-                    height="24"
-                    rx="12"
-                    fill="rgba(255, 255, 255, 0.94)"
-                    stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.06)'}
-                    strokeWidth={isSelected ? 1.4 : 0.8}
-                    filter="url(#labelShadow)"
-                  />
-                  {/* Miniature circular food illustration thumbnail */}
-                  <circle cx="28" cy={192 + idx * 28} r="8.5" fill="#f3f4f6" stroke="rgba(0,0,0,0.06)" strokeWidth="0.5" />
-                  <clipPath id={`off-clip-${ing.id}`}>
-                    <circle cx="28" cy={192 + idx * 28} r="8" />
-                  </clipPath>
-                  {ing.illustration && (
-                    <image
-                      href={ing.illustration}
-                      x="20"
-                      y={184 + idx * 28}
-                      width="16"
-                      height="16"
-                      clipPath={`url(#off-clip-${ing.id})`}
-                      preserveAspectRatio="xMidYMid meet"
-                    />
-                  )}
-                  <text
-                    x="42"
-                    y={200 + idx * 28}
-                    fontFamily="var(--font-sans)"
-                    fontSize="10.5"
-                    fontWeight="600"
-                    fill={isSelected ? '#0066ff' : '#111827'}
-                  >
-                    ← {ing.name} ({Math.round(state.routeProgress * 100)}%)
-                  </text>
-                </g>
-              );
-            })}
 
-            {offscreenTraveling.length > 4 && (
-              <g>
-                <rect
-                  x="15"
-                  y={180 + 4 * 28}
-                  width="185"
-                  height="22"
-                  rx="11"
-                  fill="rgba(245, 246, 248, 0.92)"
-                  stroke="rgba(0, 0, 0, 0.06)"
-                  strokeWidth="0.8"
-                />
-                <text
-                  x="24"
-                  y={195 + 4 * 28}
-                  fontFamily="var(--font-sans)"
-                  fontSize="10"
-                  fontWeight="500"
-                  fill="#6b7280"
-                >
-                  + {offscreenTraveling.length - 4} more crossing Atlantic
-                </text>
-              </g>
-            )}
-          </g>
-        )}
       </svg>
 
       {/* Understated Reference Notice (Bottom Left) */}
@@ -601,10 +516,16 @@ export default function FoodMap({
    * Helper to render an individual circular ingredient marker
    */
   function renderMarker(item: LayoutMarkerItem, isSelected: boolean, isHovered: boolean) {
-    const scaleFactor = isSelected ? 1.14 : isHovered ? 1.08 : 1.0;
-    const r = item.radius * scaleFactor;
-    const imagePadding = Math.max(1.8, r * 0.14);
+    const selectedSvgRadius = 60 / (2 * 1.3 * zoom);
+    const r = isSelected
+      ? Math.max(item.radius * 1.22, selectedSvgRadius)
+      : isHovered
+      ? item.radius * 1.08
+      : item.radius;
+
+    const imagePadding = Math.max(1.5, r * 0.12);
     const imageSize = (r - imagePadding) * 2;
+    const hitR = Math.max(r, item.hitRadius);
 
     return (
       <g
@@ -623,14 +544,18 @@ export default function FoodMap({
         onMouseLeave={() => setHoveredId(null)}
         className="cursor-pointer"
         style={{
+          opacity: isHovered || isSelected ? 1.0 : item.opacity,
           transition: isDragging
             ? 'none'
-            : 'transform 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease-out',
+            : 'transform 280ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease-out',
         }}
         aria-label={`${item.name} (${item.category})`}
         role="button"
       >
-        {/* Base circular surface: clean neutral white, subtle border, diffuse shadow */}
+        {/* Generous invisible hit target circle for effortless interaction on small markers */}
+        <circle r={hitR} fill="transparent" pointerEvents="all" />
+
+        {/* Base circular surface: clean neutral white, single border, diffuse shadow */}
         <circle
           r={r}
           fill="#ffffff"
@@ -638,10 +563,10 @@ export default function FoodMap({
             isSelected
               ? '#0066ff'
               : isHovered
-              ? '#4b5563'
+              ? '#374151'
               : 'rgba(0, 0, 0, 0.08)'
           }
-          strokeWidth={isSelected ? 1.6 : isHovered ? 1.1 : 0.75}
+          strokeWidth={isSelected ? 2 : isHovered ? 1.1 : 0.75}
           filter={
             isSelected
               ? 'url(#markerSelectedShadow)'
@@ -650,17 +575,6 @@ export default function FoodMap({
               : 'url(#markerShadow)'
           }
         />
-
-        {/* Selected state: thin bright blue accent ring (Requirement 3) */}
-        {isSelected && (
-          <circle
-            r={r + 3.2}
-            fill="none"
-            stroke="#0066ff"
-            strokeWidth={1.5}
-            strokeOpacity={0.92}
-          />
-        )}
 
         {/* Circular crop boundary for the transparent illustration */}
         <clipPath id={`clip-${item.id}`}>
@@ -699,12 +613,39 @@ export default function FoodMap({
   }
 
   /**
-   * Helper to render elegant floating connected label (Requirement 12)
+   * Helper to render floating card wrapping all text inside the container
    */
   function renderFloatingLabel(item: LayoutMarkerItem) {
     const isSelected = item.isSelected;
     const isHovered = item.id === hoveredId;
-    const r = item.radius * (isSelected ? 1.14 : isHovered ? 1.08 : 1.0);
+    const selectedSvgRadius = 60 / (2 * 1.3 * zoom);
+    const r = isSelected
+      ? Math.max(item.radius * 1.22, selectedSvgRadius)
+      : isHovered
+      ? item.radius * 1.08
+      : item.radius;
+
+    // Helper to wrap long text strings into clean multiple lines
+    function wrapText(text: string, maxCharsPerLine: number = 28): string[] {
+      const words = text.split(' ');
+      const lines: string[] = [];
+      let currentLine = '';
+
+      for (const word of words) {
+        if (!currentLine) {
+          currentLine = word;
+        } else if ((currentLine + ' ' + word).length <= maxCharsPerLine) {
+          currentLine += ' ' + word;
+        } else {
+          lines.push(currentLine);
+          currentLine = word;
+        }
+      }
+      if (currentLine) {
+        lines.push(currentLine);
+      }
+      return lines;
+    }
 
     // Compute contextual subtitle text
     let subtitle = '';
@@ -714,14 +655,40 @@ export default function FoodMap({
       subtitle = `${item.category} · ${item.state.statusTitle.split('·')[0].trim()}`;
     }
 
-    const pillWidth = Math.max(76, item.name.length * 6.8 + (subtitle ? 34 : 26));
-    const pillHeight = subtitle ? 30 : 20;
+    // Split title and subtitle into wrapped lines
+    const titleLines = wrapText(item.name, 24);
+    const subtitleLines = subtitle ? wrapText(subtitle, 28) : [];
+
+    // Measure character widths to dynamically size the container
+    const maxTitleWidth = Math.max(...titleLines.map(l => l.length * 6.3), 0);
+    const maxSubtitleWidth = subtitleLines.length > 0
+      ? Math.max(...subtitleLines.map(l => l.length * 4.9), 0)
+      : 0;
+
+    const contentWidth = Math.max(maxTitleWidth, maxSubtitleWidth, 64);
+    const cardWidth = Math.round(contentWidth + 28); // 14px horizontal padding on each side
+
+    const titleLineHeight = 14;
+    const subtitleLineHeight = 11.5;
+    const gap = subtitleLines.length > 0 ? 3.5 : 0;
+    const padY = 7.5;
+
+    const totalContentHeight =
+      titleLines.length * titleLineHeight +
+      gap +
+      subtitleLines.length * subtitleLineHeight;
+
+    const cardHeight = Math.round(totalContentHeight + padY * 2);
+    const rx = subtitleLines.length > 0 ? 10 : Math.min(12, Math.round(cardHeight / 2));
 
     // Position above circle if space allows, otherwise below
-    const placeAbove = item.y > 65;
+    const placeAbove = item.y > cardHeight + r + 15;
     const labelY = placeAbove
-      ? item.y - (r + (subtitle ? 20 : 15))
-      : item.y + (r + (subtitle ? 18 : 13));
+      ? item.y - (r + cardHeight / 2 + 8)
+      : item.y + (r + cardHeight / 2 + 8);
+
+    const startY = -cardHeight / 2 + padY;
+    const subStartY = startY + titleLines.length * titleLineHeight + gap;
 
     return (
       <g
@@ -730,46 +697,50 @@ export default function FoodMap({
           transition: 'transform 260ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease',
         }}
       >
-        {/* Soft rounded pill surface */}
+        {/* Soft rounded card surface that fully contains all wrapped text */}
         <rect
-          x={-pillWidth / 2}
-          y={-pillHeight / 2}
-          width={pillWidth}
-          height={pillHeight}
-          rx={pillHeight / 2}
+          x={-cardWidth / 2}
+          y={-cardHeight / 2}
+          width={cardWidth}
+          height={cardHeight}
+          rx={rx}
           fill="rgba(255, 255, 255, 0.96)"
           stroke={isSelected ? '#0066ff' : 'rgba(0, 0, 0, 0.08)'}
           strokeWidth={isSelected ? 1.2 : 0.75}
           filter="url(#labelShadow)"
         />
 
-        {/* Primary ingredient name in clean sentence/title case */}
-        <text
-          x="0"
-          y={subtitle ? -1.5 : 3.5}
-          textAnchor="middle"
-          fontFamily="var(--font-sans)"
-          fontSize="10.5"
-          fontWeight="600"
-          fill={isSelected ? '#0066ff' : '#111827'}
-        >
-          {item.name}
-        </text>
-
-        {/* Contextual subtitle if active */}
-        {subtitle && (
+        {/* Primary ingredient name lines */}
+        {titleLines.map((line, idx) => (
           <text
+            key={`title-${idx}`}
             x="0"
-            y="9.5"
+            y={startY + (idx + 0.78) * titleLineHeight}
+            textAnchor="middle"
+            fontFamily="var(--font-sans)"
+            fontSize="10.5"
+            fontWeight="600"
+            fill={isSelected ? '#0066ff' : '#111827'}
+          >
+            {line}
+          </text>
+        ))}
+
+        {/* Contextual subtitle lines wrapped completely inside container */}
+        {subtitleLines.map((line, idx) => (
+          <text
+            key={`sub-${idx}`}
+            x="0"
+            y={subStartY + (idx + 0.78) * subtitleLineHeight}
             textAnchor="middle"
             fontFamily="var(--font-sans)"
             fontSize="8.5"
             fontWeight="500"
-            fill="#6b7280"
+            fill="#4b5563"
           >
-            {subtitle}
+            {line}
           </text>
-        )}
+        ))}
       </g>
     );
   }

@@ -2,17 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { sound } from '@/utils/sound';
-import { Volume2, VolumeX, BookOpen, Compass, History } from 'lucide-react';
+import { Volume2, VolumeX, Compass } from 'lucide-react';
 
 interface HeaderProps {
-  onOpenCatalogue: () => void;
   onOpenNativeModal: () => void;
   onJumpColumbian: () => void;
   currentYear: number;
 }
 
 export default function Header({
-  onOpenCatalogue,
   onOpenNativeModal,
   onJumpColumbian,
   currentYear,
@@ -48,20 +46,6 @@ export default function Header({
           aria-label="Atlas controls"
           className="flex items-center gap-1 p-1 rounded-2xl bg-white/80 backdrop-blur-xl border border-black/[0.06] shadow-soft"
         >
-          {/* Ingredients Catalogue */}
-          <button
-            onClick={() => {
-              sound.playClick();
-              onOpenCatalogue();
-            }}
-            onMouseEnter={() => sound.playHover()}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-sans text-[13px] font-medium text-neutral-700 hover:text-neutral-900 hover:bg-black/[0.04] active:scale-[0.98] transition-all"
-            title="Browse botanical and historical ingredient records"
-          >
-            <BookOpen className="h-3.5 w-3.5 text-neutral-500" />
-            <span>Ingredients</span>
-          </button>
-
           {/* What feels native? */}
           <button
             onClick={() => {

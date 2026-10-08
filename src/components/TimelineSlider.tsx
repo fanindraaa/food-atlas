@@ -8,7 +8,6 @@ import {
   MIN_YEAR,
   MAX_YEAR,
 } from '@/utils/timeline';
-import { getSimulationAnchorYears } from '@/utils/simulationEngine';
 import { FoodIngredient } from '@/types/simulation';
 import { sound } from '@/utils/sound';
 import { Play, Pause, RotateCcw } from 'lucide-react';
@@ -19,6 +18,8 @@ interface TimelineSliderProps {
   ingredients: FoodIngredient[];
   visibleCount: number;
   totalCount: number;
+  isPlaying?: boolean;
+  onPlayingChange?: (playing: boolean) => void;
 }
 
 // Sparse milestone markers for an uncluttered, elegant timeline
@@ -38,108 +39,142 @@ export default function TimelineSlider({
   ingredients,
   visibleCount,
   totalCount,
+  isPlaying: controlledIsPlaying,
+  onPlayingChange,
 }: TimelineSliderProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [internalIsPlaying, setInternalIsPlaying] = useState(false);
+  const isPlaying = controlledIsPlaying !== undefined ? controlledIsPlaying : internalIsPlaying;
+
+  const setPlaying = useCallback(
+    (next: boolean) => {
+      if (onPlayingChange) {
+        onPlayingChange(next);
+      } else {
+        setInternalIsPlaying(next);
+      }
+    },
+    [onPlayingChange]
+  );
+
   const [playDirection, setPlayDirection] = useState<'forward' | 'backward'>('forward');
   const [speed, setSpeed] = useState<0.5 | 1 | 2>(1);
 
-  const playTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const sliderRef = useRef<HTMLInputElement>(null);
 
+  // High-reliability simulation refs to prevent stale closures or premature cancellations
   const currentYearRef = useRef(currentYear);
   currentYearRef.current = currentYear;
 
-  const lastMilestoneYearRef = useRef<number | null>(null);
+  const accumulatedYearRef = useRef<number>(currentYear);
+  const isPlayingRef = useRef(isPlaying);
+  isPlayingRef.current = isPlaying;
+
+  const speedRef = useRef(speed);
+  speedRef.current = speed;
+
+  const directionRef = useRef(playDirection);
+  directionRef.current = playDirection;
+
+  const onYearChangeRef = useRef(onYearChange);
+  onYearChangeRef.current = onYearChange;
+
+  const rafIdRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number | null>(null);
+
   const progressPercent = yearToSliderProgress(currentYear);
 
-  // Simulation Playback Loop
-  useEffect(() => {
-    if (isPlaying) {
-      const intervalMs = Math.round(120 / speed);
+  // Reliable simulation animation loop using requestAnimationFrame (Req 12 & 13)
+  const simulationLoop = useCallback((timestamp: number) => {
+    if (!isPlayingRef.current) {
+      rafIdRef.current = null;
+      return;
+    }
 
-      playTimerRef.current = setInterval(() => {
-        const prev = currentYearRef.current;
+    if (lastTimeRef.current === null) {
+      lastTimeRef.current = timestamp;
+      rafIdRef.current = requestAnimationFrame(simulationLoop);
+      return;
+    }
 
-        if (playDirection === 'forward') {
-          let step = 1;
-          if (prev < 0) step = 40;
-          else if (prev < 1500) step = 20;
-          else if (prev < 1800) step = 5;
-          else step = 5;
+    const dt = Math.min(100, Math.max(0, timestamp - lastTimeRef.current));
+    lastTimeRef.current = timestamp;
 
-          const nextYear = prev + step;
+    if (dt > 0) {
+      const current = accumulatedYearRef.current;
+      const dir = directionRef.current === 'forward' ? 1 : -1;
+      const spd = speedRef.current;
 
-          // Check for milestone pause
-          if (speed <= 1 && lastMilestoneYearRef.current !== nextYear) {
-            const milestone = ingredients.find(ing => {
-              const anchors = getSimulationAnchorYears(ing);
-              return (
-                (Math.abs(nextYear - anchors.arrivalYear) <= 2 &&
-                  Math.abs(prev - anchors.arrivalYear) > 2) ||
-                (Math.abs(nextYear - anchors.widespreadYear) <= 2 &&
-                  Math.abs(prev - anchors.widespreadYear) > 2)
-              );
-            });
+      // Adaptive rate curve (years per second at 1x)
+      // Dense modern eras advance slower so arrival events can be experienced
+      let baseRate = 16;
+      if (current < 0) baseRate = 80;
+      else if (current < 1500) baseRate = 35;
+      else if (current < 1850) baseRate = 18;
+      else baseRate = 14;
 
-            if (milestone) {
-              lastMilestoneYearRef.current = nextYear;
-              sound.playSliderTick();
+      const deltaYear = (baseRate * (dt / 1000)) * spd * dir;
+      const nextAcc = current + deltaYear;
 
-              if (playTimerRef.current) clearInterval(playTimerRef.current);
-              pauseTimeoutRef.current = setTimeout(() => {
-                onYearChange(nextYear + 1);
-              }, 1200);
-
-              return;
-            }
-          }
-
-          if (nextYear >= MAX_YEAR) {
-            setIsPlaying(false);
-            onYearChange(MAX_YEAR);
-          } else {
-            onYearChange(nextYear);
-            sound.playSliderTick();
-          }
-        } else {
-          // Backward rewind
-          let step = 1;
-          if (prev > 1800) step = 5;
-          else if (prev > 1500) step = 5;
-          else if (prev > 0) step = 20;
-          else step = 40;
-
-          const nextYear = prev - step;
-          if (nextYear <= MIN_YEAR) {
-            setIsPlaying(false);
-            onYearChange(MIN_YEAR);
-          } else {
-            onYearChange(nextYear);
-            sound.playSliderTick();
-          }
+      if (directionRef.current === 'forward' && nextAcc >= MAX_YEAR) {
+        accumulatedYearRef.current = MAX_YEAR;
+        onYearChangeRef.current(MAX_YEAR);
+        setPlaying(false);
+        rafIdRef.current = null;
+        return;
+      } else if (directionRef.current === 'backward' && nextAcc <= MIN_YEAR) {
+        accumulatedYearRef.current = MIN_YEAR;
+        onYearChangeRef.current(MIN_YEAR);
+        setPlaying(false);
+        rafIdRef.current = null;
+        return;
+      } else {
+        accumulatedYearRef.current = nextAcc;
+        const rounded = Math.round(nextAcc);
+        if (rounded !== currentYearRef.current) {
+          onYearChangeRef.current(rounded);
         }
-      }, intervalMs);
+      }
+    }
+
+    rafIdRef.current = requestAnimationFrame(simulationLoop);
+  }, [setPlaying]);
+
+  // Lifecycle management: start / stop loop cleanly without resetting on unrelated re-renders
+  useEffect(() => {
+    isPlayingRef.current = isPlaying;
+
+    if (isPlaying) {
+      accumulatedYearRef.current = currentYearRef.current;
+      lastTimeRef.current = null;
+      if (rafIdRef.current === null) {
+        rafIdRef.current = requestAnimationFrame(simulationLoop);
+      }
     } else {
-      if (playTimerRef.current) clearInterval(playTimerRef.current);
-      if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
+      }
+      lastTimeRef.current = null;
     }
 
     return () => {
-      if (playTimerRef.current) clearInterval(playTimerRef.current);
-      if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
+      }
     };
-  }, [isPlaying, playDirection, speed, ingredients, onYearChange]);
+  }, [isPlaying, simulationLoop]);
 
   const togglePlay = () => {
     sound.playClick();
     if (isPlaying) {
-      setIsPlaying(false);
+      setPlaying(false);
     } else {
       if (currentYear >= MAX_YEAR && playDirection === 'forward') {
         onYearChange(1450);
+        accumulatedYearRef.current = 1450;
       }
-      setIsPlaying(true);
+      setPlaying(true);
     }
   };
 
@@ -147,6 +182,8 @@ export default function TimelineSlider({
     const val = parseFloat(e.target.value);
     const newYear = sliderProgressToYear(val);
     sound.playSliderTick();
+    setPlaying(false);
+    accumulatedYearRef.current = newYear;
     onYearChange(newYear);
   };
 
@@ -159,11 +196,15 @@ export default function TimelineSlider({
         delta = e.shiftKey ? 50 : 5;
       } else if (e.key === 'Home') {
         sound.playClick();
+        setPlaying(false);
+        accumulatedYearRef.current = MIN_YEAR;
         onYearChange(MIN_YEAR);
         e.preventDefault();
         return;
       } else if (e.key === 'End') {
         sound.playClick();
+        setPlaying(false);
+        accumulatedYearRef.current = MAX_YEAR;
         onYearChange(MAX_YEAR);
         e.preventDefault();
         return;
@@ -172,10 +213,13 @@ export default function TimelineSlider({
       if (delta !== 0) {
         e.preventDefault();
         sound.playSliderTick();
-        onYearChange(Math.max(MIN_YEAR, Math.min(MAX_YEAR, currentYear + delta)));
+        setPlaying(false);
+        const target = Math.max(MIN_YEAR, Math.min(MAX_YEAR, currentYear + delta));
+        accumulatedYearRef.current = target;
+        onYearChange(target);
       }
     },
-    [currentYear, onYearChange]
+    [currentYear, onYearChange, setPlaying]
   );
 
   return (
@@ -185,9 +229,9 @@ export default function TimelineSlider({
       aria-label="Historical timeline navigation instrument"
     >
       <div className="w-full max-w-4xl p-4 sm:p-5 rounded-[22px] bg-white/85 backdrop-blur-2xl border border-black/[0.06] shadow-elevated pointer-events-auto">
-        {/* Upper Row: Strong Current Year Typography & Consolidated Controls Group */}
+        {/* Upper Row: Current Year Typography & Consolidated Controls Group */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
-          {/* Current Year display (Measuring instrument text removed as requested) */}
+          {/* Current Year display */}
           <div className="flex items-baseline gap-2">
             <span
               className="font-sans text-[26px] sm:text-[32px] font-semibold text-neutral-900 leading-none tracking-tight"
@@ -206,6 +250,7 @@ export default function TimelineSlider({
                 onClick={() => {
                   sound.playClick();
                   setPlayDirection('backward');
+                  directionRef.current = 'backward';
                 }}
                 onMouseEnter={() => sound.playHover()}
                 className={`px-2.5 py-1 font-sans text-[12px] rounded-lg transition-all ${
@@ -221,6 +266,7 @@ export default function TimelineSlider({
                 onClick={() => {
                   sound.playClick();
                   setPlayDirection('forward');
+                  directionRef.current = 'forward';
                 }}
                 onMouseEnter={() => sound.playHover()}
                 className={`px-2.5 py-1 font-sans text-[12px] rounded-lg transition-all ${
@@ -262,6 +308,7 @@ export default function TimelineSlider({
                   onClick={() => {
                     sound.playClick();
                     setSpeed(s);
+                    speedRef.current = s;
                   }}
                   onMouseEnter={() => sound.playHover()}
                   className={`px-2 py-1 font-sans text-[12px] rounded-lg transition-all ${
@@ -280,6 +327,8 @@ export default function TimelineSlider({
             <button
               onClick={() => {
                 sound.playClick();
+                setPlaying(false);
+                accumulatedYearRef.current = 2026;
                 onYearChange(2026);
               }}
               onMouseEnter={() => sound.playHover()}
@@ -294,7 +343,7 @@ export default function TimelineSlider({
 
         {/* Lower Row: Floating Horizontal Navigation Track */}
         <div className="relative pt-1 pb-1">
-          {/* Track Bar with Subtle Accent Fill and Slender Pill Indicator */}
+          {/* Track Bar with Accent Fill and Slider Indicator */}
           <div className="relative h-6 w-full flex items-center">
             {/* Background hairline track */}
             <div className="absolute h-[3px] w-full bg-black/[0.08] rounded-full overflow-hidden">
@@ -323,12 +372,12 @@ export default function TimelineSlider({
               aria-valuetext={formatYear(currentYear)}
             />
 
-            {/* Active Position Indicator: Sleek Non-Circular Pill Marker with Year Tooltip */}
+            {/* Active Position Indicator */}
             <div
               className="pointer-events-none absolute -ml-2.5 z-10 flex flex-col items-center transition-all duration-75"
               style={{ left: `${progressPercent}%` }}
             >
-              <div className="w-5 h-5 rounded-[4px] bg-accent border-1 border-white shadow-[0_6px_24px_rgba(0,0,0,0.4)] flex items-center justify-center">
+              <div className="w-5 h-5 rounded-[4px] bg-accent border border-white shadow-[0_6px_24px_rgba(0,0,0,0.4)] flex items-center justify-center">
               </div>
             </div>
           </div>
@@ -345,6 +394,8 @@ export default function TimelineSlider({
                   type="button"
                   onClick={() => {
                     sound.playClick();
+                    setPlaying(false);
+                    accumulatedYearRef.current = item.year;
                     onYearChange(item.year);
                   }}
                   onMouseEnter={() => sound.playHover()}
